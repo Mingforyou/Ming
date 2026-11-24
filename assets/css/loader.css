@@ -135,16 +135,25 @@ html.wq-skip-loader .wq-loader {
 }
 
 .wq-loader__meta {
-  margin-top: 10px;
-  color: rgba(243, 239, 229, 0.5);
-  font-family: "Courier New", monospace;
-  font-size: 10px;
-  letter-spacing: 0.16em;
+  position: relative;
+  display: inline-block;
+  margin-top: 18px;
+  padding: 9px 16px 10px;
+  color: #141414;
+  background: #f8f3e8;
+  border: 2px solid #141414;
+  box-shadow: 4px 4px 0 #e43b2e;
+  font-family: "Courier New", "Microsoft YaHei", monospace;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .wq-loader__meta b {
-  color: #ff6b5a;
-  font-size: 12px;
+  color: #e43b2e;
+  font-size: 19px;
 }
 
 @keyframes wq-loader-drop {
