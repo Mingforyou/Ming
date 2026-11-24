@@ -1176,38 +1176,39 @@ textarea {
 
 .social-posters {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  align-items: start;
   margin-top: 14px;
 }
 
 .poster-item {
   margin: 0;
-  overflow: hidden;
-  background: #0b0b0b;
-  border: 1px solid var(--line-strong);
-  box-shadow: 5px 5px 0 rgba(23, 21, 18, 0.09);
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.poster-item.wide {
+  grid-column: 1 / -1;
 }
 
 .poster-item a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 380px;
-  padding: 8px;
+  display: block;
+  height: auto;
+  padding: 0;
 }
 
 .poster-item img {
   display: block;
-  width: auto;
+  width: 100%;
   height: auto;
-  max-width: 100%;
-  max-height: 100%;
+  max-height: none;
 }
 
 .poster-item figcaption {
-  padding: 8px 10px;
-  background: var(--cream);
+  padding: 9px 2px 0;
+  background: transparent;
   color: var(--ink-soft);
   font-size: 11px;
   line-height: 1.5;
@@ -2731,7 +2732,7 @@ textarea {
   }
 
   .poster-item a {
-    height: 420px;
+    height: auto;
   }
 
   .feature-band {
