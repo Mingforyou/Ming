@@ -1401,6 +1401,65 @@ textarea {
   letter-spacing: 0.04em;
 }
 
+.fw-read {
+  margin-top: 14px;
+  background: var(--cream);
+  border: 1px solid var(--line-strong);
+  box-shadow: 6px 6px 0 rgba(23, 21, 18, 0.09);
+}
+
+.fw-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+}
+
+.fw-bar b {
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+}
+
+.fw-scroll {
+  height: 72vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 20px 22px 24px;
+  background: #e9e2d4;
+}
+
+.fw-page {
+  margin: 0 0 18px;
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: 0 14px 26px -22px rgba(23, 21, 18, 0.7);
+}
+
+.fw-page img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.fw-page figcaption {
+  padding: 6px 10px;
+  border-top: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+}
+
+.fw-page:last-child {
+  margin-bottom: 0;
+}
+
 .news-timeline {
   margin-top: 24px;
 }
