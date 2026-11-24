@@ -213,24 +213,48 @@
 
       .identity strong { color: var(--white); }
 
-      .hero-proof {
+      .hero-facts {
+        display: grid;
+        gap: 10px;
+        max-width: 780px;
+        margin: 20px 0 0;
+      }
+
+      .hero-facts .fact {
+        display: grid;
+        grid-template-columns: 40px minmax(0, 1fr);
+        gap: 12px;
+        padding-left: 14px;
+        border-left: 1px solid rgba(243, 239, 229, 0.18);
+      }
+
+      .hero-facts dt {
+        padding-top: 3px;
+        color: var(--red);
+        font-family: var(--mono);
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+      }
+
+      .hero-facts dd {
         display: flex;
         flex-wrap: wrap;
-        gap: 6px 14px;
-        margin-top: 16px;
-        color: rgba(243, 239, 229, 0.5);
-        font-size: 11px;
-        letter-spacing: 0.04em;
+        row-gap: 2px;
+        margin: 0;
+        color: rgba(243, 239, 229, 0.72);
+        font-size: 13px;
+        line-height: 1.75;
       }
 
-      .hero-proof span {
-        padding-left: 12px;
-        border-left: 1px solid var(--line-strong);
+      .hero-facts dd span {
+        white-space: nowrap;
       }
 
-      .hero-proof span:first-child {
-        padding-left: 0;
-        border-left: 0;
+      .hero-facts dd span + span::before {
+        content: "·";
+        margin: 0 8px;
+        color: rgba(243, 239, 229, 0.28);
       }
 
       .hero-actions {
@@ -1083,18 +1107,30 @@
             <h1><span class="h1-nowrap">对 ACGN 圈层的热爱，</span><br /><span>做成游戏增长资本。</span></h1>
             <p class="hero-lead">
               从内容生产到达人矩阵与投放复盘，把 ACGN 圈层洞察做成可复用的素材、达人与方法。
-              做过网易古风 MMO、LOFTER、文旅投放和城市官媒跨界。
             </p>
             <div class="identity">
               <span><strong>届别</strong> 2027 届</span>
               <span><strong>方向</strong> 游戏营销全链路</span>
             </div>
-            <p class="hero-proof">
-              <span>网易互娱</span>
-              <span>网易 LOFTER</span>
-              <span>苏州文旅</span>
-              <span>苏州电视台</span>
-            </p>
+            <dl class="hero-facts">
+              <div class="fact">
+                <dt>实习</dt>
+                <dd>
+                  <span>网易互娱（网易游戏）</span>
+                  <span>网易元气（LOFTER）</span>
+                  <span>苏州文旅（轨道交通分部）</span>
+                  <span>苏州电视台</span>
+                </dd>
+              </div>
+              <div class="fact">
+                <dt>项目</dt>
+                <dd>
+                  <span>哔哩哔哩 TTS（文字转语音）</span>
+                  <span>腾讯王者荣耀东吴行</span>
+                  <span>TEDx 日本中央大学演讲</span>
+                </dd>
+              </div>
+            </dl>
             <div class="hero-actions">
               <a class="btn btn-primary btn-hero" href="#consoles" data-transition>选择一条线路 <span aria-hidden="true">↓</span></a>
               <a class="btn btn-ghost" href="resume/">查看简历</a>
