@@ -312,69 +312,56 @@
         padding: 10px 0;
       }
 
-      .hero-menu {
+      .hero-tiles {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 9px;
         width: min(430px, 100%);
-        background: rgba(8, 8, 8, 0.86);
-        border: 1px solid var(--line);
-        backdrop-filter: blur(8px);
       }
 
-      .hero-menu__title {
-        margin: 0;
-        padding: 12px 18px;
-        border-bottom: 1px solid var(--line);
-        color: rgba(243, 239, 229, 0.42);
+      .tile {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        aspect-ratio: 1 / 1;
+        padding: 12px 12px 10px;
+        background: rgba(7, 7, 7, 0.55);
+        border: 1px solid rgba(243, 239, 229, 0.16);
+        backdrop-filter: blur(3px);
+        transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+      }
+
+      .tile:hover {
+        background: rgba(228, 59, 46, 0.24);
+        border-color: rgba(228, 59, 46, 0.65);
+        transform: translateY(-2px);
+      }
+
+      .tile .num {
+        color: var(--red);
         font-family: var(--mono);
         font-size: 9px;
-        letter-spacing: 0.18em;
+        letter-spacing: 0.08em;
       }
 
-      .hero-item {
-        display: grid;
-        grid-template-columns: 24px minmax(0, 1fr) 16px;
-        gap: 12px;
-        align-items: center;
-        padding: 15px 18px;
-        border-bottom: 1px solid var(--line);
-        transition: background 180ms ease, padding-left 180ms ease;
-      }
-
-      .hero-item:last-child {
-        border-bottom: 0;
-      }
-
-      .hero-item:hover {
-        padding-left: 22px;
-        background: rgba(228, 59, 46, 0.12);
-      }
-
-      .hero-item .num {
-        color: var(--red);
-        font-family: var(--mono);
-        font-size: 10px;
-      }
-
-      .hero-item .txt b {
-        display: block;
+      .tile b {
         color: var(--white);
         font-family: var(--serif);
-        font-size: 17px;
+        font-size: 15px;
         font-weight: 600;
+        line-height: 1.25;
         letter-spacing: 0.02em;
+        text-shadow: 0 1px 10px rgba(0, 0, 0, 0.85);
       }
 
-      .hero-item .txt i {
-        display: block;
-        margin-top: 3px;
-        color: rgba(243, 239, 229, 0.4);
-        font-style: normal;
-        font-size: 10px;
-        letter-spacing: 0.04em;
-      }
-
-      .hero-item .arrow {
+      .tile em {
+        position: absolute;
+        right: 11px;
+        bottom: 9px;
         color: var(--red);
-        font-size: 13px;
+        font-style: normal;
+        font-size: 12px;
       }
 
       .hero-summary {
@@ -1227,33 +1214,13 @@
           </div>
 
           <aside class="hero-side" aria-label="案例入口">
-            <nav class="hero-menu">
-              <p class="hero-menu__title">直接看案例 / PICK A CASE</p>
-              <a class="hero-item" href="portfolio/creative.html" data-transition>
-                <span class="num">01</span>
-                <span class="txt"><b>平面广告素材优化</b><i>素材 · 投放 · 复盘</i></span>
-                <span class="arrow">→</span>
-              </a>
-              <a class="hero-item" href="portfolio/koc.html" data-transition>
-                <span class="num">02</span>
-                <span class="txt"><b>KOC 内容网络</b><i>400+ 校园创作者</i></span>
-                <span class="arrow">→</span>
-              </a>
-              <a class="hero-item" href="portfolio/kol.html" data-transition>
-                <span class="num">03</span>
-                <span class="txt"><b>KOL 达人营销</b><i>建联 · 脚本 · 投流</i></span>
-                <span class="arrow">→</span>
-              </a>
-              <a class="hero-item" href="portfolio/brand.html" data-transition>
-                <span class="num">04</span>
-                <span class="txt"><b>官方社媒运营</b><i>资料片 · 赛事内容</i></span>
-                <span class="arrow">→</span>
-              </a>
-              <a class="hero-item" href="portfolio/project.html" data-transition>
-                <span class="num">05</span>
-                <span class="txt"><b>线下活动</b><i>5V5 赛事全链路</i></span>
-                <span class="arrow">→</span>
-              </a>
+            <nav class="hero-tiles" aria-label="案例入口">
+              <a class="tile" href="portfolio/creative.html" data-transition><span class="num">01</span><b>平面广告<br />素材优化</b><em>→</em></a>
+              <a class="tile" href="portfolio/koc.html" data-transition><span class="num">02</span><b>KOC<br />内容网络</b><em>→</em></a>
+              <a class="tile" href="portfolio/kol.html" data-transition><span class="num">03</span><b>KOL<br />达人营销</b><em>→</em></a>
+              <a class="tile" href="portfolio/brand.html" data-transition><span class="num">04</span><b>官方社媒<br />运营</b><em>→</em></a>
+              <a class="tile" href="portfolio/project.html" data-transition><span class="num">05</span><b>线下<br />活动</b><em>→</em></a>
+              <a class="tile" href="experience/" data-transition><span class="num">06</span><b>经历<br />时间轴</b><em>→</em></a>
             </nav>
             <div class="vertical-label">GAME MARKETING / CONTENT / GROWTH</div>
           </aside>
@@ -1300,108 +1267,7 @@
           </div>
         </div>
 
-        <div class="console-grid">
-          <a class="console-card is-featured reveal" href="portfolio/creative.html" data-transition>
-            <div class="console-top">
-              <span class="console-index">01 / CREATIVE</span>
-              <svg class="console-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                <rect x="8" y="12" width="48" height="32" rx="2" />
-                <path d="M24 24l12 8-12 8V24Z" />
-                <path d="M18 54h28M24 44v10M40 44v10" />
-              </svg>
-            </div>
-            <h3>平面广告素材优化</h3>
-            <p>广告短视频、平面素材、落地页、腾讯广告后台与投放复盘。</p>
-            <div class="console-data">
-              <span>370w+ 曝光</span>
-              <span>1.5k+ 线索</span>
-            </div>
-            <span class="console-link">进入素材实验室</span>
-          </a>
-
-          <a class="console-card reveal" href="portfolio/koc.html" data-transition>
-            <div class="console-top">
-              <span class="console-index">02 / KOC</span>
-              <svg class="console-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                <circle cx="32" cy="32" r="7" />
-                <circle cx="14" cy="16" r="3" />
-                <circle cx="50" cy="18" r="3" />
-                <circle cx="48" cy="48" r="3" />
-                <circle cx="16" cy="48" r="3" />
-                <path d="M25 27l-8-8M39 27l8-7M39 37l7 8M25 37l-7 8" />
-              </svg>
-            </div>
-            <h3>KOC 内容网络</h3>
-            <p>400+ 校园 KOC、300 兼职、15 场活动，把内容做成可复制的流水线。</p>
-            <div class="console-data">
-              <span>2.5w 推文</span>
-              <span>9w+ 拉新</span>
-            </div>
-            <span class="console-link">查看 KOC 案例</span>
-          </a>
-
-          <a class="console-card reveal" href="portfolio/kol.html" data-transition>
-            <div class="console-top">
-              <span class="console-index">03 / KOL</span>
-              <svg class="console-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                <circle cx="32" cy="32" r="24" />
-                <circle cx="32" cy="32" r="16" />
-                <circle cx="32" cy="32" r="8" />
-                <path d="M32 8v48M8 32h48" />
-                <circle cx="45" cy="19" r="2.5" fill="currentColor" />
-              </svg>
-            </div>
-            <h3>KOL 达人雷达</h3>
-            <p>达人筛选、建联、brief、脚本分镜、审核、控评与投流。</p>
-            <div class="console-data">
-              <span>60+ 达人</span>
-              <span>34w+ 互动</span>
-            </div>
-            <span class="console-link">查看 KOL 案例</span>
-          </a>
-
-          <a class="console-card reveal" href="portfolio/brand.html" data-transition>
-            <div class="console-top">
-              <span class="console-index">04 / SOCIAL</span>
-              <svg class="console-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                <path d="M12 26h10l18-10v32L22 38H12V26Z" />
-                <path d="M22 38v14h8V40" />
-                <path d="M48 24c4 4 4 12 0 16" />
-                <path d="M54 18c8 8 8 20 0 28" />
-              </svg>
-            </div>
-            <h3>官方社媒运营</h3>
-            <p>官号内容、城市文旅、游戏 IP 联动，把官方表达翻译成年轻人愿意看的内容。</p>
-            <div class="console-data">
-              <span>150w+ 曝光</span>
-              <span>单条 3w+ 赞</span>
-            </div>
-            <span class="console-link">查看官方社媒案例</span>
-          </a>
-
-          <a class="console-card reveal" href="portfolio/project.html" data-transition>
-            <div class="console-top">
-              <span class="console-index">05 / OFFLINE</span>
-              <svg class="console-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                <path d="M12 50h40" />
-                <path d="M18 50V30l14-10 14 10v20" />
-                <path d="M26 50V38h12v12" />
-                <path d="M32 12V6M10 20l-6-4M54 20l6-4" />
-              </svg>
-            </div>
-            <h3>线下活动</h3>
-            <p>5v5 赛事从线上预选到线下总决赛，赛制、选手、排期、现场风险预案全链路。</p>
-            <div class="console-data">
-              <span>直播 200w+</span>
-              <span>专题页 +30%</span>
-            </div>
-            <span class="console-link">查看线下赛事案例</span>
-          </a>
-        </div>
-
-        <p class="console-more">
-          <a class="text-link" href="demo/" data-transition>自产内容 / 视觉背景 / 配音 → 内容实验室</a>
-        </p>
+        
       </section>
 
       <section class="section">
