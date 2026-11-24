@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta name="robots" content="noindex, nofollow">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>主界面概念｜王咏琪 · 游戏营销作品集</title>
+    <style>
+      :root {
+        --black: #070707;
+        --ink: #111111;
+        --paper: #f3efe5;
+        --white: #fbf8f0;
+        --red: #e43b2e;
+        --red-deep: #a91f16;
+        --gray: #9b968c;
+        --line: rgba(243, 239, 229, 0.2);
+        --line-strong: rgba(243, 239, 229, 0.42);
+        --sans: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+        --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      }
+
+      * { box-sizing: border-box; }
+
+      html { scroll-behavior: smooth; }
+
+      body {
+        margin: 0;
+        color: var(--paper);
+        background: var(--black);
+        font-family: var(--sans);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a { color: inherit; text-decoration: none; }
+
+      .screen {
+        position: relative;
+        display: flex;
+        min-height: 86vh;
+        flex-direction: column;
+        overflow: hidden;
+        background:
+          linear-gradient(90deg, rgba(7, 7, 7, 0.97) 0%, rgba(7, 7, 7, 0.82) 34%, rgba(7, 7, 7, 0.2) 68%, rgba(7, 7, 7, 0.5) 100%),
+          linear-gradient(0deg, rgba(7, 7, 7, 0.95) 0%, transparent 32%),
+          url("assets/img/hero-3d.jpg") center / cover no-repeat;
+      }
+
+      .screen::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background:
+          repeating-linear-gradient(90deg, transparent 0 calc(25% - 1px), rgba(243, 239, 229, 0.09) calc(25% - 1px) 25%),
+          repeating-linear-gradient(0deg, transparent 0 calc(25% - 1px), rgba(243, 239, 229, 0.055) calc(25% - 1px) 25%);
+        mix-blend-mode: screen;
+      }
+
+      .screen::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.28'/%3E%3C/svg%3E");
+        opacity: 0.16;
+        mix-blend-mode: overlay;
+      }
+
+      .topbar {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 24px clamp(22px, 4vw, 64px);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+      }
+
+      .brand-mark {
+        display: grid;
+        width: 50px;
+        height: 30px;
+        place-items: center;
+        color: var(--white);
+        background: var(--red);
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0;
+        box-shadow: 4px 4px 0 rgba(228, 59, 46, 0.3);
+      }
+
+      .nav {
+        display: flex;
+        gap: 18px;
+        color: rgba(243, 239, 229, 0.68);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+      }
+
+      .nav a:hover { color: var(--white); }
+
+      .hero {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        flex: 1;
+        grid-template-columns: minmax(0, 1.08fr) minmax(260px, 0.92fr);
+        gap: 48px;
+        align-items: center;
+        padding: 44px clamp(22px, 5vw, 80px) 34px;
+      }
+
+      .hero-copy {
+        max-width: 760px;
+      }
+
+      .kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0 0 18px;
+        color: var(--red);
+        font-family: var(--mono);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .kicker::before {
+        content: "";
+        width: 36px;
+        height: 1px;
+        background: var(--red);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(48px, 6.2vw, 92px);
+        font-weight: 900;
+        line-height: 1.02;
+        letter-spacing: -0.055em;
+      }
+
+      h1 span {
+        display: block;
+        color: var(--red);
+      }
+
+      .lead {
+        max-width: 590px;
+        margin: 22px 0 0;
+        color: rgba(243, 239, 229, 0.74);
+        font-size: 16px;
+        line-height: 1.9;
+      }
+
+      .identity {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 24px;
+      }
+
+      .identity span {
+        padding: 5px 9px;
+        border: 1px solid var(--line-strong);
+        color: rgba(243, 239, 229, 0.78);
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.08em;
+      }
+
+      .identity span strong {
+        color: var(--white);
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 30px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        min-height: 44px;
+        padding: 9px 18px;
+        border: 1px solid var(--line-strong);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+      }
+
+      .btn-primary {
+        color: var(--black);
+        background: var(--paper);
+        border-color: var(--paper);
+      }
+
+      .btn-primary:hover {
+        background: var(--red);
+        border-color: var(--red);
+        color: var(--white);
+      }
+
+      .btn-ghost:hover {
+        border-color: var(--red);
+        color: var(--red);
+      }
+
+      .hero-aside {
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding-top: 4px;
+        text-align: right;
+      }
+
+      .vertical {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: rgba(243, 239, 229, 0.42);
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.18em;
+        writing-mode: vertical-rl;
+      }
+
+      .vertical::before {
+        content: "";
+        height: 64px;
+        width: 1px;
+        background: var(--red);
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1px;
+        width: min(430px, 100%);
+        background: var(--line);
+        border: 1px solid var(--line);
+      }
+
+      .stat {
+        min-height: 88px;
+        padding: 14px 16px;
+        background: rgba(7, 7, 7, 0.62);
+        text-align: left;
+      }
+
+      .stat strong {
+        display: block;
+        color: var(--white);
+        font-family: var(--mono);
+        font-size: 26px;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      .stat span {
+        display: block;
+        margin-top: 7px;
+        color: rgba(243, 239, 229, 0.48);
+        font-size: 10px;
+        letter-spacing: 0.08em;
+      }
+
+      .bottomline {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 14px clamp(22px, 4vw, 64px);
+        border-top: 1px solid var(--line);
+        color: rgba(243, 239, 229, 0.44);
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.12em;
+      }
+
+      .bottomline strong { color: var(--red); }
+
+      .strip {
+        display: grid;
+        grid-template-columns: 1.05fr 0.75fr 0.75fr;
+        gap: 1px;
+        background: #161616;
+      }
+
+      .strip-card {
+        position: relative;
+        min-height: 300px;
+        overflow: hidden;
+        background: #111;
+      }
+
+      .strip-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(1) contrast(1.12);
+        opacity: 0.76;
+        transition: transform 600ms ease, opacity 300ms ease;
+      }
+
+      .strip-card:hover img {
+        transform: scale(1.035);
+        opacity: 0.96;
+      }
+
+      .strip-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(0deg, rgba(7, 7, 7, 0.9), transparent 52%);
+        pointer-events: none;
+      }
+
+      .strip-meta {
+        position: absolute;
+        z-index: 2;
+        left: 18px;
+        right: 18px;
+        bottom: 16px;
+      }
+
+      .strip-meta small {
+        display: block;
+        color: var(--red);
+        font-family: var(--mono);
+        font-size: 9px;
+        letter-spacing: 0.14em;
+      }
+
+      .strip-meta h2 {
+        margin: 5px 0 0;
+        color: var(--white);
+        font-size: 20px;
+        line-height: 1.25;
+      }
+
+      .strip-meta p {
+        margin: 7px 0 0;
+        color: rgba(243, 239, 229, 0.56);
+        font-size: 11px;
+        line-height: 1.6;
+      }
+
+      @media (max-width: 980px) {
+        .hero {
+          grid-template-columns: 1fr;
+          padding-top: 38px;
+        }
+
+        .hero-aside {
+          align-items: flex-start;
+          gap: 22px;
+          text-align: left;
+        }
+
+        .vertical {
+          display: none;
+        }
+
+        .stats {
+          width: 100%;
+        }
+
+        .strip {
+          grid-template-columns: 1fr;
+        }
+
+        .strip-card {
+          min-height: 240px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .nav { display: none; }
+
+        .screen { min-height: auto; }
+
+        .hero { padding-bottom: 28px; }
+
+        h1 { font-size: clamp(40px, 12.5vw, 60px); }
+
+        .lead { font-size: 14px; }
+
+        .stats { grid-template-columns: 1fr 1fr; }
+
+        .stat strong { font-size: 22px; }
+
+        .bottomline { display: block; line-height: 1.8; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html" title="返回首页" aria-label="返回首页">
+        <span class="brand-mark">返回</span>
+        <span>王咏琪 / 游戏营销作品集</span>
+      </a>
+      <nav class="nav" aria-label="主导航">
+        <a href="portfolio/">案例</a>
+        <a href="experience/">经历</a>
+        <a href="#about">内容实验室</a>
+        <a href="resume/">简历</a>
+      </nav>
+    </header>
+
+    <section class="screen">
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="kicker">2027 届 · 游戏营销 / 用户增长 / 内容策略</p>
+          <h1>把 ACGN 圈层内容，<span>做成增长资产。</span></h1>
+          <p class="lead">
+            从内容生产到达人矩阵与投放复盘，把 ACGN 圈层洞察做成可复用的素材、达人与方法。
+            3D 视觉只作为背景，主线是游戏营销与用户增长。
+          </p>
+          <div class="identity">
+            <span><strong>方向</strong> 游戏营销 / 用户增长 / 内容营销</span>
+            <span><strong>关注</strong> 素材优化 / KOC / KOL / 自产内容</span>
+            <span><strong>坐标</strong> 南京 / 上海</span>
+          </div>
+          <div class="actions">
+            <a class="btn btn-primary" href="portfolio/">进入案例库 <span aria-hidden="true">→</span></a>
+            <a class="btn btn-ghost" href="resume/">查看简历</a>
+          </div>
+        </div>
+
+        <aside class="hero-aside" aria-label="核心数据">
+          <div class="stats">
+            <div class="stat"><strong>4000w+</strong><span>游戏 KOL 抖音曝光</span></div>
+            <div class="stat"><strong>5000w+</strong><span>内容峰值曝光</span></div>
+            <div class="stat"><strong>9w+</strong><span>精准拉新用户</span></div>
+            <div class="stat"><strong>1.9 / 1.7</strong><span>最低 CPM / CPA</span></div>
+          </div>
+          <div class="vertical">GAME MARKETING / CONTENT / GROWTH</div>
+        </aside>
+      </div>
+
+      <div class="bottomline">
+        <span><strong>●</strong> 游戏营销 / 用户增长 / 内容策略</span>
+        <span>SCROLL TO ENTER <strong>↓</strong></span>
+      </div>
+    </section>
+  </body>
+</html>
+

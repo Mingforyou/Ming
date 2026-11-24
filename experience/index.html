@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta name="robots" content="noindex, nofollow">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="王咏琪的经历时间轴：网易互娱、LOFTER、新东方文旅、苏州地铁、AI 配音与自媒体。"
+    />
+    <title>经历时间轴｜王咏琪</title>
+    <style>
+      :root {
+        --black: #070707;
+        --ink: #121212;
+        --paper: #f3efe5;
+        --white: #fbf8f0;
+        --red: #e43b2e;
+        --red-deep: #a91f16;
+        --gray: #9a958b;
+        --line: rgba(243, 239, 229, 0.18);
+        --line-strong: rgba(243, 239, 229, 0.36);
+        --sans: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+        --serif: "Noto Serif SC", "Songti SC", "STSong", serif;
+        --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      }
+
+      * { box-sizing: border-box; }
+
+      html { scroll-behavior: smooth; }
+
+      body {
+        margin: 0;
+        color: var(--paper);
+        background: var(--black);
+        font-family: var(--sans);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -2;
+        background:
+          linear-gradient(180deg, rgba(7, 7, 7, 0.5), rgba(7, 7, 7, 0.96) 58%, var(--black)),
+          url("../assets/img/model-tunnel.jpg") center top / cover no-repeat;
+        opacity: 0.55;
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background:
+          repeating-linear-gradient(90deg, transparent 0 calc(25% - 1px), rgba(243, 239, 229, 0.06) calc(25% - 1px) 25%),
+          repeating-linear-gradient(0deg, transparent 0 calc(25% - 1px), rgba(243, 239, 229, 0.035) calc(25% - 1px) 25%);
+      }
+
+      a { color: inherit; text-decoration: none; }
+
+      .header {
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        border-bottom: 1px solid var(--line);
+        background: rgba(7, 7, 7, 0.76);
+        backdrop-filter: blur(16px);
+      }
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        max-width: 1240px;
+        margin: 0 auto;
+        padding: 18px 28px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+      }
+
+      .brand-mark {
+        display: grid;
+        width: 50px;
+        height: 30px;
+        place-items: center;
+        color: var(--white);
+        background: var(--red);
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0;
+        box-shadow: 4px 4px 0 rgba(228, 59, 46, 0.28);
+      }
+
+      .nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        color: rgba(243, 239, 229, 0.62);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+      }
+
+      .nav a:hover,
+      .nav a[aria-current="page"] { color: var(--white); }
+
+      .wrap {
+        max-width: 1240px;
+        margin: 0 auto;
+        padding: 0 28px 80px;
+      }
+
+      .hero {
+        padding: 76px 0 48px;
+      }
+
+      .kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0 0 18px;
+        color: var(--red);
+        font-family: var(--mono);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+      }
+
+      .kicker::before {
+        content: "";
+        width: 34px;
+        height: 1px;
+        background: var(--red);
+      }
+
+      h1 {
+        max-width: 900px;
+        margin: 0;
+        font-family: var(--serif);
+        font-size: clamp(48px, 6.6vw, 92px);
+        font-weight: 900;
+        line-height: 1.05;
+        letter-spacing: -0.05em;
+      }
+
+      h1 span { color: var(--red); }
+
+      .hero-lead {
+        max-width: 700px;
+        margin: 22px 0 0;
+        color: rgba(243, 239, 229, 0.68);
+        font-size: 15px;
+        line-height: 1.9;
+      }
+
+      .hero-stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 24px;
+      }
+
+      .hero-stats span {
+        padding: 5px 9px;
+        border: 1px solid var(--line-strong);
+        color: rgba(243, 239, 229, 0.72);
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.08em;
+      }
+
+      .hero-stats strong { color: var(--white); }
+
+      .section-label {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 18px 0 16px;
+        color: rgba(243, 239, 229, 0.42);
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.16em;
+      }
+
+      .section-label::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--line);
+      }
+
+      .experience {
+        display: grid;
+        grid-template-columns: 360px minmax(0, 1fr);
+        gap: 38px;
+        align-items: start;
+      }
+
+      .timeline {
+        position: relative;
+        border-top: 1px solid var(--line);
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 15px;
+        width: 1px;
+        background: var(--line);
+      }
+
+      .stop {
+        position: relative;
+        display: block;
+        width: 100%;
+        padding: 18px 16px 18px 40px;
+        color: rgba(243, 239, 229, 0.58);
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid var(--line);
+        text-align: left;
+        cursor: pointer;
+        transition: background 160ms ease, color 160ms ease;
+      }
+
+      .stop::before {
+        content: "";
+        position: absolute;
+        top: 25px;
+        left: 9px;
+        width: 11px;
+        height: 11px;
+        background: var(--black);
+        border: 1px solid var(--line-strong);
+        border-radius: 50%;
+      }
+
+      .stop:hover,
+      .stop.is-active {
+        color: var(--white);
+        background: rgba(228, 59, 46, 0.1);
+      }
+
+      .stop.is-active::before {
+        background: var(--red);
+        border-color: var(--red);
+        box-shadow: 0 0 0 5px rgba(228, 59, 46, 0.16);
+      }
+
+      .stop-date {
+        display: block;
+        color: var(--red);
+        font-family: var(--mono);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+      }
+
+      .stop-company {
+        display: block;
+        margin-top: 7px;
+        font-family: var(--serif);
+        font-size: 21px;
+        font-weight: 800;
+        line-height: 1.25;
+      }
+
+      .stop-role {
+        display: block;
+        margin-top: 4px;
+        color: rgba(243, 239, 229, 0.42);
+        font-size: 11px;
+      }
+
+      .detail {
+        min-height: 590px;
+        padding: 32px 34px 34px;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 92% 6%, rgba(228, 59, 46, 0.09), transparent 32%),
+          var(--paper);
+        border: 1px solid rgba(7, 7, 7, 0.18);
+        box-shadow: 14px 14px 0 rgba(228, 59, 46, 0.16);
+      }
+
+      .panel { display: none; }
+
+      .panel.is-active {
+        display: block;
+        animation: panel-in 220ms ease both;
+      }
+
+      @keyframes panel-in {
+        from { opacity: 0; transform: translateY(6px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .panel-label {
+        margin: 0 0 10px;
+        color: var(--red-deep);
+        font-family: var(--mono);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+      }
+
+      .panel h2 {
+        margin: 0;
+        font-family: var(--serif);
+        font-size: clamp(28px, 3.4vw, 44px);
+        font-weight: 900;
+        line-height: 1.18;
+        letter-spacing: -0.02em;
+      }
+
+      .panel-meta {
+        margin: 8px 0 0;
+        color: rgba(18, 18, 18, 0.52);
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      .panel ul {
+        margin: 22px 0 0;
+        padding-left: 18px;
+        color: rgba(18, 18, 18, 0.7);
+        font-size: 14px;
+        line-height: 1.8;
+      }
+
+      .panel li + li { margin-top: 7px; }
+
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1px;
+        margin-top: 26px;
+        background: rgba(18, 18, 18, 0.14);
+        border: 1px solid rgba(18, 18, 18, 0.14);
+      }
+
+      .metric {
+        padding: 14px 12px;
+        background: rgba(255, 250, 240, 0.5);
+      }
+
+      .metric strong {
+        display: block;
+        color: var(--red-deep);
+        font-family: var(--mono);
+        font-size: 24px;
+        line-height: 1;
+      }
+
+      .metric span {
+        display: block;
+        margin-top: 6px;
+        color: rgba(18, 18, 18, 0.48);
+        font-size: 10px;
+        letter-spacing: 0.06em;
+      }
+
+      .panel-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 26px;
+        color: var(--red-deep);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+      }
+
+      .panel-link::after {
+        content: "→";
+        transition: transform 160ms ease;
+      }
+
+      .panel-link:hover::after { transform: translateX(4px); }
+
+      .footer {
+        margin-top: 54px;
+        padding-top: 18px;
+        border-top: 1px solid var(--line);
+        color: rgba(243, 239, 229, 0.34);
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.08em;
+      }
+
+      @media (max-width: 960px) {
+        .experience { grid-template-columns: 1fr; }
+        .timeline {
+          display: flex;
+          overflow-x: auto;
+          border-top: 0;
+          border-bottom: 1px solid var(--line);
+        }
+        .timeline::before { display: none; }
+        .stop {
+          min-width: 230px;
+          padding: 16px 16px 16px 18px;
+          border-right: 1px solid var(--line);
+          border-bottom: 0;
+        }
+        .stop::before { display: none; }
+        .detail { min-height: auto; }
+      }
+
+      @media (max-width: 640px) {
+        .header-inner { padding: 14px 18px; }
+        .nav { display: none; }
+        .wrap { padding: 0 18px 56px; }
+        .hero { padding: 48px 0 30px; }
+        h1 { font-size: clamp(38px, 11.5vw, 56px); }
+        .detail { padding: 24px 20px; }
+        .metrics { grid-template-columns: 1fr 1fr; }
+        .metric:nth-child(3) { grid-column: 1 / -1; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-inner">
+        <a class="brand" href="../index.html" title="返回首页" aria-label="返回首页">
+          <span class="brand-mark">返回</span>
+          <span>王咏琪 / 游戏营销</span>
+        </a>
+        <nav class="nav" aria-label="主导航">
+          <a href="../index.html">首页</a>
+          <a href="../portfolio/">案例</a>
+          <a href="../experience/" aria-current="page">经历</a>
+          <a href="../index.html#about">内容实验室</a>
+          <a href="../resume/">简历</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section class="hero">
+        <p class="kicker">EXPERIENCE / 经历时间轴</p>
+        <h1>从内容到增长，<br /><span>再到线下落地。</span></h1>
+        <p class="hero-lead">
+          点开任意节点，右侧立即展开这段经历的职责、动作和结果。
+          从游戏 MMO、二次元社区、文旅投放，到城市官媒与自产内容。
+        </p>
+        <div class="hero-stats">
+          <span><strong>2023–2026</strong> 内容与增长经历</span>
+          <span><strong>4 段实习</strong> 游戏 / 社区 / 文旅 / 官媒</span>
+          <span><strong>4000w+</strong> 游戏 KOL 曝光</span>
+          <span><strong>9w+</strong> 精准拉新</span>
+        </div>
+      </section>
+
+      <div class="section-label">SELECT A STOP / 点击查看详情</div>
+
+      <section class="experience" aria-label="经历时间轴">
+        <div class="timeline" role="tablist" aria-label="经历节点">
+          <button class="stop is-active" type="button" role="tab" aria-selected="true" data-exp="netease">
+            <span class="stop-date">2026.09</span>
+            <span class="stop-company">网易互娱</span>
+            <span class="stop-role">用户增长营销 · 古风 MMO</span>
+          </button>
+          <button class="stop" type="button" role="tab" aria-selected="false" data-exp="lofter">
+            <span class="stop-date">2026.06–2026.08</span>
+            <span class="stop-company">网易 LOFTER</span>
+            <span class="stop-role">用户增长营销 · 二次元同人</span>
+          </button>
+          <button class="stop" type="button" role="tab" aria-selected="false" data-exp="neworiental">
+            <span class="stop-date">2026.03–2026.06</span>
+            <span class="stop-company">新东方文旅</span>
+            <span class="stop-role">用户增长营销 · 投放素材</span>
+          </button>
+          <button class="stop" type="button" role="tab" aria-selected="false" data-exp="metro">
+            <span class="stop-date">2025.07–2025.08</span>
+            <span class="stop-company">苏州地铁</span>
+            <span class="stop-role">内容运营 · 官媒跨界</span>
+          </button>
+          <button class="stop" type="button" role="tab" aria-selected="false" data-exp="bilibili">
+            <span class="stop-date">2023.12–2024.01</span>
+            <span class="stop-company">哔哩哔哩</span>
+            <span class="stop-role">AI 配音接入 · 内容生产</span>
+          </button>
+          <button class="stop" type="button" role="tab" aria-selected="false" data-exp="creator">
+            <span class="stop-date">2023.07–2026.08</span>
+            <span class="stop-company">自媒体 / 同人游戏</span>
+            <span class="stop-role">KOC 创作 · 3D / 配音</span>
+          </button>
+        </div>
+
+        <div class="detail">
+          <article class="panel is-active" data-panel="netease">
+            <p class="panel-label">01 / GAME MARKETING</p>
+            <h2>网易互娱<br />用户增长营销</h2>
+            <p class="panel-meta">2026.09 · 古风 MMO · KOL/KOC / 线下赛事 / AI 素材库</p>
+            <ul>
+              <li>统筹 KOL 与 KOC 运营，站外曝光最大化，CPM 最低 1.9。</li>
+              <li>建联游戏直播博主、高粉 Coser 20 位，抖音总曝光 4000w+；KOC 活动参与量 +30%、曝光 +50%。</li>
+              <li>独立跟进 5v5 赛事从线上预选赛到线下总决赛全链路；专题页曝光 +30%，直播观看 200w+。</li>
+              <li>用 AI Agent 搭建营销短视频素材库，累计曝光 +60%、转化率 +30%。</li>
+            </ul>
+            <div class="metrics">
+              <div class="metric"><strong>4000w+</strong><span>抖音总曝光</span></div>
+              <div class="metric"><strong>200w+</strong><span>直播观看</span></div>
+              <div class="metric"><strong>1.9</strong><span>最低 CPM</span></div>
+            </div>
+            <a class="panel-link" href="../portfolio/project.html">查看完整案例</a>
+          </article>
+
+          <article class="panel" data-panel="lofter">
+            <p class="panel-label">02 / CONTENT GROWTH</p>
+            <h2>网易 LOFTER<br />二次元内容矩阵</h2>
+            <p class="panel-meta">2026.06–2026.08 · 二次元同人 · KOL / KOC / 热点活动</p>
+            <ul>
+              <li>建联二次元同人垂类高粉达人 50+，落地 10 位定向入驻达人，搭建分层激励机制。</li>
+              <li>跟进 60 条内容上线，峰值曝光 5000w+、单条最高 1400w、互动 34w+、转化 7w+。</li>
+              <li>搭建 400+ 校园 KOC 体系，CPA 压至 1.7；15 场活动累计拉新 9w+。</li>
+              <li>小红书 CPM 下降 70%、单内容曝光 +70%；AI 平台对接让 CPA 下降 30%。</li>
+            </ul>
+            <div class="metrics">
+              <div class="metric"><strong>5000w+</strong><span>内容峰值曝光</span></div>
+              <div class="metric"><strong>9w+</strong><span>累计拉新</span></div>
+              <div class="metric"><strong>1.7</strong><span>最低 CPA</span></div>
+            </div>
+            <a class="panel-link" href="../portfolio/">查看相关内容</a>
+          </article>
+
+          <article class="panel" data-panel="neworiental">
+            <p class="panel-label">03 / PERFORMANCE MARKETING</p>
+            <h2>新东方文旅<br />素材库与投放</h2>
+            <p class="panel-meta">2026.03–2026.06 · 国际游学 / 定制游 · 腾讯广告</p>
+            <ul>
+              <li>负责广告短视频策划制作与素材迭代，累计产出 50+ 条投放向短视频。</li>
+              <li>搭建成本、曝光、转化监控体系，运维腾讯广告后台，定位低效计划。</li>
+              <li>优化出价、定向、素材与落地页，沉淀有效线索 1.5k+，带动营收 70w+。</li>
+            </ul>
+            <div class="metrics">
+              <div class="metric"><strong>370w+</strong><span>素材总曝光</span></div>
+              <div class="metric"><strong>1.5k+</strong><span>有效线索</span></div>
+              <div class="metric"><strong>70w+</strong><span>带动营收</span></div>
+            </div>
+            <a class="panel-link" href="../portfolio/">查看相关内容</a>
+          </article>
+
+          <article class="panel" data-panel="metro">
+            <p class="panel-label">04 / BRAND CONTENT</p>
+            <h2>苏州地铁<br />官媒年轻化</h2>
+            <p class="panel-meta">2025.07–2025.08 · 官方账号 · 跨界联动</p>
+            <ul>
+              <li>负责官号短视频全流程，打造 2 条自然流单条全平台点赞 3w+ 爆款。</li>
+              <li>联动百家讲坛客座教授、王者荣耀 IP 暑期活动、苏超赛事，拓展年轻受众。</li>
+              <li>总计曝光 150w+，实现 1w+ 粉丝转化。</li>
+            </ul>
+            <div class="metrics">
+              <div class="metric"><strong>150w+</strong><span>总曝光</span></div>
+              <div class="metric"><strong>3w+</strong><span>单条点赞</span></div>
+              <div class="metric"><strong>1w+</strong><span>粉丝转化</span></div>
+            </div>
+            <a class="panel-link" href="../portfolio/">查看相关内容</a>
+          </article>
+
+          <article class="panel" data-panel="bilibili">
+            <p class="panel-label">05 / AI CONTENT</p>
+            <h2>哔哩哔哩<br />AI 配音接入</h2>
+            <p class="panel-meta">2023.12–2024.01 · 配音工具 / AI 生成 / 成品输出</p>
+            <ul>
+              <li>负责从配音工具筛选、AI 配音生成到成品输出的全流程推进。</li>
+              <li>结合互联网配音趋势与二次元游戏内容调性，输出适配业务场景的配音方案。</li>
+              <li>具备出镜、配音与内容制作能力，能把“内容感”带进营销素材。</li>
+            </ul>
+            <div class="metrics">
+              <div class="metric"><strong>全流程</strong><span>工具筛选到成品</span></div>
+              <div class="metric"><strong>二次元</strong><span>内容调性</span></div>
+              <div class="metric"><strong>AI</strong><span>配音生产</span></div>
+            </div>
+            <a class="panel-link" href="../demo/">查看内容实验室</a>
+          </article>
+
+          <article class="panel" data-panel="creator">
+            <p class="panel-label">06 / CREATOR</p>
+            <h2>自媒体 / 同人游戏<br />长期内容创作</h2>
+            <p class="panel-meta">2023.07–2026.08 · LOFTER / 小红书 / 同人游戏</p>
+            <ul>
+              <li>LOFTER 二次元文学垂类：20+ 笔记、千赞爆款率 80%、正向 UGC 150w+、互动 3w+。</li>
+              <li>小红书 Cos & 建模垂类：20+ 贴文、总互动 6k+。</li>
+              <li>同人游戏《伊斯卡利》负责文案、建模、配音全流程，积累付费用户 3k+。</li>
+            </ul>
+            <div class="metrics">
+              <div class="metric"><strong>150w+</strong><span>正向 UGC</span></div>
+              <div class="metric"><strong>3w+</strong><span>互动</span></div>
+              <div class="metric"><strong>3k+</strong><span>同人游戏付费用户</span></div>
+            </div>
+            <a class="panel-link" href="../demo/">进入内容实验室</a>
+          </article>
+        </div>
+      </section>
+
+      <div class="footer">WANG YONGQI / GAME MARKETING / 2027</div>
+    </main>
+
+    <script>
+      const stops = Array.from(document.querySelectorAll(".stop"));
+      const panels = Array.from(document.querySelectorAll(".panel"));
+
+      function activate(id) {
+        stops.forEach((stop) => {
+          const active = stop.dataset.exp === id;
+          stop.classList.toggle("is-active", active);
+          stop.setAttribute("aria-selected", String(active));
+        });
+        panels.forEach((panel) => {
+          panel.classList.toggle("is-active", panel.dataset.panel === id);
+        });
+      }
+
+      stops.forEach((stop) => {
+        stop.addEventListener("click", () => {
+          activate(stop.dataset.exp);
+          history.replaceState(null, "", `#${stop.dataset.exp}`);
+        });
+      });
+
+      const initial = window.location.hash.replace("#", "");
+      if (initial && document.querySelector(`[data-panel="${initial}"]`)) {
+        activate(initial);
+      }
+    </script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>
+

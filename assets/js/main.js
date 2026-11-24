@@ -1,0 +1,223 @@
+(() => {
+  const navToggle = document.querySelector("[data-nav-toggle]");
+  const nav = document.querySelector("[data-nav]");
+
+  if (navToggle && nav) {
+    navToggle.addEventListener("click", () => {
+      const open = nav.classList.toggle("is-open");
+      navToggle.setAttribute("aria-expanded", String(open));
+    });
+
+    nav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("is-open");
+        navToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
+
+  const filterBar = document.querySelector("[data-filter-bar]");
+  const projectCards = Array.from(document.querySelectorAll("[data-category]"));
+
+  if (filterBar && projectCards.length) {
+    const applyFilter = (filter) => {
+      filterBar.querySelectorAll("[data-filter]").forEach((item) => {
+        const active = item.dataset.filter === filter;
+        item.classList.toggle("is-active", active);
+        item.setAttribute("aria-pressed", String(active));
+      });
+
+      projectCards.forEach((card) => {
+        const categories = (card.dataset.category || "").split(/\s+/);
+        card.classList.toggle("is-hidden", filter !== "all" && !categories.includes(filter));
+      });
+    };
+
+    filterBar.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-filter]");
+      if (!button) return;
+
+      const filter = button.dataset.filter;
+      applyFilter(filter);
+      history.replaceState(null, "", filter === "all" ? location.pathname : `#${filter}`);
+    });
+
+    const initialFilter = window.location.hash.replace("#", "");
+    if (initialFilter && filterBar.querySelector(`[data-filter="${initialFilter}"]`)) {
+      applyFilter(initialFilter);
+    }
+  }
+
+  document.querySelectorAll("[data-print]").forEach((button) => {
+    button.addEventListener("click", () => window.print());
+  });
+
+  document.querySelectorAll("[data-year]").forEach((node) => {
+    node.textContent = String(new Date().getFullYear());
+  });
+
+  const lightboxLinks = document.querySelectorAll("[data-lightbox]");
+  if (lightboxLinks.length) {
+    let overlay = null;
+
+    const closeLightbox = () => {
+      if (!overlay) return;
+      overlay.remove();
+      overlay = null;
+      document.body.style.overflow = "";
+      document.removeEventListener("keydown", onKeydown);
+    };
+
+    const onKeydown = (event) => {
+      if (event.key === "Escape") closeLightbox();
+    };
+
+    lightboxLinks.forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        closeLightbox();
+
+        overlay = document.createElement("div");
+        overlay.className = "lightbox";
+        overlay.setAttribute("role", "dialog");
+        overlay.setAttribute("aria-label", link.dataset.caption || "查看大图");
+
+        const image = document.createElement("img");
+        image.src = link.getAttribute("href");
+        image.alt = link.dataset.caption || "";
+
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "lightbox-close";
+        button.setAttribute("aria-label", "关闭");
+        button.textContent = "×";
+
+        overlay.append(image, button);
+        overlay.addEventListener("click", (clickEvent) => {
+          if (clickEvent.target === overlay || clickEvent.target === button) closeLightbox();
+        });
+
+        document.body.appendChild(overlay);
+        document.body.style.overflow = "hidden";
+        document.addEventListener("keydown", onKeydown);
+      });
+    });
+  }
+
+  const mainScript = document.querySelector('script[src$="assets/js/main.js"]');
+  if (mainScript && !document.querySelector(".wq-pet")) {
+    const petCss = document.createElement("link");
+    petCss.rel = "stylesheet";
+    petCss.href = new URL("../css/pet.css", mainScript.src).href;
+    document.head.appendChild(petCss);
+
+    {
+      const path = location.pathname.replace(/\/+$/, "").split("/").filter(Boolean).pop() || "home";
+      const page = path.replace(/\.html$/, "");
+      const messages = {
+        home: [
+          "先看哪条线路？",
+          "我做过 5v5 线下赛全链路。",
+          "KOC 那页有 400+ 校园创作者。",
+          "211 / 2027 届，找游戏营销岗。",
+          "点右上角简历，可以直接看。",
+        ],
+        portfolio: [
+          "点开卡片看完整案例。",
+          "广告素材那页有真实投放图。",
+          "KOC 和 KOL 是两条不同的线。",
+        ],
+        experience: [
+          "点左边节点，右边会切换。",
+          "网易互娱那段最完整。",
+          "每段都写了职责、动作和结果。",
+        ],
+        koc: [
+          "点四个阶段，能看到搭建到结算。",
+          "400+ 校园 KOC，不是随便拉群。",
+          "每张图都能点开看完整版。",
+        ],
+        resume: ["可以直接打印成 PDF。", "邮箱和电话都在左侧。"],
+        creative: [
+          "素材墙里有真实广告图。",
+          "先看卖点，再看素材形式。",
+          "这页是我最想让你看的案例。",
+        ],
+        kol: [
+          "达人不是越贵越好。",
+          "游戏直播、Coser、泛娱乐、同人，各有用处。",
+        ],
+        brand: [
+          "官方号也可以说人话。",
+          "王者荣耀、百家讲坛、苏超都联动过。",
+        ],
+        demo: [
+          "这里是我自己做的东西。",
+          "同人游戏、AI 配音、3D、自媒体。",
+        ],
+      };
+      const lines = messages[page] || messages.home;
+
+      const pet = document.createElement("div");
+      pet.className = "wq-pet";
+      pet.innerHTML = `
+        <div class="wq-pet__bubble">
+          <span class="wq-pet__label">明明</span>
+          <span class="wq-pet__text" aria-live="polite"></span>
+        </div>
+        <button class="wq-pet__character" type="button" aria-label="点击换一句话">
+          <svg viewBox="0 0 64 64" shape-rendering="crispEdges" aria-hidden="true">
+            <rect x="10" y="14" width="12" height="14" fill="#141414"/>
+            <rect x="42" y="14" width="12" height="14" fill="#141414"/>
+            <rect x="12" y="16" width="8" height="9" fill="#f3efe5"/>
+            <rect x="44" y="16" width="8" height="9" fill="#f3efe5"/>
+            <rect x="14" y="22" width="36" height="30" fill="#141414"/>
+            <rect x="16" y="24" width="32" height="26" fill="#f3efe5"/>
+            <rect x="12" y="26" width="40" height="4" fill="#e43b2e"/>
+            <rect x="6" y="28" width="8" height="14" fill="#e43b2e"/>
+            <rect x="50" y="28" width="8" height="14" fill="#e43b2e"/>
+            <rect x="20" y="34" width="6" height="6" fill="#141414"/>
+            <rect x="38" y="34" width="6" height="6" fill="#141414"/>
+            <rect x="28" y="44" width="8" height="3" fill="#e43b2e"/>
+            <rect x="16" y="52" width="8" height="4" fill="#141414"/>
+            <rect x="40" y="52" width="8" height="4" fill="#141414"/>
+          </svg>
+          <span class="wq-pet__status"></span>
+        </button>
+      `;
+      document.body.appendChild(pet);
+
+      const textNode = pet.querySelector(".wq-pet__text");
+      const character = pet.querySelector(".wq-pet__character");
+      let messageIndex = 0;
+      let typeTimer = 0;
+      let nextTimer = 0;
+
+      const typeMessage = () => {
+        clearInterval(typeTimer);
+        clearTimeout(nextTimer);
+        const text = lines[messageIndex % lines.length];
+        messageIndex += 1;
+        let charIndex = 0;
+        textNode.textContent = "";
+        typeTimer = window.setInterval(() => {
+          charIndex += 1;
+          textNode.textContent = text.slice(0, charIndex);
+          if (charIndex >= text.length) {
+            clearInterval(typeTimer);
+            nextTimer = window.setTimeout(typeMessage, 6200);
+          }
+        }, 34);
+      };
+
+      character.addEventListener("click", typeMessage);
+      pet.addEventListener("mouseenter", () => clearTimeout(nextTimer));
+      pet.addEventListener("mouseleave", () => {
+        clearTimeout(nextTimer);
+        nextTimer = window.setTimeout(typeMessage, 2200);
+      });
+
+      typeMessage();
+    }
+  }
+})();
