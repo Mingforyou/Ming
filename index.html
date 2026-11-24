@@ -314,54 +314,75 @@
 
       .hero-tiles {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 9px;
-        width: min(430px, 100%);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        width: min(100%, 424px);
       }
 
       .tile {
         position: relative;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         aspect-ratio: 1 / 1;
-        padding: 12px 12px 10px;
-        background: rgba(7, 7, 7, 0.55);
-        border: 1px solid rgba(243, 239, 229, 0.16);
+        padding: 16px 18px 18px;
+        background: linear-gradient(158deg, rgba(12, 12, 12, 0.52) 0%, rgba(7, 7, 7, 0.8) 100%);
+        border: 1px solid rgba(243, 239, 229, 0.15);
         backdrop-filter: blur(3px);
-        transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+        transition: background 180ms ease, border-color 180ms ease, transform 180ms ease,
+          box-shadow 180ms ease;
       }
 
       .tile:hover {
-        background: rgba(228, 59, 46, 0.24);
-        border-color: rgba(228, 59, 46, 0.65);
-        transform: translateY(-2px);
+        background: linear-gradient(158deg, rgba(228, 59, 46, 0.34) 0%, rgba(90, 18, 12, 0.62) 100%);
+        border-color: rgba(228, 59, 46, 0.8);
+        box-shadow: 0 16px 30px -18px rgba(228, 59, 46, 0.8);
+        transform: translateY(-3px);
       }
 
       .tile .num {
         color: var(--red);
         font-family: var(--mono);
-        font-size: 9px;
-        letter-spacing: 0.08em;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+      }
+
+      .tile .ico {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        width: 30px;
+        height: 30px;
+        color: rgba(243, 239, 229, 0.55);
+        transition: color 180ms ease, transform 180ms ease;
+      }
+
+      .tile:hover .ico {
+        color: #fff;
+        transform: scale(1.06);
       }
 
       .tile b {
+        margin-top: auto;
         color: var(--white);
         font-family: var(--serif);
-        font-size: 15px;
+        font-size: 21px;
         font-weight: 600;
-        line-height: 1.25;
+        line-height: 1.3;
         letter-spacing: 0.02em;
         text-shadow: 0 1px 10px rgba(0, 0, 0, 0.85);
       }
 
-      .tile em {
+      .tile .go {
         position: absolute;
-        right: 11px;
-        bottom: 9px;
+        right: 16px;
+        bottom: 16px;
         color: var(--red);
-        font-style: normal;
-        font-size: 12px;
+        font-size: 15px;
+        transition: transform 180ms ease;
+      }
+
+      .tile:hover .go {
+        transform: translateX(4px);
       }
 
       .hero-summary {
@@ -1215,12 +1236,42 @@
 
           <aside class="hero-side" aria-label="案例入口">
             <nav class="hero-tiles" aria-label="案例入口">
-              <a class="tile" href="portfolio/creative.html" data-transition><span class="num">01</span><b>平面广告<br />素材优化</b><em>→</em></a>
-              <a class="tile" href="portfolio/koc.html" data-transition><span class="num">02</span><b>KOC<br />内容网络</b><em>→</em></a>
-              <a class="tile" href="portfolio/kol.html" data-transition><span class="num">03</span><b>KOL<br />达人营销</b><em>→</em></a>
-              <a class="tile" href="portfolio/brand.html" data-transition><span class="num">04</span><b>官方社媒<br />运营</b><em>→</em></a>
-              <a class="tile" href="portfolio/project.html" data-transition><span class="num">05</span><b>线下<br />活动</b><em>→</em></a>
-              <a class="tile" href="experience/" data-transition><span class="num">06</span><b>经历<br />时间轴</b><em>→</em></a>
+              <a class="tile" href="portfolio/creative.html" data-transition>
+                <span class="num">01</span>
+                <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1" /><path d="M10 8l5 3-5 3V8Z" /><path d="M8 20h8" /></svg>
+                <b>平面广告<br />素材优化</b>
+                <span class="go">→</span>
+              </a>
+              <a class="tile" href="portfolio/koc.html" data-transition>
+                <span class="num">02</span>
+                <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="12" cy="12" r="2.5" /><circle cx="5" cy="6" r="1.6" /><circle cx="19" cy="7" r="1.6" /><circle cx="18" cy="18" r="1.6" /><circle cx="6" cy="18" r="1.6" /><path d="M9.8 10.3 6.2 7M14.2 10.4l3.6-2.2M14 13.6l3 3M10 13.6l-3 3" /></svg>
+                <b>KOC<br />内容网络</b>
+                <span class="go">→</span>
+              </a>
+              <a class="tile" href="portfolio/kol.html" data-transition>
+                <span class="num">03</span>
+                <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="5.5" /><path d="M12 3v18M3 12h18" /></svg>
+                <b>KOL<br />达人营销</b>
+                <span class="go">→</span>
+              </a>
+              <a class="tile" href="portfolio/brand.html" data-transition>
+                <span class="num">04</span>
+                <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M4 10v4h3l6 4V6l-6 4H4Z" /><path d="M17 9c1.5 1.7 1.5 4.3 0 6" /><path d="M19.5 6.5c3 3 3 8 0 11" /></svg>
+                <b>官方社媒<br />运营</b>
+                <span class="go">→</span>
+              </a>
+              <a class="tile" href="portfolio/project.html" data-transition>
+                <span class="num">05</span>
+                <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 20h18" /><path d="M6 20V10l6-4 6 4v10" /><path d="M10 20v-5h4v5" /></svg>
+                <b>线下<br />活动</b>
+                <span class="go">→</span>
+              </a>
+              <a class="tile" href="experience/" data-transition>
+                <span class="num">06</span>
+                <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M7 4v16" /><circle cx="7" cy="7" r="1.8" /><circle cx="7" cy="12" r="1.8" /><circle cx="7" cy="17" r="1.8" /><path d="M11 7h8M11 12h6M11 17h7" /></svg>
+                <b>经历<br />时间轴</b>
+                <span class="go">→</span>
+              </a>
             </nav>
             <div class="vertical-label">GAME MARKETING / CONTENT / GROWTH</div>
           </aside>
