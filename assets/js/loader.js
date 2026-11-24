@@ -1,6 +1,6 @@
 (function () {
-  var MIN_MS = 380;
-  var MAX_MS = 900;
+  var MIN_MS = 1100;
+  var MAX_MS = 1600;
   var start = performance.now();
   var done = false;
   var timer = 0;
@@ -42,7 +42,7 @@
     var bar = document.querySelector(".wq-loader__bar span");
     if (!pct || !bar) return;
     var t = performance.now() - start;
-    var value = Math.min(94, Math.round((t / 620) * 94));
+    var value = Math.min(94, Math.round((t / 900) * 94));
     pct.textContent = String(value);
     bar.style.width = value + "%";
     if (!done && t < MAX_MS) requestAnimationFrame(tick);
