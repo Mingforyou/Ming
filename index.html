@@ -109,7 +109,8 @@
       .hero {
         position: relative;
         display: flex;
-        min-height: calc(100vh - 72px);
+        height: calc(100vh - 67px);
+        min-height: 0;
         flex-direction: column;
         overflow: hidden;
         background:
@@ -148,7 +149,7 @@
         align-items: center;
         width: min(1240px, calc(100% - 56px));
         margin: 0 auto;
-        padding: 64px 0 42px;
+        padding: 34px 0 26px;
       }
 
       .kicker {
@@ -212,6 +213,23 @@
       .hero-exp-cta:hover {
         background: rgba(228, 59, 46, 0.16);
         border-color: rgba(228, 59, 46, 0.55);
+      }
+
+      .hero-experience-cta {
+        margin: 18px 0 0;
+      }
+
+      .hero-resume-cta {
+        display: inline-flex;
+        width: fit-content;
+        max-width: none;
+        align-items: center;
+        margin: 0 0 18px 4px;
+        padding: 12px 22px;
+        font-family: var(--serif);
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
       }
 
       .hero-exp-cta__label {
@@ -375,16 +393,16 @@
         flex-direction: column;
         justify-content: space-between;
         align-items: flex-end;
-        gap: 30px;
-        align-self: stretch;
-        padding: 10px 0;
+        gap: 16px;
+        align-self: center;
+        padding: 0;
       }
 
       .hero-tiles {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 14px;
-        width: min(100%, 424px);
+        gap: 10px;
+        width: min(100%, 380px);
         transform: translateX(14px);
       }
 
@@ -393,7 +411,7 @@
         display: flex;
         flex-direction: column;
         aspect-ratio: 1 / 1;
-        padding: 16px 18px 18px;
+        padding: 12px 14px 14px;
         background: linear-gradient(158deg, rgba(12, 12, 12, 0.52) 0%, rgba(7, 7, 7, 0.8) 100%);
         border: 1px solid rgba(243, 239, 229, 0.15);
         backdrop-filter: blur(3px);
@@ -548,6 +566,28 @@
       }
 
       .hero-bottom strong { color: var(--red); }
+
+      .hero-contact {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .hero-contact a {
+        color: rgba(243, 239, 229, 0.7);
+        border-bottom: 1px solid transparent;
+      }
+
+      .hero-contact a:hover {
+        color: var(--red);
+        border-bottom-color: var(--red);
+      }
+
+      .hero-contact i {
+        color: rgba(243, 239, 229, 0.3);
+        font-style: normal;
+      }
 
       .section {
         width: min(1240px, calc(100% - 56px));
@@ -1210,6 +1250,10 @@
       }
 
       @media (max-width: 1020px) {
+        .hero {
+          height: auto;
+          min-height: calc(100vh - 67px);
+        }
         .hero-inner { grid-template-columns: 1fr; }
         .hero-side { align-items: flex-start; }
         .hero-tiles { transform: none; }
@@ -1296,7 +1340,13 @@
       <section class="hero">
         <div class="hero-inner">
           <div>
-            <a class="hero-exp-cta" href="experience/" data-transition>
+            <a class="hero-exp-cta hero-resume-cta" href="resume/" data-transition>查看完整简历</a>
+            <p class="kicker">2027 届 · 211 · 游戏营销全链路</p>
+            <h1><span class="h1-nowrap">对 ACGN 圈层的热爱，</span><br /><span>做成运营增长资本。</span></h1>
+            <p class="hero-lead">
+              从内容生产到达人矩阵与投放复盘，把 ACGN 圈层洞察做成可复用的素材、达人与方法。
+            </p>
+            <a class="hero-exp-cta hero-experience-cta" href="experience/" data-transition>
               <span class="hero-exp-cta__label">经历时间轴</span>
               <span class="hero-exp-cta__chain">
                 <b>网易游戏</b><i>→</i><b>网易 LOFTER</b><i>→</i><b>哔哩哔哩 TTS 项目</b><i>→</i><b>王者荣耀 × 苏州文旅</b>
@@ -1304,18 +1354,8 @@
               <span class="hero-exp-cta__meta">5 段实习 · 4 个项目 · 200w+ UGC · 4000w+ KOL 曝光</span>
               <span class="hero-exp-cta__go">查看 →</span>
             </a>
-            <p class="kicker">2027 届 · 211 · 游戏营销全链路</p>
-            <h1><span class="h1-nowrap">对 ACGN 圈层的热爱，</span><br /><span>做成运营增长资本。</span></h1>
-            <p class="hero-lead">
-              从内容生产到达人矩阵与投放复盘，把 ACGN 圈层洞察做成可复用的素材、达人与方法。
-            </p>
-            <div class="identity">
-              <span><strong>届别</strong> 2027 届</span>
-              <span><strong>方向</strong> 游戏营销全链路</span>
-            </div>
-            <div class="hero-actions">
-              <a class="btn btn-ghost" href="resume/">查看简历</a>
-            </div>
+
+
           </div>
 
           <aside class="hero-side" aria-label="能力入口">
@@ -1358,58 +1398,15 @@
                 <span class="go">→</span>
               </a>
             </nav>
-            <div class="vertical-label">GAME MARKETING / CONTENT / GROWTH</div>
           </aside>
         </div>
 
         <div class="hero-bottom">
-          <span><strong>●</strong> 广告 / 官号 / KOC / KOL / 线下赛事</span>
-          <span>SELECT A FRONTIER <strong>↓</strong></span>
+          <span class="hero-contact"><strong>●</strong> <a href="mailto:1966064036@qq.com">1966064036@qq.com</a><i>/</i><a href="tel:13776078512">13776078512</a></span>
+          <span>OPEN TO WORK / 2027</span>
         </div>
       </section>
 
-      <section class="section" id="work">
-        <div class="section-head reveal">
-          <div>
-            <p class="eyebrow">SELECTED WORK / 代表项目</p>
-            <h2 class="section-title">用结果说话</h2>
-            <p class="section-desc">三个项目，分别证明游戏增长、内容矩阵和投放素材能力。</p>
-          </div>
-        </div>
-
-        <div class="case-grid">
-          <article class="case-card reveal">
-            <div class="case-metric">4000w+</div>
-            <h3>网易古风 MMO<br />赛事与直播</h3>
-            <p>5v5 线下赛事全链路 + 双十一官号直播，抖音曝光 4000w+，直播观看 200w+。</p>
-            <a class="text-link" href="portfolio/project.html">查看项目</a>
-          </article>
-          <article class="case-card reveal">
-            <div class="case-metric">5000w+</div>
-            <h3>网易 LOFTER<br />二次元内容矩阵</h3>
-            <p>50+ 高粉达人、400+ 校园 KOC、15 场活动，拉新 9w+。</p>
-            <a class="text-link" href="portfolio/koc.html">查看项目</a>
-          </article>
-          <article class="case-card reveal">
-            <div class="case-metric">370w+</div>
-            <h3>新东方文旅<br />素材库与投放</h3>
-            <p>50+ 条投放短视频、1.5k+ 有效线索，带动 70w+ 营收。</p>
-            <a class="text-link" href="portfolio/creative.html">查看项目</a>
-          </article>
-        </div>
-      </section>
-
-      
-
-      
-
-      <section class="contact">
-        <div>
-          <h2>下一个游戏，下一场仗。</h2>
-          <p>游戏营销 / 用户增长 / 内容营销方向，2027 届。欢迎聊实习、校招和项目合作。</p>
-        </div>
-        <a class="btn" href="mailto:1966064036@qq.com">1966064036@qq.com</a>
-      </section>
     </main>
 
     <footer class="footer">

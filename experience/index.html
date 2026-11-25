@@ -156,6 +156,12 @@
 
       h1 span { color: var(--red); }
 
+      .hero-title {
+        max-width: none;
+        font-size: clamp(42px, 5.4vw, 74px);
+        white-space: nowrap;
+      }
+
       .hero-lead {
         max-width: 700px;
         margin: 22px 0 0;
@@ -493,6 +499,7 @@
         .wrap { padding: 0 18px 56px; }
         .hero { padding: 48px 0 30px; }
         h1 { font-size: clamp(38px, 11.5vw, 56px); }
+        .hero-title { font-size: clamp(34px, 10vw, 52px); white-space: normal; }
         .detail { padding: 24px 20px; }
         .metrics { grid-template-columns: 1fr 1fr; }
         .metric:nth-child(3) { grid-column: 1 / -1; }
@@ -520,7 +527,7 @@
     <main class="wrap">
       <section class="hero">
         <p class="kicker">EXPERIENCE / 经历时间轴</p>
-        <h1>从内容到增长，<br /><span>再到线下落地。</span></h1>
+        <h1 class="hero-title">内容×增长　实习×项目</h1>
         <p class="hero-lead">
           点开任意实习或项目节点，中间立即展开这段经历的职责、动作和结果。
           从游戏 MMO、二次元社区、文旅投放，到城市官媒与自产内容。
