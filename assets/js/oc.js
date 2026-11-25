@@ -7,7 +7,10 @@
   const modalTitle = document.querySelector("[data-oc-title]");
   const modalBody = document.querySelector("[data-oc-body]");
   const modalTags = document.querySelector("[data-oc-tags]");
+  const modalMedia = document.querySelector("[data-oc-media]");
   const closeButton = modal?.querySelector(".oc-modal__close");
+  const lightbox = document.querySelector("[data-oc-lightbox]");
+  const lightboxImage = document.querySelector("[data-oc-lightbox-img]");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   if (!line || !buttons.length) return;
@@ -19,6 +22,29 @@
       line: "先搭出世界，角色才有地方活下去。",
       body: "C4D / Blender 搭建工业废墟、地下隧道和载具硬表面。先把世界观变成能看见的空间，再让角色和内容落进去。",
       tags: ["C4D", "Blender", "工业废墟", "硬表面"],
+      media: [
+        {
+          type: "video",
+          src: "../assets/video/oc-model.mp4",
+          poster: "../assets/img/oc-model-poster.jpg",
+          caption: "C4D 场景搭建过程 / 16s",
+        },
+        {
+          src: "../assets/img/oc-model-tank.jpg",
+          alt: "C4D 载具硬表面建模",
+          caption: "载具硬表面 / 炮塔结构",
+        },
+        {
+          src: "../assets/img/oc-model-plant.jpg",
+          alt: "C4D 工业厂区场景",
+          caption: "工业厂区 / 管线与平台",
+        },
+        {
+          src: "../assets/img/oc-model-pipes.jpg",
+          alt: "C4D 管道与楼梯细节",
+          caption: "管道与楼梯 / 场景细节",
+        },
+      ],
     },
     iskari: {
       index: "02",
@@ -33,6 +59,19 @@
       line: "在 LOFTER 写同人，也在评论区学会判断什么会被记住。",
       body: "LOFTER 二次元文学垂类账号，UGC 150w+、互动 3w+。从选题、连载到评论区共创，持续验证什么内容会被记住。",
       tags: ["LOFTER", "同人写作", "UGC 150w+", "互动 3w+"],
+      mediaTwo: true,
+      media: [
+        {
+          src: "../assets/img/oc-fan-01.jpg",
+          alt: "同人文案例第一页",
+          caption: "同人文案例 / 第 1 页 · 点击看全文",
+        },
+        {
+          src: "../assets/img/oc-fan-02.jpg",
+          alt: "同人文案例第二页",
+          caption: "同人文案例 / 第 2 页 · 点击看全文",
+        },
+      ],
     },
     cosplay: {
       index: "04",
@@ -40,6 +79,19 @@
       line: "角色不是穿上衣服就成立，语气、站姿、眼神都要对上。",
       body: "Cos 与角色演绎，小红书 Cos & 建模内容互动 6k+。从角色理解、妆造、拍摄到后期与发布，完整走一遍内容生产。",
       tags: ["Cos", "角色演绎", "小红书", "互动 6k+"],
+      mediaTwo: true,
+      media: [
+        {
+          src: "../assets/img/oc-cos-01.jpg",
+          alt: "Coser 角色演绎一",
+          caption: "Coser / 角色演绎 01",
+        },
+        {
+          src: "../assets/img/oc-cos-02.jpg",
+          alt: "Coser 角色演绎二",
+          caption: "Coser / 角色演绎 02",
+        },
+      ],
     },
     art: {
       index: "05",
@@ -82,12 +134,50 @@
 
   const closeModal = () => {
     if (!modal || modal.hidden) return;
+    modal.querySelectorAll("video").forEach((video) => video.pause());
     modal.classList.remove("is-open");
     document.body.classList.remove("oc-lock");
     window.setTimeout(() => {
       modal.hidden = true;
     }, 180);
     lastTrigger?.focus();
+  };
+
+  const renderMedia = (topic) => {
+    if (!modalMedia) return;
+    modalMedia.innerHTML = "";
+    modalMedia.classList.toggle("oc-modal__media--two", Boolean(topic.mediaTwo));
+
+    if (!topic.media?.length) {
+      modalMedia.hidden = true;
+      return;
+    }
+
+    modalMedia.hidden = false;
+    topic.media.forEach((item) => {
+      const figure = document.createElement("figure");
+      figure.className = "oc-media__item";
+
+      if (item.type === "video") {
+        figure.classList.add("oc-media__item--video");
+        figure.innerHTML = `
+          <video controls playsinline preload="none" poster="${item.poster}">
+            <source src="${item.src}" type="video/mp4" />
+          </video>
+          <figcaption>${item.caption}</figcaption>
+        `;
+      } else {
+        figure.innerHTML = `
+          <a href="${item.src}" data-oc-zoom>
+            <img src="${item.src}" alt="${item.alt}" loading="lazy" />
+            <i class="oc-media__zoom" aria-hidden="true">↗</i>
+          </a>
+          <figcaption>${item.caption}</figcaption>
+        `;
+      }
+
+      modalMedia.appendChild(figure);
+    });
   };
 
   const openModal = (topic, trigger) => {
@@ -97,8 +187,10 @@
     modalTitle.textContent = topic.label;
     modalBody.textContent = topic.body;
     modalTags.innerHTML = topic.tags.map((tag) => `<span>${tag}</span>`).join("");
+    renderMedia(topic);
     modal.hidden = false;
     document.body.classList.add("oc-lock");
+    modalCard.scrollTop = 0;
     window.requestAnimationFrame(() => {
       modal.classList.add("is-open");
       closeButton?.focus();
@@ -115,12 +207,47 @@
     });
   });
 
+  const closeLightbox = () => {
+    if (!lightbox || lightbox.hidden) return;
+    lightbox.hidden = true;
+    if (lightboxImage) {
+      lightboxImage.removeAttribute("src");
+      lightboxImage.alt = "";
+    }
+  };
+
+  const openLightbox = (src, alt) => {
+    if (!lightbox || !lightboxImage) return;
+    lightboxImage.src = src;
+    lightboxImage.alt = alt;
+    lightbox.hidden = false;
+  };
+
+  document.addEventListener("click", (event) => {
+    const zoomLink = event.target.closest("[data-oc-zoom]");
+    if (!zoomLink) return;
+    event.preventDefault();
+    const image = zoomLink.querySelector("img");
+    openLightbox(zoomLink.getAttribute("href"), image?.alt || "");
+  });
+
+  lightbox?.addEventListener("click", (event) => {
+    if (event.target === lightbox || event.target.closest("[data-oc-lightbox-close]")) {
+      closeLightbox();
+    }
+  });
+
   modal?.querySelectorAll("[data-oc-close]").forEach((element) => {
     element.addEventListener("click", closeModal);
   });
 
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") closeModal();
+    if (event.key !== "Escape") return;
+    if (lightbox && !lightbox.hidden) {
+      closeLightbox();
+      return;
+    }
+    closeModal();
   });
 
   window.setTimeout(() => typeLine("选择的记忆才是最震撼的记忆"), 420);
