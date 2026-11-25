@@ -244,4 +244,29 @@
       typeMessage();
     }
   }
+
+  document.querySelectorAll("[data-carousel]").forEach((carousel) => {
+    const slides = Array.from(carousel.querySelectorAll(".event-carousel__slide"));
+    const dots = Array.from(carousel.querySelectorAll("[data-carousel-dot]"));
+    if (slides.length < 2) return;
+
+    let index = 0;
+    const show = (nextIndex) => {
+      index = (nextIndex + slides.length) % slides.length;
+      slides.forEach((slide, slideIndex) => {
+        const active = slideIndex === index;
+        slide.classList.toggle("is-active", active);
+        slide.setAttribute("aria-hidden", String(!active));
+      });
+      dots.forEach((dot, dotIndex) => {
+        const active = dotIndex === index;
+        dot.classList.toggle("is-active", active);
+        dot.setAttribute("aria-pressed", String(active));
+      });
+    };
+
+    carousel.querySelector("[data-carousel-prev]")?.addEventListener("click", () => show(index - 1));
+    carousel.querySelector("[data-carousel-next]")?.addEventListener("click", () => show(index + 1));
+    dots.forEach((dot, dotIndex) => dot.addEventListener("click", () => show(dotIndex)));
+  });
 })();
