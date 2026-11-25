@@ -53,31 +53,40 @@
         </header>
 
         <div class="event-carousel" data-carousel aria-label="线下活动照片精选">
-          <div class="event-carousel__track">
-            <figure class="event-carousel__slide is-active" aria-hidden="false">
-              <img src="../assets/img/event-03.jpg" alt="线下总决赛冠军舞台" />
-              <figcaption><span>01 / FINALS</span>线下总决赛 · 冠军舞台</figcaption>
-            </figure>
-            <figure class="event-carousel__slide" aria-hidden="true">
-              <img src="../assets/img/event-04.jpg" alt="线下总决赛主舞台全景" />
-              <figcaption><span>02 / FINALS</span>线下总决赛 · 主舞台</figcaption>
-            </figure>
-            <figure class="event-carousel__slide" aria-hidden="true">
-              <img src="../assets/img/event-01.jpg" alt="直播现场搭建全景" />
-              <figcaption><span>03 / LIVE SET</span>直播现场 · 场景搭建</figcaption>
-            </figure>
-            <figure class="event-carousel__slide" aria-hidden="true">
-              <img src="../assets/img/event-02.jpg" alt="直播导播台与现场监看" />
-              <figcaption><span>04 / CONTROL</span>直播执行 · 导播与监看</figcaption>
-            </figure>
+          <div class="event-carousel__visual">
+            <div class="event-carousel__track">
+              <figure class="event-carousel__slide is-active" aria-hidden="false">
+                <img src="../assets/img/event-03.jpg" alt="线下总决赛冠军舞台" />
+                <figcaption><span>01 / FINALS</span>线下总决赛 · 冠军舞台</figcaption>
+              </figure>
+              <figure class="event-carousel__slide" aria-hidden="true">
+                <img src="../assets/img/event-04.jpg" alt="线下总决赛主舞台全景" />
+                <figcaption><span>02 / FINALS</span>线下总决赛 · 主舞台</figcaption>
+              </figure>
+              <figure class="event-carousel__slide" aria-hidden="true">
+                <img src="../assets/img/event-01.jpg" alt="直播现场搭建全景" />
+                <figcaption><span>03 / LIVE SET</span>直播现场 · 场景搭建</figcaption>
+              </figure>
+              <figure class="event-carousel__slide" aria-hidden="true">
+                <img src="../assets/img/event-02.jpg" alt="直播导播台与现场监看" />
+                <figcaption><span>04 / CONTROL</span>直播执行 · 导播与监看</figcaption>
+              </figure>
+            </div>
+            <button class="event-carousel__btn event-carousel__btn--prev" type="button" data-carousel-prev aria-label="上一张">←</button>
+            <button class="event-carousel__btn event-carousel__btn--next" type="button" data-carousel-next aria-label="下一张">→</button>
+            <div class="event-carousel__dots">
+              <button class="is-active" type="button" data-carousel-dot="0" aria-label="第 1 张" aria-pressed="true"></button>
+              <button type="button" data-carousel-dot="1" aria-label="第 2 张" aria-pressed="false"></button>
+              <button type="button" data-carousel-dot="2" aria-label="第 3 张" aria-pressed="false"></button>
+              <button type="button" data-carousel-dot="3" aria-label="第 4 张" aria-pressed="false"></button>
+            </div>
           </div>
-          <button class="event-carousel__btn event-carousel__btn--prev" type="button" data-carousel-prev aria-label="上一张">←</button>
-          <button class="event-carousel__btn event-carousel__btn--next" type="button" data-carousel-next aria-label="下一张">→</button>
-          <div class="event-carousel__dots">
-            <button class="is-active" type="button" data-carousel-dot="0" aria-label="第 1 张" aria-pressed="true"></button>
-            <button type="button" data-carousel-dot="1" aria-label="第 2 张" aria-pressed="false"></button>
-            <button type="button" data-carousel-dot="2" aria-label="第 3 张" aria-pressed="false"></button>
-            <button type="button" data-carousel-dot="3" aria-label="第 4 张" aria-pressed="false"></button>
+          <div class="event-carousel__side">
+            <p class="event-carousel__side-label">OFFLINE / LIVE</p>
+            <strong>双十一直播带货</strong>
+            <span class="event-carousel__side-mark">×</span>
+            <strong>潜龙无双<br />线下赛事</strong>
+            <p class="event-carousel__side-note">从一场直播到一场赛事，<br />把线下变成内容生产场。</p>
           </div>
         </div>
 
@@ -211,11 +220,6 @@
                   </div>
                 </article>
               </div>
-
-              <p class="live-case__note">
-                这场直播最关键的不是某一句口播，而是三件事同时成立：商品能看懂、画面能拍到、现场能兜底。
-                任何一环没对齐，主播讲得再好也会在价格、库存或画面上翻车。
-              </p>
             </section>
 
             <h2>复盘</h2>

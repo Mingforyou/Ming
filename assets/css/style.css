@@ -4295,9 +4295,9 @@ textarea {
   display: inline-block;
   margin: 24px 0 0;
   padding: 7px 11px;
-  color: #ffd2c6;
-  background: rgba(217, 79, 43, 0.14);
-  border: 1px solid rgba(217, 79, 43, 0.34);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.28);
   font-family: var(--mono);
   font-size: 10.5px;
   line-height: 1.7;
@@ -4808,6 +4808,8 @@ textarea {
    ========================================================= */
 .event-carousel {
   position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(280px, 0.9fr);
   margin: 30px 0 0;
   overflow: hidden;
   background: #0b0b0b;
@@ -4815,11 +4817,15 @@ textarea {
   box-shadow: var(--shadow);
 }
 
+.event-carousel__visual {
+  position: relative;
+  min-width: 0;
+}
+
 .event-carousel__track {
   position: relative;
-  aspect-ratio: 16 / 9;
-  min-height: 220px;
-  max-height: 380px;
+  width: 100%;
+  height: 380px;
 }
 
 .event-carousel__slide {
@@ -4917,6 +4923,53 @@ textarea {
   background: #fff;
 }
 
+.event-carousel__side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 32px 30px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(217, 79, 43, 0.2), transparent 18rem),
+    linear-gradient(160deg, #1c0d0b 0%, #0b0605 100%);
+  border-left: 1px solid rgba(246, 241, 228, 0.12);
+}
+
+.event-carousel__side-label {
+  margin: 0 0 14px;
+  color: #ff8a6b;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.event-carousel__side strong {
+  color: #ff4b32;
+  font-family: var(--serif);
+  font-size: clamp(25px, 2.4vw, 34px);
+  font-weight: 900;
+  line-height: 1.24;
+  letter-spacing: -0.02em;
+}
+
+.event-carousel__side-mark {
+  display: block;
+  margin: 8px 0;
+  color: rgba(246, 241, 228, 0.42);
+  font-family: var(--serif);
+  font-size: 15px;
+  line-height: 1;
+}
+
+.event-carousel__side-note {
+  margin: 20px 0 0;
+  padding-top: 14px;
+  color: rgba(246, 241, 228, 0.58);
+  border-top: 1px solid rgba(246, 241, 228, 0.14);
+  font-size: 11px;
+  line-height: 1.8;
+}
+
 @media (max-width: 900px) {
   .live-detail {
     grid-template-columns: 1fr;
@@ -4926,6 +4979,16 @@ textarea {
   .live-detail .detail-aside {
     position: static;
   }
+
+  .event-carousel {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .event-carousel__side {
+    padding: 22px 20px 24px;
+    border-top: 1px solid rgba(246, 241, 228, 0.12);
+    border-left: 0;
+  }
 }
 
 @media (max-width: 760px) {
@@ -4934,7 +4997,7 @@ textarea {
   }
 
   .event-carousel__track {
-    min-height: 210px;
+    height: 220px;
   }
 
   .event-carousel__slide figcaption {
@@ -4970,4 +5033,9 @@ textarea {
   .case-video {
     width: min(100%, 320px);
   }
+}
+
+/* 线下活动页信息密度高，隐藏桌宠避免压住右侧项目信息 */
+body:has(.live-detail) .wq-pet {
+  display: none !important;
 }
