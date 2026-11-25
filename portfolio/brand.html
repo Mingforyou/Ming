@@ -37,20 +37,23 @@
 
     <main class="page-main" id="main">
       <div class="container">
-        <a class="back-link" href="index.html">返回案例库</a>
+        <a class="back-link" href="../index.html#work">返回项目</a>
 
         <header class="page-header">
           <div>
-            <p class="kicker">CASE 05 / SOCIAL</p>
-            <h1>一个版本，<br />一套内容节奏。</h1>
+            <p class="kicker">WORK 05 / SOCIAL</p>
+            <h1>版本-内容节奏</h1>
           </div>
           <div>
             <p>
-              网易互娱《大唐无双》年末战役：资料片「万国霸业」11.13 上线，潜龙争霸赛 11.21 落地线下。
+              以网易互娱《大唐无双》年末战役为例：资料片「万国霸业」11.13 上线，潜龙争霸赛 11.21 落地线下。
               从版本首曝到赛事收口，每个节点配一套内容。
             </p>
           </div>
         </header>
+
+        <div class="campaign-block">
+        <div class="campaign-block__label">万国霸业 / VERSION CONTENT</div>
 
         <section class="feature-band">
           <span class="feature-kicker">2026 YEAR-END / 资料片</span>
@@ -166,67 +169,48 @@
           </div>
         </section>
 
-        <section class="koc-published">
-          <div class="assets-head"><h2>制作时间线</h2><span>首曝 → 上线 → 赛事</span></div>
-          <div class="news-timeline">
-            <article class="news-item">
-              <div class="news-date">11.02</div>
-              <div class="news-body">
-                <div>
-                  <h3>首曝：把版本信息一次讲清</h3>
-                  <p>
-                    第一篇新闻稿配一张内容长图，把国战体系、赛季玩法、风云录和江湖天梯讲明白。
-                    先让玩家知道“这个版本改了什么”，再谈什么时候上线。
-                  </p>
-                </div>
-                <figure class="news-shot">
-                  <a href="../assets/img/news-2026-11-02.jpg" data-lightbox data-caption="11.02 资料片首曝新闻">
-                    <img src="../assets/img/news-2026-11-02.jpg" alt="岁末资料片万国霸业更新首曝新闻稿" />
-                  </a>
-                  <figcaption>《岁末资料片「万国霸业」更新首曝》</figcaption>
-                </figure>
+        <section class="koc-published news-reader" id="news-reader" data-news-reader>
+          <div class="assets-head"><h2>新闻内容</h2><span>点击切换 / 站内滚动阅读</span></div>
+          <div class="news-reader__layout">
+            <div class="news-tabs" role="tablist" aria-label="万国霸业新闻">
+              <button class="news-tab is-active" type="button" role="tab" aria-selected="true"
+                data-news-url="https://dtws.163.com/news/2026/11/02/11739_1318412.html"
+                data-news-image="../assets/img/news-11-02-full.png"
+                data-news-title="《大唐无双》岁末资料片「万国霸业」更新首曝！全民酣战，多种打法！">
+                <span class="news-tab__date">11.02</span>
+                <strong>更新首曝</strong>
+                <small>先把版本改了什么讲清楚</small>
+              </button>
+              <button class="news-tab" type="button" role="tab" aria-selected="false"
+                data-news-url="https://dtws.163.com/news/2026/11/06/11739_1318987.html"
+                data-news-image="../assets/img/news-11-06-full.png"
+                data-news-title="万国霸业启新章《大唐无双》年末资料片玩法全解析">
+                <span class="news-tab__date">11.06</span>
+                <strong>玩法全解析</strong>
+                <small>用玩法拆解承接首曝热度</small>
+              </button>
+              <button class="news-tab" type="button" role="tab" aria-selected="false"
+                data-news-url="https://dtws.163.com/news/2026/11/12/11739_1319484.html"
+                data-news-image="../assets/img/news-11-12-full.png"
+                data-news-title="「万国霸业」烽烟燃！《大唐无双》年末资料片今日开战">
+                <span class="news-tab__date">11.12</span>
+                <strong>今日开战</strong>
+                <small>上线前一天，把开战时间钉死</small>
+              </button>
+            </div>
+            <div class="news-screen">
+              <div class="news-screen__bar">
+                <span data-news-screen-title>《大唐无双》岁末资料片「万国霸业」更新首曝！全民酣战，多种打法！</span>
+                <a data-news-external href="https://dtws.163.com/news/2026/11/02/11739_1318412.html" target="_blank" rel="noopener">新窗口打开 ↗</a>
               </div>
-            </article>
-
-            <article class="news-item">
-              <div class="news-date">11.12</div>
-              <div class="news-body">
-                <div>
-                  <h3>开战预告：把上线时间钉死</h3>
-                  <p>
-                    第二篇落在开服：11.13 资料片上线、黄金战服新区「森罗万象」开启，
-                    把版本信息和福利一起推出去，承接首曝带来的关注。
-                  </p>
-                </div>
-                <figure class="news-shot">
-                  <a href="../assets/img/news-2026-11-12.jpg" data-lightbox data-caption="11.12 资料片开战新闻">
-                    <img src="../assets/img/news-2026-11-12.jpg" alt="万国霸业烽烟燃年末资料片今日开战新闻稿" />
-                  </a>
-                  <figcaption>《「万国霸业」烽烟燃！年末资料片今日开战》</figcaption>
-                </figure>
+              <div class="news-screen__scroll">
+                <img data-news-image src="../assets/img/news-11-02-full.png" alt="万国霸业新闻：更新首曝原文长图" />
               </div>
-            </article>
-
-            <article class="news-item">
-              <div class="news-date">11.21</div>
-              <div class="news-body">
-                <div>
-                  <h3>赛事落地：从版本内容接到线下</h3>
-                  <p>
-                    潜龙争霸赛 5V5 线下总决赛，广州网易园区。版本热度接到赛事现场，
-                    线上内容、线下主视觉和现场物料保持同一套语言。
-                  </p>
-                </div>
-                <figure class="news-shot">
-                  <a href="../assets/img/social-final-cover.jpg" data-lightbox data-caption="11.21 线下总决赛主视觉">
-                    <img src="../assets/img/social-final-cover.jpg" alt="潜龙争霸赛 5V5 线下总决赛主视觉" style="object-position:center" />
-                  </a>
-                  <figcaption>11.21 广州 · 网易园区</figcaption>
-                </figure>
-              </div>
-            </article>
+              <p class="news-screen__hint">在窗口内滚动阅读原文长图；点击右上角可打开网易原文。</p>
+            </div>
           </div>
         </section>
+        </div>
 
         <section class="koc-published">
           <p class="metrics-kicker">赛事产出 / MATCH CONTENT</p>

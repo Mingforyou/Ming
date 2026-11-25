@@ -48,6 +48,30 @@
     }
   }
 
+  document.querySelectorAll("[data-news-reader]").forEach((reader) => {
+    const tabs = Array.from(reader.querySelectorAll(".news-tab"));
+    const frame = reader.querySelector("[data-news-frame]");
+    const image = reader.querySelector("img[data-news-image]");
+    const screenTitle = reader.querySelector("[data-news-screen-title]");
+    const external = reader.querySelector("[data-news-external]");
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        tabs.forEach((item) => {
+          const active = item === tab;
+          item.classList.toggle("is-active", active);
+          item.setAttribute("aria-selected", String(active));
+        });
+
+        const url = tab.dataset.newsUrl;
+        if (frame && url) frame.src = url;
+        if (image && tab.dataset.newsImage) image.src = tab.dataset.newsImage;
+        if (screenTitle) screenTitle.textContent = tab.dataset.newsTitle || tab.textContent.trim();
+        if (external && url) external.href = url;
+      });
+    });
+  });
+
   document.querySelectorAll("[data-print]").forEach((button) => {
     button.addEventListener("click", () => window.print());
   });
