@@ -4127,3 +4127,338 @@ textarea {
     box-shadow: none;
   }
 }
+
+/* =========================================================
+   线下活动 / 赛事 + 直播
+   ========================================================= */
+.live-strategy {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 22px 0 10px;
+}
+
+.live-detail {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 40px;
+}
+
+.live-detail .prose {
+  max-width: none;
+}
+
+.live-detail .prose > p,
+.live-detail .prose > ul,
+.live-detail .prose > blockquote {
+  max-width: 880px;
+}
+
+.live-detail .detail-aside {
+  position: static;
+  margin-top: 0;
+}
+
+.live-detail .detail-aside dl {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.live-detail .detail-aside dl > div {
+  display: block;
+  padding: 0;
+  border-bottom: 0;
+}
+
+.live-detail .detail-aside dd {
+  margin-top: 3px;
+  text-align: left;
+}
+
+.live-strategy article {
+  padding: 20px 20px 22px;
+  background: rgba(255, 250, 240, 0.66);
+  border: 1px solid var(--line-strong);
+  box-shadow: 5px 5px 0 rgba(23, 21, 18, 0.08);
+}
+
+.live-strategy span {
+  color: var(--accent-2);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.live-strategy h3 {
+  margin: 10px 0 7px;
+  font-family: var(--serif);
+  font-size: 21px;
+  line-height: 1.3;
+}
+
+.live-strategy p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 12.5px;
+  line-height: 1.75;
+}
+
+.live-track {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.live-case {
+  margin: 54px 0 0;
+  padding: 38px 38px 42px;
+  color: #f6f1e4;
+  background:
+    radial-gradient(circle at 92% 2%, rgba(217, 79, 43, 0.28), transparent 26rem),
+    radial-gradient(circle at 4% 96%, rgba(196, 154, 58, 0.14), transparent 24rem),
+    #2a1512;
+  border: 1px solid rgba(217, 79, 43, 0.42);
+  box-shadow: 10px 10px 0 rgba(90, 28, 16, 0.16);
+  scroll-margin-top: 96px;
+}
+
+.live-case__label {
+  margin: 0;
+  color: #ff8a6b;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.live-case h2 {
+  margin: 12px 0 0;
+  padding: 0;
+  color: #fff6e6;
+  border: 0;
+  font-size: clamp(30px, 3.6vw, 48px);
+  line-height: 1.18;
+}
+
+.live-case__head > p:last-child {
+  max-width: 760px;
+  margin: 14px 0 0;
+  color: rgba(246, 241, 228, 0.72);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.live-case__stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin: 26px 0 0;
+  background: rgba(246, 241, 228, 0.16);
+  border: 1px solid rgba(246, 241, 228, 0.16);
+}
+
+.live-case__stats div {
+  padding: 15px 16px 16px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.live-case__stats b {
+  display: block;
+  color: #ff9a7d;
+  font-family: var(--serif);
+  font-size: 30px;
+  line-height: 1.05;
+}
+
+.live-case__stats span {
+  display: block;
+  margin-top: 5px;
+  color: rgba(246, 241, 228, 0.62);
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.live-flow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.live-flow article {
+  padding: 18px 18px 20px;
+  background: rgba(255, 255, 255, 0.045);
+  border-top: 3px solid var(--accent);
+}
+
+.live-flow span {
+  color: #ff9a7d;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.live-flow h3 {
+  margin: 9px 0 7px;
+  color: #fff6e6;
+  font-family: var(--serif);
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+.live-flow p,
+.live-flow li {
+  color: rgba(246, 241, 228, 0.7);
+  font-size: 11.5px;
+  line-height: 1.72;
+}
+
+.live-flow p {
+  margin: 0;
+}
+
+.live-flow ul {
+  margin: 9px 0 0;
+  padding-left: 16px;
+}
+
+.live-case h3.live-subhead {
+  margin: 36px 0 0;
+  padding: 0;
+  color: #ff9a7d;
+  border: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.live-sku {
+  margin-top: 14px;
+  overflow-x: auto;
+  border: 1px solid rgba(246, 241, 228, 0.18);
+}
+
+.live-sku table {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+}
+
+.live-sku th,
+.live-sku td {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(246, 241, 228, 0.12);
+  text-align: left;
+  font-size: 11.5px;
+}
+
+.live-sku th {
+  color: #ffb39f;
+  background: rgba(217, 79, 43, 0.16);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.live-sku td {
+  color: rgba(246, 241, 228, 0.78);
+}
+
+.live-sku td:first-child {
+  color: #fff6e6;
+  font-weight: 700;
+}
+
+.live-sku td:nth-child(2),
+.live-sku td:nth-child(3),
+.live-sku td:nth-child(4) {
+  white-space: nowrap;
+}
+
+.live-sku tr:last-child td {
+  border-bottom: 0;
+}
+
+.live-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.live-gallery figure {
+  margin: 0;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(246, 241, 228, 0.16);
+}
+
+.live-gallery a {
+  display: block;
+  padding: 8px;
+}
+
+.live-gallery img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #f7f2e8;
+}
+
+.live-gallery figcaption {
+  padding: 9px 11px 11px;
+  color: rgba(246, 241, 228, 0.62);
+  font-size: 10px;
+  line-height: 1.55;
+}
+
+.live-case__note {
+  margin: 18px 0 0;
+  padding: 14px 16px;
+  color: rgba(246, 241, 228, 0.84);
+  background: rgba(217, 79, 43, 0.14);
+  border-left: 3px solid var(--accent);
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+@media (max-width: 1000px) {
+  .live-strategy,
+  .live-flow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .live-track {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 24px;
+  }
+}
+
+@media (max-width: 760px) {
+  .live-case {
+    padding: 26px 20px 30px;
+  }
+
+  .live-case h2 {
+    font-size: 30px;
+  }
+
+  .live-strategy,
+  .live-flow,
+  .live-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .live-case__stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .live-track {
+    grid-template-columns: 1fr;
+  }
+
+  .live-detail .detail-aside dl {
+    grid-template-columns: 1fr;
+  }
+}
