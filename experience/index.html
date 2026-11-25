@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="王咏琪的经历时间轴：网易互娱、LOFTER、新东方文旅、苏州地铁、AI 配音与自媒体。"
+      content="王咏琪的经历时间轴：实习经历（网易互娱、LOFTER、新东方文旅、苏州电视台、苏州文旅轨道交通部宣传组）与项目经历（哔哩哔哩 TTS、王者荣耀 × 苏州文旅、百家讲坛 × 苏州文旅、自媒体/同人游戏）。"
     />
     <title>经历时间轴｜王咏琪</title>
     <style>
@@ -202,9 +202,57 @@
 
       .experience {
         display: grid;
-        grid-template-columns: 360px minmax(0, 1fr);
-        gap: 38px;
+        grid-template-columns: 250px minmax(0, 1fr) 250px;
+        gap: 26px;
         align-items: start;
+      }
+
+      .timeline-grid {
+        display: contents;
+      }
+
+      .timeline-column {
+        min-width: 0;
+      }
+
+      .timeline-column--internships {
+        grid-column: 1;
+        grid-row: 1;
+      }
+
+      .timeline-column--projects {
+        grid-column: 3;
+        grid-row: 1;
+      }
+
+      .timeline-column-title {
+        margin: 0 0 16px;
+        color: var(--white);
+        font-family: var(--serif);
+        font-size: clamp(26px, 2.4vw, 32px);
+        font-weight: 800;
+        line-height: 1.15;
+        letter-spacing: -0.01em;
+      }
+
+      .timeline-column-title::after {
+        content: "";
+        display: block;
+        width: 42px;
+        height: 2px;
+        margin-top: 12px;
+        background: var(--red);
+      }
+
+      .timeline-column-title em {
+        display: block;
+        margin-top: 6px;
+        color: var(--red);
+        font-family: var(--mono);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        font-style: normal;
       }
 
       .timeline {
@@ -286,7 +334,11 @@
       }
 
       .detail {
+        grid-column: 2;
+        grid-row: 1;
         min-height: 590px;
+        max-width: none;
+        margin: 0;
         padding: 32px 34px 34px;
         color: var(--ink);
         background:
@@ -402,9 +454,24 @@
       }
 
       @media (max-width: 960px) {
-        .experience { grid-template-columns: 1fr; }
+        .experience { display: block; }
+        .timeline-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 22px;
+        }
+        .timeline-column--internships,
+        .timeline-column--projects {
+          grid-column: auto;
+          grid-row: auto;
+        }
+        .detail {
+          max-width: 980px;
+          margin: 26px auto 0;
+        }
         .timeline {
           display: flex;
+          flex-wrap: wrap;
           overflow-x: auto;
           border-top: 0;
           border-bottom: 1px solid var(--line);
@@ -444,7 +511,6 @@
         </a>
         <nav class="nav" aria-label="主导航">
           <a href="../index.html">首页</a>
-          <a href="../portfolio/">案例</a>
           <a href="../experience/" aria-current="page">经历</a>
           <a href="../demo/">内容实验室</a>
           <a href="../resume/">简历</a>
@@ -457,56 +523,82 @@
         <p class="kicker">EXPERIENCE / 经历时间轴</p>
         <h1>从内容到增长，<br /><span>再到线下落地。</span></h1>
         <p class="hero-lead">
-          点开任意节点，右侧立即展开这段经历的职责、动作和结果。
+          点开任意实习或项目节点，中间立即展开这段经历的职责、动作和结果。
           从游戏 MMO、二次元社区、文旅投放，到城市官媒与自产内容。
         </p>
         <div class="hero-stats">
           <span><strong>2023–2026</strong> 内容与增长经历</span>
-          <span><strong>4 段实习</strong> 游戏 / 社区 / 文旅 / 官媒</span>
+          <span><strong>5 段实习</strong> 游戏 / 社区 / 文旅 / 电视 / 官媒</span>
           <span><strong>4000w+</strong> 游戏 KOL 曝光</span>
           <span><strong>9w+</strong> 精准拉新</span>
         </div>
       </section>
 
-      <div class="section-label">SELECT A STOP / 点击查看详情</div>
+      <div class="section-label">SELECT A TRACK / 点击查看实习或项目</div>
 
       <section class="experience" aria-label="经历时间轴">
-        <div class="timeline" role="tablist" aria-label="经历节点">
-          <button class="stop is-active" type="button" role="tab" aria-selected="true" data-exp="netease">
-            <span class="stop-date">2026.09</span>
-            <span class="stop-company">网易互娱</span>
-            <span class="stop-role">用户增长营销 · 古风 MMO</span>
-          </button>
-          <button class="stop" type="button" role="tab" aria-selected="false" data-exp="lofter">
-            <span class="stop-date">2026.06–2026.08</span>
-            <span class="stop-company">网易 LOFTER</span>
-            <span class="stop-role">用户增长营销 · 二次元同人</span>
-          </button>
-          <button class="stop" type="button" role="tab" aria-selected="false" data-exp="neworiental">
-            <span class="stop-date">2026.03–2026.06</span>
-            <span class="stop-company">新东方文旅</span>
-            <span class="stop-role">用户增长营销 · 投放素材</span>
-          </button>
-          <button class="stop" type="button" role="tab" aria-selected="false" data-exp="metro">
-            <span class="stop-date">2025.07–2025.08</span>
-            <span class="stop-company">苏州地铁</span>
-            <span class="stop-role">内容运营 · 官媒跨界</span>
-          </button>
-          <button class="stop" type="button" role="tab" aria-selected="false" data-exp="bilibili">
-            <span class="stop-date">2023.12–2024.01</span>
-            <span class="stop-company">哔哩哔哩</span>
-            <span class="stop-role">AI 配音接入 · 内容生产</span>
-          </button>
-          <button class="stop" type="button" role="tab" aria-selected="false" data-exp="creator">
-            <span class="stop-date">2023.07–2026.08</span>
-            <span class="stop-company">自媒体 / 同人游戏</span>
-            <span class="stop-role">KOC 创作 · 3D / 配音</span>
-          </button>
+        <div class="timeline-grid">
+          <div class="timeline-column timeline-column--internships">
+            <h2 class="timeline-column-title">实习经历 <em>/ INTERNSHIPS</em></h2>
+            <div class="timeline" role="tablist" aria-label="实习经历节点">
+              <button class="stop is-active" type="button" role="tab" aria-selected="true" data-exp="netease">
+                <span class="stop-date">2026.09</span>
+                <span class="stop-company">网易互娱</span>
+                <span class="stop-role">用户增长营销 · 古风 MMO</span>
+              </button>
+              <button class="stop" type="button" role="tab" aria-selected="false" data-exp="lofter">
+                <span class="stop-date">2026.06–2026.08</span>
+                <span class="stop-company">网易 LOFTER</span>
+                <span class="stop-role">用户增长营销 · 二次元同人</span>
+              </button>
+              <button class="stop" type="button" role="tab" aria-selected="false" data-exp="neworiental">
+                <span class="stop-date">2026.03–2026.06</span>
+                <span class="stop-company">新东方文旅</span>
+                <span class="stop-role">用户增长营销 · 投放素材</span>
+              </button>
+              <button class="stop" type="button" role="tab" aria-selected="false" data-exp="suzhou-tv">
+                <span class="stop-date">2025.03–2025.06</span>
+                <span class="stop-company">苏州电视台</span>
+                <span class="stop-role">融媒体内容运营 · 新闻采编播</span>
+              </button>
+              <button class="stop" type="button" role="tab" aria-selected="false" data-exp="metro">
+                <span class="stop-date">2025.07–2025.08</span>
+                <span class="stop-company">苏州文旅</span>
+                <span class="stop-role">轨道交通部宣传组 · 内容运营</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="timeline-column timeline-column--projects">
+            <h2 class="timeline-column-title">项目经历 <em>/ PROJECTS</em></h2>
+            <div class="timeline" role="tablist" aria-label="项目经历节点">
+              <button class="stop" type="button" role="tab" aria-selected="false" data-exp="bilibili">
+                <span class="stop-date">2023.12–2024.01</span>
+                <span class="stop-company">哔哩哔哩 TTS</span>
+                <span class="stop-role">文本转语音 · AI 配音接入</span>
+              </button>
+              <button class="stop" type="button" role="tab" aria-selected="false" data-exp="honor">
+                <span class="stop-date">2025.07–2025.08</span>
+                <span class="stop-company">王者荣耀 × 苏州文旅</span>
+                <span class="stop-role">城市文旅 × 游戏 IP · 官号短视频</span>
+              </button>
+              <button class="stop" type="button" role="tab" aria-selected="false" data-exp="baijia">
+                <span class="stop-date">2025.07–2025.08</span>
+                <span class="stop-company">百家讲坛 × 苏州文旅</span>
+                <span class="stop-role">城市文化 × 诗词内容 · 拍摄项目</span>
+              </button>
+              <button class="stop" type="button" role="tab" aria-selected="false" data-exp="creator">
+                <span class="stop-date">2023.07–2026.08</span>
+                <span class="stop-company">自媒体 / 同人游戏</span>
+                <span class="stop-role">KOC 创作 · 3D / 配音</span>
+              </button>
+            </div>
+          </div>
         </div>
 
         <div class="detail">
           <article class="panel is-active" data-panel="netease">
-            <p class="panel-label">01 / GAME MARKETING</p>
+            <p class="panel-label">实习 01 / GAME MARKETING</p>
             <h2>网易互娱<br />用户增长营销</h2>
             <p class="panel-meta">2026.09 · 古风 MMO · KOL/KOC / 线下赛事 / AI 素材库</p>
             <ul>
@@ -524,7 +616,7 @@
           </article>
 
           <article class="panel" data-panel="lofter">
-            <p class="panel-label">02 / CONTENT GROWTH</p>
+            <p class="panel-label">实习 02 / CONTENT GROWTH</p>
             <h2>网易 LOFTER<br />二次元内容矩阵</h2>
             <p class="panel-meta">2026.06–2026.08 · 二次元同人 · KOL / KOC / 热点活动</p>
             <ul>
@@ -542,7 +634,7 @@
           </article>
 
           <article class="panel" data-panel="neworiental">
-            <p class="panel-label">03 / PERFORMANCE MARKETING</p>
+            <p class="panel-label">实习 03 / PERFORMANCE MARKETING</p>
             <h2>新东方文旅<br />素材库与投放</h2>
             <p class="panel-meta">2026.03–2026.06 · 国际游学 / 定制游 · 腾讯广告</p>
             <ul>
@@ -558,14 +650,31 @@
             <a class="panel-link" href="../portfolio/">查看相关内容</a>
           </article>
 
-          <article class="panel" data-panel="metro">
-            <p class="panel-label">04 / BRAND CONTENT</p>
-            <h2>苏州地铁<br />官媒年轻化</h2>
-            <p class="panel-meta">2025.07–2025.08 · 官方账号 · 跨界联动</p>
+          <article class="panel" data-panel="suzhou-tv">
+            <p class="panel-label">实习 04 / NEWS & MEDIA</p>
+            <h2>苏州电视台<br />融媒体内容运营</h2>
+            <p class="panel-meta">2025.03–2025.06 · 融媒体平台 · 新闻采编播全流程</p>
             <ul>
-              <li>负责官号短视频全流程，打造 2 条自然流单条全平台点赞 3w+ 爆款。</li>
-              <li>联动百家讲坛客座教授、王者荣耀 IP 暑期活动、苏超赛事，拓展年轻受众。</li>
-              <li>总计曝光 150w+，实现 1w+ 粉丝转化。</li>
+              <li>负责融媒体平台内容运营，参与新闻选题、采访提纲、现场拍摄、稿件撰写、配音、剪辑与多平台发布，独立跑通“采编播”全流程。</li>
+              <li>独立完成 5 场民生新闻采访，覆盖社区治理、城市更新、公共服务、暑期民生等选题，完成从线索挖掘到成片发布。</li>
+              <li>参与苏州奥运冠军盛李豪人物采访，负责前期资料梳理、采访提纲、现场记录、素材整理与短视频剪辑，把体育人物故事转译为年轻用户可感知的城市内容。</li>
+            </ul>
+            <div class="metrics">
+              <div class="metric"><strong>5 场</strong><span>民生新闻采访</span></div>
+              <div class="metric"><strong>1 位</strong><span>奥运冠军采访</span></div>
+              <div class="metric"><strong>全流程</strong><span>采编播</span></div>
+            </div>
+            <a class="panel-link" href="../portfolio/">查看相关内容</a>
+          </article>
+
+          <article class="panel" data-panel="metro">
+            <p class="panel-label">实习 05 / BRAND CONTENT</p>
+            <h2>苏州文旅<br />轨道交通部宣传组</h2>
+            <p class="panel-meta">2025.07–2025.08 · 轨道交通部宣传组 · 官方账号内容</p>
+            <ul>
+              <li>在苏州文旅轨道交通部宣传组，负责官方账号短视频全流程，覆盖选题、拍摄、剪辑、发布与数据复盘。</li>
+              <li>参与王者荣耀、百家讲坛、苏超等城市文旅联动，负责内容执行与账号年轻化。</li>
+              <li>沉淀 2 条自然流单条全平台点赞 3w+ 爆款，完成 1w+ 粉丝转化。</li>
             </ul>
             <div class="metrics">
               <div class="metric"><strong>150w+</strong><span>总曝光</span></div>
@@ -576,11 +685,11 @@
           </article>
 
           <article class="panel" data-panel="bilibili">
-            <p class="panel-label">05 / AI CONTENT</p>
-            <h2>哔哩哔哩<br />AI 配音接入</h2>
-            <p class="panel-meta">2023.12–2024.01 · 配音工具 / AI 生成 / 成品输出</p>
+            <p class="panel-label">项目 01 / TTS & AI AUDIO</p>
+            <h2>哔哩哔哩 TTS<br />文本转语音接入</h2>
+            <p class="panel-meta">2023.12–2024.01 · 文本转语音 / AI 配音 / 成品输出</p>
             <ul>
-              <li>负责从配音工具筛选、AI 配音生成到成品输出的全流程推进。</li>
+              <li>参与 B 站 AI 配音平台接入项目，负责从配音工具筛选、AI 配音生成到成品输出的全流程推进。</li>
               <li>结合互联网配音趋势与二次元游戏内容调性，输出适配业务场景的配音方案。</li>
               <li>具备出镜、配音与内容制作能力，能把“内容感”带进营销素材。</li>
             </ul>
@@ -592,8 +701,42 @@
             <a class="panel-link" href="../demo/">查看内容实验室</a>
           </article>
 
+          <article class="panel" data-panel="honor">
+            <p class="panel-label">项目 02 / IP CROSSOVER</p>
+            <h2>王者荣耀 × 苏州文旅<br />东吴角色城市联动</h2>
+            <p class="panel-meta">2025.07–2025.08 · 腾讯《王者荣耀》IP × 城市文旅 · 官号短视频</p>
+            <ul>
+              <li>围绕腾讯《王者荣耀》中周瑜、孙权、孙策、孙尚香与东吴历史渊源，策划“游戏角色 × 城市历史”的内容切口，把游戏 IP 与苏州文旅场景做年轻化连接。</li>
+              <li>负责官号短视频全流程：选题、脚本、拍摄、剪辑、发布与数据复盘，联动城市地标与东吴文化符号。</li>
+              <li>打造 2 条自然流单条全平台点赞 3w+ 爆款，累计实现 1w+ 粉丝转化，验证游戏 IP 对城市文旅账号的拉新能力。</li>
+            </ul>
+            <div class="metrics">
+              <div class="metric"><strong>3w+</strong><span>单条最高点赞</span></div>
+              <div class="metric"><strong>2 条</strong><span>自然流爆款</span></div>
+              <div class="metric"><strong>1w+</strong><span>粉丝转化</span></div>
+            </div>
+            <a class="panel-link" href="../portfolio/">查看相关内容</a>
+          </article>
+
+          <article class="panel" data-panel="baijia">
+            <p class="panel-label">项目 03 / CULTURAL CONTENT</p>
+            <h2>百家讲坛 × 苏州文旅<br />《乘着地铁去读诗》</h2>
+            <p class="panel-meta">2025.07–2025.08 · 城市文化 × 诗词内容 · 拍摄项目</p>
+            <ul>
+              <li>参与拍摄项目《乘着地铁去读诗》，联动百家讲坛客座教授，以地铁场景 + 诗词内容做城市文化表达。</li>
+              <li>负责内容策划、拍摄执行与官号发布，把传统文化内容转译为年轻用户愿意看的短视频叙事。</li>
+              <li>项目拓展账号年轻受众，总计曝光 150w+。</li>
+            </ul>
+            <div class="metrics">
+              <div class="metric"><strong>150w+</strong><span>项目总曝光</span></div>
+              <div class="metric"><strong>1 个</strong><span>文化拍摄项目</span></div>
+              <div class="metric"><strong>年轻化</strong><span>账号受众拓展</span></div>
+            </div>
+            <a class="panel-link" href="../portfolio/">查看相关内容</a>
+          </article>
+
           <article class="panel" data-panel="creator">
-            <p class="panel-label">06 / CREATOR</p>
+            <p class="panel-label">项目 04 / CREATOR</p>
             <h2>自媒体 / 同人游戏<br />长期内容创作</h2>
             <p class="panel-meta">2023.07–2026.08 · LOFTER / 小红书 / 同人游戏</p>
             <ul>

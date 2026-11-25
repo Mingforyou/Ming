@@ -195,6 +195,74 @@
         line-height: 1.9;
       }
 
+      .hero-exp-cta {
+        position: relative;
+        display: block;
+        max-width: 760px;
+        margin: 0 0 22px;
+        padding: 14px 74px 15px 18px;
+        color: var(--white);
+        background: rgba(12, 12, 12, 0.58);
+        border: 1px solid rgba(243, 239, 229, 0.16);
+        border-left: 3px solid var(--red);
+        backdrop-filter: blur(4px);
+        transition: background 180ms ease, border-color 180ms ease;
+      }
+
+      .hero-exp-cta:hover {
+        background: rgba(228, 59, 46, 0.16);
+        border-color: rgba(228, 59, 46, 0.55);
+      }
+
+      .hero-exp-cta__label {
+        display: block;
+        color: var(--red);
+        font-family: var(--mono);
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+      }
+
+      .hero-exp-cta__chain {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 6px;
+        margin-top: 6px;
+        color: var(--white);
+        font-family: var(--serif);
+        font-size: 17px;
+        font-weight: 800;
+        line-height: 1.35;
+      }
+
+      .hero-exp-cta__chain i {
+        color: var(--red);
+        font-style: normal;
+        font-weight: 600;
+      }
+
+      .hero-exp-cta__meta {
+        display: block;
+        margin-top: 6px;
+        color: rgba(243, 239, 229, 0.46);
+        font-family: var(--mono);
+        font-size: 9.5px;
+        letter-spacing: 0.04em;
+        line-height: 1.6;
+      }
+
+      .hero-exp-cta__go {
+        position: absolute;
+        right: 16px;
+        bottom: 15px;
+        color: var(--red);
+        font-family: var(--mono);
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+      }
+
       .identity {
         display: flex;
         flex-wrap: wrap;
@@ -317,6 +385,7 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 14px;
         width: min(100%, 424px);
+        transform: translateX(14px);
       }
 
       .tile {
@@ -328,15 +397,43 @@
         background: linear-gradient(158deg, rgba(12, 12, 12, 0.52) 0%, rgba(7, 7, 7, 0.8) 100%);
         border: 1px solid rgba(243, 239, 229, 0.15);
         backdrop-filter: blur(3px);
+        opacity: 0.84;
         transition: background 180ms ease, border-color 180ms ease, transform 180ms ease,
-          box-shadow 180ms ease;
+          box-shadow 180ms ease, opacity 180ms ease;
       }
 
       .tile:hover {
         background: linear-gradient(158deg, rgba(228, 59, 46, 0.34) 0%, rgba(90, 18, 12, 0.62) 100%);
         border-color: rgba(228, 59, 46, 0.8);
         box-shadow: 0 16px 30px -18px rgba(228, 59, 46, 0.8);
+        opacity: 1;
         transform: translateY(-3px);
+      }
+
+      .tile--feature {
+        background: linear-gradient(158deg, rgba(112, 18, 14, 0.48) 0%, rgba(42, 7, 6, 0.72) 100%);
+        border-color: rgba(160, 40, 30, 0.62);
+        box-shadow: 0 14px 28px -20px rgba(120, 26, 20, 0.78);
+        opacity: 0.78;
+      }
+
+      .tile--feature:hover {
+        background: linear-gradient(158deg, rgba(126, 22, 16, 0.66) 0%, rgba(54, 9, 8, 0.86) 100%);
+        border-color: rgba(200, 58, 44, 0.88);
+        opacity: 0.94;
+      }
+
+      .tile.tile--feature .num,
+      .tile.tile--feature .go {
+        color: #fff;
+      }
+
+      .tile.tile--feature .ico {
+        color: rgba(255, 255, 255, 0.78);
+      }
+
+      .tile.tile--feature:hover .ico {
+        color: #fff;
       }
 
       .tile .num {
@@ -1115,6 +1212,7 @@
       @media (max-width: 1020px) {
         .hero-inner { grid-template-columns: 1fr; }
         .hero-side { align-items: flex-start; }
+        .hero-tiles { transform: none; }
         .console-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         .console-card,
         .console-card:nth-child(4),
@@ -1188,7 +1286,6 @@
         </a>
         <nav class="nav" aria-label="主导航">
           <a href="index.html" aria-current="page">首页</a>
-          <a href="portfolio/">案例</a>
           <a href="experience/">经历</a>
           <a href="demo/">内容实验室</a>
           <a href="resume/">简历</a>
@@ -1200,8 +1297,16 @@
       <section class="hero">
         <div class="hero-inner">
           <div>
+            <a class="hero-exp-cta" href="experience/" data-transition>
+              <span class="hero-exp-cta__label">经历时间轴</span>
+              <span class="hero-exp-cta__chain">
+                <b>网易游戏</b><i>→</i><b>网易元气</b><i>→</i><b>哔哩哔哩 TTS</b><i>→</i><b>腾讯 × 苏州文旅东吴行</b>
+              </span>
+              <span class="hero-exp-cta__meta">5 段实习 · 4 个项目 · 200w+ UGC · 4000w+ KOL 曝光</span>
+              <span class="hero-exp-cta__go">查看 →</span>
+            </a>
             <p class="kicker">2027 届 · 211 · 游戏营销全链路</p>
-            <h1><span class="h1-nowrap">对 ACGN 圈层的热爱，</span><br /><span>做成游戏增长资本。</span></h1>
+            <h1><span class="h1-nowrap">对 ACGN 圈层的热爱，</span><br /><span>做成运营增长资本。</span></h1>
             <p class="hero-lead">
               从内容生产到达人矩阵与投放复盘，把 ACGN 圈层洞察做成可复用的素材、达人与方法。
             </p>
@@ -1209,33 +1314,13 @@
               <span><strong>届别</strong> 2027 届</span>
               <span><strong>方向</strong> 游戏营销全链路</span>
             </div>
-            <dl class="hero-facts">
-              <div class="fact">
-                <dt>实习</dt>
-                <dd>
-                  <span>网易互娱（网易游戏）</span>
-                  <span>网易元气（LOFTER）</span>
-                  <span>苏州文旅（轨道交通分部）</span>
-                  <span>苏州电视台</span>
-                </dd>
-              </div>
-              <div class="fact">
-                <dt>项目</dt>
-                <dd>
-                  <span>哔哩哔哩 TTS（文字转语音）</span>
-                  <span>腾讯王者荣耀东吴行</span>
-                  <span>TEDx 日本中央大学演讲</span>
-                </dd>
-              </div>
-            </dl>
-            <p class="hero-summary">211 · 4 段实习 · 200w+ 正向 UGC · 4000w+ KOL 曝光 · 9w+ 拉新 · CPA 1.7</p>
             <div class="hero-actions">
               <a class="btn btn-ghost" href="resume/">查看简历</a>
             </div>
           </div>
 
-          <aside class="hero-side" aria-label="案例入口">
-            <nav class="hero-tiles" aria-label="案例入口">
+          <aside class="hero-side" aria-label="能力入口">
+            <nav class="hero-tiles" aria-label="能力入口">
               <a class="tile" href="portfolio/creative.html" data-transition>
                 <span class="num">01</span>
                 <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1" /><path d="M10 8l5 3-5 3V8Z" /><path d="M8 20h8" /></svg>
@@ -1266,10 +1351,11 @@
                 <b>线下<br />活动</b>
                 <span class="go">→</span>
               </a>
-              <a class="tile" href="experience/" data-transition>
+              <a class="tile" href="demo/" data-transition>
                 <span class="num">06</span>
-                <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M7 4v16" /><circle cx="7" cy="7" r="1.8" /><circle cx="7" cy="12" r="1.8" /><circle cx="7" cy="17" r="1.8" /><path d="M11 7h8M11 12h6M11 17h7" /></svg>
-                <b>经历<br />时间轴</b>
+                <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h7" /><circle cx="19" cy="16" r="3" /></svg>
+                <b>更多</b>
+                <span class="tile-sub">二次元 / Cosplay / 游戏 等</span>
                 <span class="go">→</span>
               </a>
             </nav>
@@ -1283,52 +1369,13 @@
         </div>
       </section>
 
-      <section class="section" id="consoles">
-        <div class="home-timeline reveal" aria-label="经历时间轴">
-          <div class="timeline-caption">
-            <span class="timeline-title">选择一条线路 <em>/ EXPERIENCE TIMELINE</em></span>
-            <a href="experience/" data-transition>查看完整时间轴 →</a>
-          </div>
-          <div class="home-timeline-track">
-            <a class="home-stop" href="experience/#netease" data-transition>
-              <time>2026.09</time>
-              <strong>网易互娱</strong>
-              <span>古风 MMO / 5v5 线下赛 / AI 素材库</span>
-            </a>
-            <a class="home-stop" href="experience/#lofter" data-transition>
-              <time>2026.06–08</time>
-              <strong>网易 LOFTER</strong>
-              <span>KOL / KOC / 5000w+ 内容峰值</span>
-            </a>
-            <a class="home-stop" href="experience/#neworiental" data-transition>
-              <time>2026.03–06</time>
-              <strong>新东方文旅</strong>
-              <span>广告素材 / 腾讯广告 / 线索与营收</span>
-            </a>
-            <a class="home-stop" href="experience/#metro" data-transition>
-              <time>2025.07–08</time>
-              <strong>苏州地铁</strong>
-              <span>官号内容 / 王者荣耀 / 百家讲坛 / 苏超</span>
-            </a>
-            <a class="home-stop" href="experience/#creator" data-transition>
-              <time>2023–2026</time>
-              <strong>自媒体 / 同人</strong>
-              <span>4 个游戏同人账号 / UGC 平均 200w+</span>
-            </a>
-          </div>
-        </div>
-
-        
-      </section>
-
-      <section class="section">
+      <section class="section" id="work">
         <div class="section-head reveal">
           <div>
-            <p class="eyebrow">SELECTED CASES / 代表案例</p>
+            <p class="eyebrow">SELECTED WORK / 代表项目</p>
             <h2 class="section-title">用结果说话</h2>
-            <p class="section-desc">三个案例，分别证明游戏增长、内容矩阵和投放素材能力。</p>
+            <p class="section-desc">三个项目，分别证明游戏增长、内容矩阵和投放素材能力。</p>
           </div>
-          <a class="text-link" href="portfolio/">查看全部案例</a>
         </div>
 
         <div class="case-grid">
@@ -1336,19 +1383,19 @@
             <div class="case-metric">4000w+</div>
             <h3>网易古风 MMO<br />用户增长</h3>
             <p>20 位达人、5 场活动、5v5 线下赛事全链路，CPM 最低 1.9。</p>
-            <a class="text-link" href="portfolio/project.html">查看案例</a>
+            <a class="text-link" href="portfolio/project.html">查看项目</a>
           </article>
           <article class="case-card reveal">
             <div class="case-metric">5000w+</div>
             <h3>网易 LOFTER<br />二次元内容矩阵</h3>
             <p>50+ 高粉达人、400+ 校园 KOC、15 场活动，拉新 9w+。</p>
-            <a class="text-link" href="portfolio/koc.html">查看案例</a>
+            <a class="text-link" href="portfolio/koc.html">查看项目</a>
           </article>
           <article class="case-card reveal">
             <div class="case-metric">370w+</div>
             <h3>新东方文旅<br />素材库与投放</h3>
             <p>50+ 条投放短视频、1.5k+ 有效线索，带动 70w+ 营收。</p>
-            <a class="text-link" href="portfolio/creative.html">查看案例</a>
+            <a class="text-link" href="portfolio/creative.html">查看项目</a>
           </article>
         </div>
       </section>

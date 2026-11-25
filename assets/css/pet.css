@@ -1,23 +1,23 @@
 .wq-pet {
   position: fixed;
-  right: 32px;
-  bottom: 34px;
+  right: 34px;
+  bottom: 28px;
   z-index: 90;
   display: flex;
   align-items: flex-end;
-  gap: 10px;
+  gap: 12px;
   font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 
 .wq-pet__bubble {
   position: relative;
-  max-width: 260px;
+  max-width: 280px;
   padding: 11px 14px 12px;
   color: #141414;
   background: #f8f3e8;
   border: 2px solid #141414;
   box-shadow: 5px 5px 0 #e43b2e;
-  font-size: 12px;
+  font-size: 12.5px;
   line-height: 1.6;
 }
 
@@ -50,8 +50,8 @@
 
 .wq-pet__character {
   position: relative;
-  width: 78px;
-  height: 78px;
+  width: 104px;
+  height: 104px;
   padding: 0;
   background: transparent;
   border: 0;
@@ -68,10 +68,10 @@
 
 .wq-pet__status {
   position: absolute;
-  top: 5px;
-  right: 5px;
-  width: 9px;
-  height: 9px;
+  top: 7px;
+  right: 7px;
+  width: 10px;
+  height: 10px;
   background: #e43b2e;
   border: 2px solid #f8f3e8;
   border-radius: 50%;
@@ -85,19 +85,19 @@
 @media (max-width: 700px) {
   .wq-pet {
     right: 12px;
-    bottom: 18px;
+    bottom: 16px;
     gap: 6px;
   }
 
   .wq-pet__bubble {
-    max-width: 190px;
-    padding: 9px 11px 10px;
-    font-size: 11px;
+    max-width: 170px;
+    padding: 8px 10px 9px;
+    font-size: 10.5px;
   }
 
   .wq-pet__character {
-    width: 62px;
-    height: 62px;
+    width: 76px;
+    height: 76px;
   }
 }
 
