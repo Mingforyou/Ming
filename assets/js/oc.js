@@ -79,17 +79,22 @@
       line: "角色不是穿上衣服就成立，语气、站姿、眼神都要对上。",
       body: "Cos 与角色演绎，小红书 Cos & 建模内容互动 6k+。从角色理解、妆造、拍摄到后期与发布，完整走一遍内容生产。",
       tags: ["Cos", "角色演绎", "小红书", "互动 6k+"],
-      mediaTwo: true,
+      mediaTall: true,
       media: [
         {
           src: "../assets/img/oc-cos-01.jpg",
           alt: "Coser 角色演绎一",
-          caption: "Coser / 角色演绎 01",
+          caption: "Coser / 蓝发角色演绎",
         },
         {
-          src: "../assets/img/oc-cos-02.jpg",
-          alt: "Coser 角色演绎二",
-          caption: "Coser / 角色演绎 02",
+          src: "../assets/img/oc-cos-pink.jpg",
+          alt: "Coser 粉色造型三格拼图",
+          caption: "Coser / 粉色造型与镜框",
+        },
+        {
+          src: "../assets/img/oc-cos-last.jpg",
+          alt: "Coser 黑蓝发与墨镜造型",
+          caption: "Coser / 黑蓝发与墨镜",
         },
       ],
     },
@@ -99,6 +104,24 @@
       line: "构图、字体、材质和留白，都是内容的一部分。",
       body: "视觉背景、角色物料、排版与封面设计。把世界观变成一眼能识别的画面，也让内容在不同平台上保持统一的调性。",
       tags: ["视觉设计", "排版", "封面", "物料"],
+      mediaTall: true,
+      media: [
+        {
+          src: "../assets/img/oc-art-01.jpg",
+          alt: "角色插画与眼部神经医学参考",
+          caption: "角色插画 / 医学参考与表情设计",
+        },
+        {
+          src: "../assets/img/oc-art-02.jpg",
+          alt: "棕发角色与白花插画",
+          caption: "角色插画 / 白花与西装",
+        },
+        {
+          src: "../assets/img/oc-art-03.jpg",
+          alt: "水彩人物与蝴蝶插画",
+          caption: "角色插画 / 水彩与蝴蝶",
+        },
+      ],
     },
   };
 
@@ -147,6 +170,7 @@
     if (!modalMedia) return;
     modalMedia.innerHTML = "";
     modalMedia.classList.toggle("oc-modal__media--two", Boolean(topic.mediaTwo));
+    modalMedia.classList.toggle("oc-modal__media--tall", Boolean(topic.mediaTall));
 
     if (!topic.media?.length) {
       modalMedia.hidden = true;

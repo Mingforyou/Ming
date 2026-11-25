@@ -440,6 +440,11 @@
   object-position: top center;
 }
 
+.oc-modal__media--tall .oc-media__item img {
+  height: 280px;
+  object-position: top center;
+}
+
 .oc-lightbox[hidden] {
   display: none;
 }
@@ -578,7 +583,8 @@
   }
 
   .oc-media__item img,
-  .oc-modal__media--two .oc-media__item img {
+  .oc-modal__media--two .oc-media__item img,
+  .oc-modal__media--tall .oc-media__item img {
     height: auto;
     max-height: 420px;
   }
