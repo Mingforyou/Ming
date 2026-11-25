@@ -3912,6 +3912,44 @@ textarea {
   line-height: 1.5;
 }
 
+.other-project {
+  margin-top: 36px;
+  scroll-margin-top: 96px;
+  padding: 26px 28px 28px;
+  background:
+    radial-gradient(circle at 94% 0%, rgba(31, 111, 92, 0.1), transparent 20rem),
+    linear-gradient(145deg, #eaf3ee 0%, #d7e7df 100%);
+  border: 1px solid rgba(31, 111, 92, 0.28);
+  box-shadow: 8px 8px 0 rgba(31, 111, 92, 0.1);
+}
+
+.other-project__label {
+  margin: 0 0 8px;
+  color: #1f6f5c;
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.other-project h2 {
+  margin: 0 0 12px;
+  padding: 0;
+  color: #174c3f;
+  border: 0;
+  font-size: 27px;
+}
+
+.other-project .media-grid {
+  margin-bottom: 0;
+}
+
+.other-project .media-card {
+  background: rgba(255, 255, 255, 0.58);
+  border-color: rgba(31, 111, 92, 0.22);
+  box-shadow: 5px 5px 0 rgba(31, 111, 92, 0.08);
+}
+
 @media (max-width: 760px) {
   .campaign-block {
     padding: 22px 16px 26px;
