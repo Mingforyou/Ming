@@ -8,6 +8,12 @@
   const modalBody = document.querySelector("[data-oc-body]");
   const modalTags = document.querySelector("[data-oc-tags]");
   const modalMedia = document.querySelector("[data-oc-media]");
+  const process = document.querySelector("[data-oc-process]");
+  const processTabs = Array.from(document.querySelectorAll("[data-oc-step]"));
+  const stepTag = document.querySelector("[data-oc-step-tag]");
+  const stepTitle = document.querySelector("[data-oc-step-title]");
+  const stepBody = document.querySelector("[data-oc-step-body]");
+  const stepLink = document.querySelector("[data-oc-step-link]");
   const closeButton = modal?.querySelector(".oc-modal__close");
   const lightbox = document.querySelector("[data-oc-lightbox]");
   const lightboxImage = document.querySelector("[data-oc-lightbox-img]");
@@ -50,8 +56,68 @@
       index: "02",
       label: "独立文游【伊斯卡利】",
       line: "《伊斯卡利》是我把文案、建模和配音串起来的一次完整制作。",
-      body: "基于《命运冠位指定》世界观制作的独立文游，负责世界观、剧情文案、3D 场景与配音统筹，积累付费用户 3k+。",
-      tags: ["独立文游", "剧情文案", "配音统筹", "3k+ 付费用户"],
+      body: "从人设、世界观、脚本到约稿配图，完整跑一遍独立文游的制作流程。",
+      tags: ["独立文游", "剧情文案", "3D 场景", "约稿"],
+      steps: {
+        persona: {
+          tag: "STEP 01 / CHARACTER",
+          title: "确定人设",
+          body: "烟雾镜：表面是健谈、体面、带点爹味的美国 CEO，骨子里是阿兹特克至高神。喜欢美元、枪械和 B 级片；他宣称没有讨厌的东西，因为所有令自己不快的事物，都可以用力量付之一炬。",
+          mediaOne: true,
+          media: [
+            {
+              src: "../assets/img/oc-iskari-persona.jpg",
+              alt: "伊斯卡利角色烟雾镜的人设档案",
+              caption: "人设档案 / 烟雾镜 · 点击看全文",
+            },
+          ],
+        },
+        world: {
+          tag: "STEP 02 / WORLD",
+          title: "搭建世界观",
+          body: "故事发生在加利福尼亚一间近乎废弃的酒馆：环形阶梯通向不存在的二楼，镜面、蜂鸟、货物与失忆症患者叠在一起。阿兹特克文明没有记忆，烟雾镜用肺制作降临人间的种子；酒馆里的交易，交换的是民族记忆本身。",
+          mediaOne: true,
+          media: [
+            {
+              src: "../assets/img/oc-iskari-world.jpg",
+              alt: "伊斯卡利地下通道与环形空间 C4D 场景",
+              caption: "世界观场景 / 地下通道与环形空间",
+            },
+          ],
+        },
+        script: {
+          tag: "STEP 03 / SCRIPT",
+          title: "产出文案脚本",
+          body: "10 页剧本：先写剧情介绍，再落到场次、人物和对白。开场是戴先生走进废弃酒馆，左女士、烟老板围绕阿兹特克、记忆与“愚人船”展开对话。完整脚本可在面试中展示。",
+          mediaOne: true,
+          media: [
+            {
+              src: "../assets/img/oc-iskari-script.jpg",
+              alt: "伊斯卡利文案脚本第一页",
+              caption: "《伊斯卡利》脚本 / 第 1 页 · 点击看大图",
+            },
+          ],
+        },
+        commission: {
+          tag: "STEP 04 / ART",
+          title: "约稿配图",
+          body: "人设和世界观确定后，把文字设定拆成约稿 brief：角色设定、服装与道具、场景氛围和封面插画。约稿图既服务游戏内呈现，也作为对外传播的视觉资产。",
+          mediaTwo: true,
+          mediaFit: true,
+          media: [
+            {
+              src: "../assets/img/oc-iskari-commission-01.jpg",
+              alt: "伊斯卡利约稿角色设定与道具图",
+              caption: "约稿图 01 / 角色设定与道具",
+            },
+            {
+              src: "../assets/img/oc-iskari-commission-02.jpg",
+              alt: "伊斯卡利红色背景角色插画",
+              caption: "约稿图 02 / 角色插画",
+            },
+          ],
+        },
+      },
     },
     fan: {
       index: "03",
@@ -171,6 +237,8 @@
     modalMedia.innerHTML = "";
     modalMedia.classList.toggle("oc-modal__media--two", Boolean(topic.mediaTwo));
     modalMedia.classList.toggle("oc-modal__media--tall", Boolean(topic.mediaTall));
+    modalMedia.classList.toggle("oc-modal__media--one", Boolean(topic.mediaOne));
+    modalMedia.classList.toggle("oc-modal__media--fit", Boolean(topic.mediaFit));
 
     if (!topic.media?.length) {
       modalMedia.hidden = true;
@@ -204,6 +272,25 @@
     });
   };
 
+  const renderStep = (stepKey) => {
+    const step = topics.iskari.steps[stepKey];
+    if (!step) return;
+
+    processTabs.forEach((tab) => {
+      const active = tab.dataset.ocStep === stepKey;
+      tab.classList.toggle("is-active", active);
+      tab.setAttribute("aria-selected", String(active));
+    });
+
+    stepTag.textContent = step.tag;
+    stepTitle.textContent = step.title;
+    stepBody.textContent = step.body;
+    stepLink.innerHTML = step.link
+      ? `<a href="${step.link.href}" target="_blank" rel="noopener">${step.link.label}</a>`
+      : "";
+    renderMedia(step);
+  };
+
   const openModal = (topic, trigger) => {
     if (!modal || !modalCard) return;
     lastTrigger = trigger;
@@ -211,7 +298,12 @@
     modalTitle.textContent = topic.label;
     modalBody.textContent = topic.body;
     modalTags.innerHTML = topic.tags.map((tag) => `<span>${tag}</span>`).join("");
-    renderMedia(topic);
+    if (process) process.hidden = !topic.steps;
+    if (topic.steps) {
+      renderStep("persona");
+    } else {
+      renderMedia(topic);
+    }
     modal.hidden = false;
     document.body.classList.add("oc-lock");
     modalCard.scrollTop = 0;
@@ -229,6 +321,10 @@
       typeLine(topic.line);
       openModal(topic, button);
     });
+  });
+
+  processTabs.forEach((tab) => {
+    tab.addEventListener("click", () => renderStep(tab.dataset.ocStep));
   });
 
   const closeLightbox = () => {
