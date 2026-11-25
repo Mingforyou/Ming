@@ -15,7 +15,7 @@
   const topics = {
     model: {
       index: "01",
-      label: "建模",
+      label: "C4D建模",
       line: "先搭出世界，角色才有地方活下去。",
       body: "C4D / Blender 搭建工业废墟、地下隧道和载具硬表面。先把世界观变成能看见的空间，再让角色和内容落进去。",
       tags: ["C4D", "Blender", "工业废墟", "硬表面"],
