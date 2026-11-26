@@ -1,16 +1,30 @@
 (function () {
-  var MIN_MS = 1500;
-  var MAX_MS = 2100;
+  var MIN_MS = 500;
+  var MAX_MS = 800;
   var start = performance.now();
   var done = false;
   var timer = 0;
 
+  var navEntry = performance.getEntriesByType && performance.getEntriesByType("navigation")[0];
+  var navType = navEntry ? navEntry.type : "";
+  if (!navType && performance.navigation) {
+    navType = performance.navigation.type === 2 ? "back_forward" : "";
+  }
+
   try {
-    if (sessionStorage.getItem("wq-loader-seen") === "1") {
+    if (navType === "back_forward" || sessionStorage.getItem("wq-loader-seen") === "1") {
       document.documentElement.classList.add("wq-skip-loader");
       return;
     }
   } catch (_) {}
+
+  window.addEventListener("pageshow", function (event) {
+    if (!event.persisted) return;
+    document.documentElement.classList.add("wq-skip-loader");
+    document.body.classList.remove("is-leaving");
+    var node = document.getElementById("wq-loader");
+    if (node && node.parentNode) node.parentNode.removeChild(node);
+  });
 
   function finish() {
     if (done) return;
