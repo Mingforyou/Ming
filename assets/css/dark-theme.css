@@ -54,6 +54,13 @@ body {
   background: var(--accent);
 }
 
+.nav-toggle {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--line-strong);
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.28);
+}
+
 .page-main,
 .page-header,
 .section,
@@ -384,6 +391,149 @@ body {
 
 .games-full summary {
   color: #ff8a6b;
+}
+
+/* 社媒案例首屏 */
+.social-hero {
+  position: relative;
+  min-height: 520px;
+  margin-top: 8px;
+  overflow: hidden;
+  background: #0b0a09;
+  border: 1px solid var(--line-strong);
+  box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.28);
+}
+
+.social-hero__bg {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+}
+
+.social-hero__shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(7, 6, 5, 0.04) 0%, rgba(7, 6, 5, 0.12) 34%, rgba(7, 6, 5, 0.72) 62%, rgba(9, 8, 7, 0.98) 100%),
+    linear-gradient(0deg, rgba(7, 6, 5, 0.74) 0%, rgba(7, 6, 5, 0.08) 45%, transparent 100%);
+}
+
+.social-hero__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: min(500px, 47%);
+  min-height: 520px;
+  margin-left: auto;
+  flex-direction: column;
+  justify-content: center;
+  padding: 42px 34px 40px;
+}
+
+.social-hero__eyebrow {
+  margin: 18px 0 0;
+  color: #ff8a6b;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.social-hero .kicker {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+}
+
+.social-hero h1 {
+  margin: 10px 0 0;
+  color: #fff6e6;
+  font-family: var(--serif);
+  font-size: clamp(54px, 6vw, 88px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.social-hero__lead {
+  max-width: 440px;
+  margin: 18px 0 0;
+  color: rgba(246, 241, 228, 0.72);
+  font-size: 13.5px;
+  line-height: 1.85;
+}
+
+.social-hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 26px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(246, 241, 228, 0.18);
+}
+
+.social-hero__meta b {
+  display: block;
+  color: #ff6b4a;
+  font-family: var(--serif);
+  font-size: 28px;
+  line-height: 1;
+}
+
+.social-hero__meta span {
+  display: block;
+  margin-top: 5px;
+  color: rgba(246, 241, 228, 0.55);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 760px) {
+  .social-hero {
+    min-height: 560px;
+  }
+
+  .social-hero__bg {
+    object-position: 32% center;
+  }
+
+  .social-hero__shade {
+    background:
+      linear-gradient(0deg, rgba(7, 6, 5, 0.98) 0%, rgba(7, 6, 5, 0.78) 40%, rgba(7, 6, 5, 0.12) 100%),
+      linear-gradient(90deg, rgba(7, 6, 5, 0.2), transparent 70%);
+  }
+
+  .social-hero__content {
+    width: 100%;
+    min-height: 560px;
+    padding: 220px 20px 30px;
+    justify-content: flex-end;
+  }
+
+  .social-hero h1 {
+    font-size: 54px;
+  }
+
+  .social-hero .kicker {
+    display: none;
+  }
+
+  .social-hero__lead {
+    font-size: 12.5px;
+  }
+
+  .social-hero__meta {
+    gap: 14px;
+  }
+
+  .social-hero__meta b {
+    font-size: 23px;
+  }
 }
 
 /* 项目索引 */
