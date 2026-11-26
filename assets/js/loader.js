@@ -11,9 +11,14 @@
     navType = performance.navigation.type === 2 ? "back_forward" : "";
   }
 
+  function notifyDone() {
+    window.dispatchEvent(new Event("wq-loader-done"));
+  }
+
   try {
     if (navType === "back_forward" || sessionStorage.getItem("wq-loader-seen") === "1") {
       document.documentElement.classList.add("wq-skip-loader");
+      notifyDone();
       return;
     }
   } catch (_) {}
@@ -24,6 +29,7 @@
     document.body.classList.remove("is-leaving");
     var node = document.getElementById("wq-loader");
     if (node && node.parentNode) node.parentNode.removeChild(node);
+    notifyDone();
   });
 
   function finish() {
@@ -47,6 +53,7 @@
       if (node) node.classList.add("is-done");
       setTimeout(function () {
         if (node && node.parentNode) node.parentNode.removeChild(node);
+        notifyDone();
       }, 240);
     }, 140);
   }

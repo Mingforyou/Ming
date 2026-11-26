@@ -26,6 +26,43 @@
     <meta name="twitter:image" content="https://mingforyou.github.io/Ming/assets/img/og-home.jpg" />
     <link rel="canonical" href="https://mingforyou.github.io/Ming/" />
     <link rel="preload" as="image" href="assets/img/hero-3d.webp" fetchpriority="high" />
+    <script>
+      (function () {
+        var root = document.documentElement;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        root.classList.add("hero-intro");
+
+        var revealed = false;
+        function reveal() {
+          if (revealed) return;
+          revealed = true;
+          root.classList.add("hero-revealed");
+        }
+
+        var loaderDone = false;
+        var pageLoaded = false;
+        var scheduled = false;
+
+        function scheduleReveal() {
+          if (!loaderDone || !pageLoaded || scheduled) return;
+          scheduled = true;
+          window.setTimeout(reveal, 500);
+        }
+
+        window.addEventListener("wq-loader-done", function () {
+          loaderDone = true;
+          scheduleReveal();
+        });
+        window.addEventListener("load", function () {
+          pageLoaded = true;
+          scheduleReveal();
+        });
+        window.addEventListener("pageshow", function (event) {
+          if (event.persisted) reveal();
+        });
+        window.setTimeout(reveal, 4000);
+      })();
+    </script>
     <style>
       :root {
         --black: #070707;
@@ -139,6 +176,54 @@
       @media (min-width: 1021px) {
         .hero {
           background-position: center, center, calc(50% - 10px) center;
+        }
+      }
+
+      html.hero-intro .hero-copy > h1 {
+        animation: hero-title-in 520ms ease both;
+      }
+
+      html.hero-intro:not(.hero-revealed) .hero-copy > :not(h1),
+      html.hero-intro:not(.hero-revealed) .hero-side,
+      html.hero-intro:not(.hero-revealed) .hero-bottom,
+      html.hero-intro:not(.hero-revealed) .footer,
+      html.hero-intro:not(.hero-revealed) .wq-pet {
+        opacity: 0;
+        transform: translateY(14px);
+        pointer-events: none;
+      }
+
+      html.hero-intro.hero-revealed .hero-copy > :not(h1),
+      html.hero-intro.hero-revealed .hero-side,
+      html.hero-intro.hero-revealed .hero-bottom,
+      html.hero-intro.hero-revealed .footer,
+      html.hero-intro.hero-revealed .wq-pet {
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+        transition:
+          opacity 520ms cubic-bezier(0.22, 0.61, 0.36, 1),
+          transform 520ms cubic-bezier(0.22, 0.61, 0.36, 1);
+      }
+
+      html.hero-intro.hero-revealed .hero-side { transition-delay: 0ms; }
+      html.hero-intro.hero-revealed .hero-copy > .kicker { transition-delay: 50ms; }
+      html.hero-intro.hero-revealed .hero-copy > .hero-lead { transition-delay: 90ms; }
+      html.hero-intro.hero-revealed .hero-copy > .hero-proof { transition-delay: 130ms; }
+      html.hero-intro.hero-revealed .hero-copy > .hero-actions { transition-delay: 170ms; }
+      html.hero-intro.hero-revealed .hero-copy > .hero-manifesto { transition-delay: 220ms; }
+      html.hero-intro.hero-revealed .hero-bottom { transition-delay: 240ms; }
+      html.hero-intro.hero-revealed .footer { transition-delay: 280ms; }
+      html.hero-intro.hero-revealed .wq-pet { transition-delay: 320ms; }
+
+      @keyframes hero-title-in {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
         }
       }
 
