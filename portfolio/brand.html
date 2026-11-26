@@ -49,7 +49,6 @@
         </button>
         <nav class="nav" id="site-nav" data-nav aria-label="主导航">
           <a href="../index.html">首页</a>
-          <a href="../portfolio/" aria-current="page">案例库</a>
           <a href="../experience/">经历</a>
           <a href="../resume/">简历</a>
         </nav>
@@ -58,7 +57,14 @@
 
     <main class="page-main" id="main">
       <div class="container">
-        <a class="back-link" href="index.html">返回案例库</a>
+        <a class="back-link" href="../index.html">返回首页</a>
+
+        <section class="case-summary" aria-label="案例摘要">
+          <div><span>目标</span><b>用一个版本节点串起首曝、上线、总决赛</b></div>
+          <div><span>动作</span><b>3 支赛事视频 + 7 页图文框架 + 公众号/封面 + 线下 KV</b></div>
+          <div><span>结果</span><b>3 个赛程节点 · 3 支视频 · 1 套 KV · 5V5 总决赛</b></div>
+          <div><span>复盘</span><b>不是一条片子打全场，按用户关注点拆内容</b></div>
+        </section>
 
         <section class="social-hero">
           <img class="social-hero__bg" src="../assets/img/social-hero-wanguo.webp" alt="大唐无双万国霸业资料片主视觉" fetchpriority="high" />
@@ -330,21 +336,109 @@
             </p>
 
             <section class="other-project" id="other-project">
-              <p class="other-project__label">ANOTHER PROJECT / 苏州文旅</p>
-              <h2>另一个官号项目：苏州文旅</h2>
+              <p class="other-project__label">跨界联动</p>
+              <h2>东吴少年游：从冷启打爆到流量承接</h2>
               <p>
-                在苏州文旅轨道交通部宣传组负责官号短视频的选题、脚本、拍摄、采访、剪辑与全渠道发布，
-                联动王者荣耀、百家讲坛、苏超与城市文旅，2 条自然流单条点赞 3w+，总计曝光 150w+。
+                在苏州文旅轨道交通部宣传组，参与王者荣耀 × 苏州地铁「东吴少年游」联动的内容策划与官号传播：
+                角色人偶进车厢做启动宣发，百家讲坛客座教授做文化科普，主题站与《东吴少年游打卡指南》承接线下，
+                最后用周边物料把一次 campaign 留在用户手里。
               </p>
-              <div class="media-grid two">
-                <figure class="media-card">
-                  <img src="../assets/img/brand-interview.webp" alt="苏州文旅《乘着地铁去读诗》采访现场"  loading="lazy" decoding="async" />
-                  <figcaption>《乘着地铁去读诗》：百家讲坛客座教授对谈</figcaption>
-                </figure>
-                <figure class="media-card">
-                  <img src="../assets/img/brand-cos.webp" alt="苏州文旅王者荣耀 Coser 联动"  loading="lazy" decoding="async" />
-                  <figcaption>王者荣耀 IP 联动：Coser 进入地铁场景</figcaption>
-                </figure>
+
+              <div class="metro-metrics">
+                <div><b>2 条</b><span>自然流单条点赞 3w+</span></div>
+                <div><b>150w+</b><span>项目总曝光</span></div>
+                <div><b>3 段</b><span>冷启 → 文化 → 承接</span></div>
+              </div>
+
+              <div class="metro-tabs" data-metro-tabs>
+                <div class="metro-stepper" role="tablist" aria-label="王者荣耀 × 苏州地铁联动阶段">
+                  <button class="metro-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="metro-panel-launch" id="metro-tab-launch" data-metro-step="launch">
+                    <span class="metro-tab__num">01</span>
+                    <span class="metro-tab__body"><b>冷启打爆</b><small>找 Coser · 人偶进地铁</small></span>
+                  </button>
+                  <button class="metro-tab" type="button" role="tab" aria-selected="false" aria-controls="metro-panel-culture" id="metro-tab-culture" data-metro-step="culture" tabindex="-1">
+                    <span class="metro-tab__num">02</span>
+                    <span class="metro-tab__body"><b>长线运营</b><small>文化知识 · 教授对谈</small></span>
+                  </button>
+                  <button class="metro-tab" type="button" role="tab" aria-selected="false" aria-controls="metro-panel-conversion" id="metro-tab-conversion" data-metro-step="conversion" tabindex="-1">
+                    <span class="metro-tab__num">03</span>
+                    <span class="metro-tab__body"><b>承接转化</b><small>周边 · 打卡手册</small></span>
+                  </button>
+                </div>
+
+                <div class="metro-panels">
+                  <section class="metro-panel is-active" id="metro-panel-launch" role="tabpanel" aria-labelledby="metro-tab-launch" data-metro-panel="launch">
+                    <div class="metro-panel__media">
+                      <figure>
+                        <img src="../assets/img/brand-metro-plush.webp" alt="王者荣耀角色人偶进入苏州地铁车厢" decoding="async" />
+                        <figcaption>Coser / 人偶进车厢，制造“地铁偶遇”</figcaption>
+                      </figure>
+                      <figure>
+                        <img src="../assets/img/brand-metro-train.webp" alt="苏州地铁王者荣耀东吴少年游主题列车" decoding="async" />
+                        <figcaption>主题列车：东吴少年游 · 荣耀聚苏州</figcaption>
+                      </figure>
+                    </div>
+                    <div class="metro-panel__copy">
+                      <p class="metro-panel__eyebrow">PHASE 01 / COLD START</p>
+                      <h3>先让角色在地铁里“被偶遇”</h3>
+                      <p>冷启不先讲文化，先用 Coser/人偶制造“地铁里怎么有王者角色”的瞬间。人偶进车厢、主题列车与广济南路主题站同步上线，把一条联动消息变成可拍摄、可转发的城市事件。</p>
+                      <ul>
+                        <li>Coser/人偶进车厢，制造路人拍摄与偶遇感</li>
+                        <li>主题列车 + 广济南路主题站同步露出</li>
+                        <li>官号首发短视频，用角色台词降低广告感</li>
+                      </ul>
+                      <div class="metro-panel__meta"><span>2 条自然流点赞 3w+</span><span>主题列车</span><span>痛车站</span></div>
+                    </div>
+                  </section>
+
+                  <section class="metro-panel" id="metro-panel-culture" role="tabpanel" aria-labelledby="metro-tab-culture" data-metro-panel="culture" hidden>
+                    <div class="metro-panel__media">
+                      <figure>
+                        <img src="../assets/img/brand-metro-professor.webp" alt="王咏琪与百家讲坛客座教授杨旭辉对谈东吴文化" decoding="async" />
+                        <figcaption>教授对谈：为什么是苏州、东吴少年游</figcaption>
+                      </figure>
+                      <figure>
+                        <img src="../assets/img/brand-metro-culture.webp" alt="苏州园林中的东吴文化科普画面" decoding="async" />
+                        <figcaption>横屏文化内容：把角色放回城市历史</figcaption>
+                      </figure>
+                    </div>
+                    <div class="metro-panel__copy">
+                      <p class="metro-panel__eyebrow">PHASE 02 / CULTURE</p>
+                      <h3>再用文化内容，把热度拉长</h3>
+                      <p>热度起来后，用百家讲坛客座教授杨旭辉的对谈/科普，把“东吴少年游”讲成苏州故事：为什么是苏州、东吴历史与城市记忆有什么关系。横屏文化内容适合官号长线发布与二次剪辑。</p>
+                      <ul>
+                        <li>教授对谈：给联动一个“为什么是苏州”的理由</li>
+                        <li>横屏长视频 + 切片图文，持续供给官号</li>
+                        <li>角色不只是皮肤，而是城市文化的入口</li>
+                      </ul>
+                      <div class="metro-panel__meta"><span>百家讲坛客座教授</span><span>横屏文化内容</span><span>官号长线</span></div>
+                    </div>
+                  </section>
+
+                  <section class="metro-panel" id="metro-panel-conversion" role="tabpanel" aria-labelledby="metro-tab-conversion" data-metro-panel="conversion" hidden>
+                    <div class="metro-panel__media metro-panel__media--portrait">
+                      <figure>
+                        <img src="../assets/img/brand-metro-guide.webp" alt="东吴少年游打卡指南手册" decoding="async" />
+                        <figcaption>《东吴少年游打卡指南》手册</figcaption>
+                      </figure>
+                      <figure>
+                        <img src="../assets/img/brand-metro-station.webp" alt="苏州地铁广济南路王者荣耀主题站" decoding="async" />
+                        <figcaption>广济南路主题站：把线上观众带到现场</figcaption>
+                      </figure>
+                    </div>
+                    <div class="metro-panel__copy">
+                      <p class="metro-panel__eyebrow">PHASE 03 / CONVERSION</p>
+                      <h3>最后用打卡和周边，把流量接住</h3>
+                      <p>把线上观众引到广济南路主题站与打卡点，发放《东吴少年游打卡指南》；用手册、联名周边和角色物料做收尾，让用户把一次 campaign 带走，也让官号获得二次 UGC。</p>
+                      <ul>
+                        <li>主题站打卡 + 打卡手册领取</li>
+                        <li>联名周边/角色物料承接，延长记忆</li>
+                        <li>用户打卡反哺官号，形成二次传播</li>
+                      </ul>
+                      <div class="metro-panel__meta"><span>打卡手册</span><span>周边承接</span><span>二次 UGC</span></div>
+                    </div>
+                  </section>
+                </div>
               </div>
             </section>
           </article>
@@ -366,7 +460,7 @@
       </div>
     </main>
 
-    <a class="back-float" href="index.html" title="返回案例库；如果浏览器后退失效，点这里">
+    <a class="back-float" href="../index.html" title="返回首页；如果浏览器后退失效，点这里">
       <svg class="back-float__cat" viewBox="0 0 64 64" shape-rendering="crispEdges" aria-hidden="true">
         <rect x="10" y="14" width="12" height="14" fill="#141414"/>
         <rect x="42" y="14" width="12" height="14" fill="#141414"/>
@@ -383,7 +477,7 @@
         <rect x="16" y="52" width="8" height="4" fill="#141414"/>
         <rect x="40" y="52" width="8" height="4" fill="#141414"/>
       </svg>
-      <span class="back-float__text"><b>返回案例库</b><small>BACK TO CASES</small></span>
+      <span class="back-float__text"><b>返回首页</b><small>BACK HOME</small></span>
     </a>
 
     <footer class="site-footer">

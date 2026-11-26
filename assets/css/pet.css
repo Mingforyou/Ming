@@ -90,14 +90,15 @@
   }
 
   .wq-pet__bubble {
-    max-width: 170px;
-    padding: 8px 10px 9px;
-    font-size: 10.5px;
+    max-width: 150px;
+    padding: 7px 9px 8px;
+    font-size: 10px;
   }
 
   .wq-pet__character {
-    width: 76px;
-    height: 76px;
+    width: 52px;
+    height: 52px;
+    opacity: 0.86;
   }
 }
 

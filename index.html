@@ -405,14 +405,214 @@
         border-color: var(--red);
       }
 
+      .hero-proof {
+        max-width: 760px;
+        margin-top: 22px;
+        padding-top: 14px;
+        border-top: 1px solid rgba(243, 239, 229, 0.16);
+      }
+
+      .hero-proof__label {
+        display: block;
+        color: var(--red);
+        font-family: var(--mono);
+        font-size: 9px;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+      }
+
+      .hero-proof__grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1px;
+        margin-top: 9px;
+        background: rgba(243, 239, 229, 0.16);
+        border: 1px solid rgba(243, 239, 229, 0.16);
+      }
+
+      .hero-proof__grid > div {
+        position: relative;
+        padding: 12px 14px 13px;
+        background: linear-gradient(180deg, rgba(228, 59, 46, 0.08), rgba(7, 7, 7, 0.68) 46%);
+      }
+
+      .hero-proof__grid > div::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 14px;
+        width: 18px;
+        height: 2px;
+        background: var(--red);
+      }
+
+      .hero-proof__grid b {
+        display: block;
+        color: var(--white);
+        font-family: var(--mono);
+        font-size: clamp(21px, 2.2vw, 29px);
+        line-height: 1;
+      }
+
+      .hero-proof__grid > div:first-child b {
+        color: #ff6b5a;
+      }
+
+      .hero-proof__grid span {
+        display: block;
+        margin-top: 6px;
+        color: rgba(243, 239, 229, 0.46);
+        font-size: 9.5px;
+        letter-spacing: 0.06em;
+      }
+
+      .hero-exp-link {
+        display: flex;
+        max-width: 760px;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 6px 12px;
+        margin-top: 18px;
+        padding: 9px 0 10px;
+        color: rgba(243, 239, 229, 0.62);
+        border-bottom: 1px solid rgba(243, 239, 229, 0.16);
+        font-size: 11px;
+        line-height: 1.5;
+        transition: border-color 160ms ease;
+      }
+
+      .hero-exp-link:hover {
+        border-color: var(--red);
+      }
+
+      .hero-exp-link__label {
+        color: var(--red);
+        font-family: var(--mono);
+        font-size: 9px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+      }
+
+      .hero-exp-link b {
+        color: rgba(243, 239, 229, 0.82);
+        font-size: 11.5px;
+        font-weight: 700;
+      }
+
+      .hero-exp-link__go {
+        margin-left: auto;
+        color: var(--red);
+        font-family: var(--mono);
+        font-size: 9px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+      }
+
+      .hero-manifesto {
+        max-width: 620px;
+        margin: 14px 0 0;
+        color: rgba(243, 239, 229, 0.34);
+        font-family: var(--serif);
+        font-size: 12px;
+        line-height: 1.7;
+        letter-spacing: 0.03em;
+      }
+
       .hero-side {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: flex-end;
-        gap: 16px;
+        gap: 11px;
         align-self: center;
         padding: 0;
+      }
+
+      .hero-side > * {
+        width: min(100%, 380px);
+      }
+
+      .feature-case {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 17px 20px 16px;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 100% 0%, rgba(228, 59, 46, 0.3), transparent 44%),
+          linear-gradient(135deg, rgba(92, 16, 12, 0.9), rgba(12, 12, 12, 0.96));
+        border: 1px solid rgba(228, 59, 46, 0.58);
+        box-shadow: 8px 8px 0 rgba(228, 59, 46, 0.14);
+        transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+      }
+
+      .feature-case::after {
+        content: "01";
+        position: absolute;
+        right: 12px;
+        top: 2px;
+        color: rgba(255, 255, 255, 0.055);
+        font-family: var(--serif);
+        font-size: 86px;
+        font-weight: 900;
+        line-height: 1;
+        pointer-events: none;
+      }
+
+      .feature-case:hover {
+        border-color: rgba(255, 107, 90, 0.92);
+        box-shadow: 11px 11px 0 rgba(228, 59, 46, 0.22);
+        transform: translate(-2px, -2px);
+      }
+
+      .feature-case__eyebrow {
+        position: relative;
+        z-index: 1;
+        color: #ff6b5a;
+        font-family: var(--mono);
+        font-size: 9px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+      }
+
+      .feature-case b {
+        position: relative;
+        z-index: 1;
+        color: var(--white);
+        font-family: var(--serif);
+        font-size: clamp(22px, 2.1vw, 28px);
+        font-weight: 700;
+        line-height: 1.22;
+        letter-spacing: 0.01em;
+      }
+
+      .feature-case__desc {
+        position: relative;
+        z-index: 1;
+        color: rgba(243, 239, 229, 0.68);
+        font-size: 11.5px;
+        line-height: 1.6;
+      }
+
+      .feature-case__meta {
+        position: relative;
+        z-index: 1;
+        color: rgba(243, 239, 229, 0.44);
+        font-family: var(--mono);
+        font-size: 9px;
+        letter-spacing: 0.04em;
+      }
+
+      .feature-case__go {
+        position: relative;
+        z-index: 1;
+        margin-top: 4px;
+        color: var(--red);
+        font-family: var(--mono);
+        font-size: 9px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
       }
 
       #work {
@@ -448,6 +648,90 @@
         gap: 10px;
         width: min(100%, 380px);
         transform: translateX(14px);
+      }
+
+      .hero-tiles--compact {
+        width: min(100%, 380px);
+        gap: 8px;
+        transform: none;
+      }
+
+      .hero-tiles--compact .tile {
+        aspect-ratio: 1.55 / 1;
+        padding: 10px 12px 11px;
+        opacity: 1;
+      }
+
+      .hero-tiles--compact .tile .num {
+        font-size: 8.5px;
+      }
+
+      .hero-tiles--compact .tile .ico {
+        top: 10px;
+        right: 10px;
+        width: 22px;
+        height: 22px;
+      }
+
+      .hero-tiles--compact .tile b {
+        font-size: 18px;
+        line-height: 1.24;
+      }
+
+      .hero-tiles--compact .tile .go {
+        right: 12px;
+        bottom: 11px;
+      }
+
+      .tile-sub {
+        display: block;
+        margin-top: 4px;
+        padding-right: 16px;
+        color: rgba(243, 239, 229, 0.42);
+        font-size: 8.5px;
+        line-height: 1.45;
+        letter-spacing: 0.02em;
+      }
+
+      .hero-strip {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 10px 14px;
+        background: rgba(12, 12, 12, 0.7);
+        border: 1px solid rgba(243, 239, 229, 0.16);
+        transition: background 180ms ease, border-color 180ms ease;
+      }
+
+      .hero-strip:hover {
+        background: rgba(228, 59, 46, 0.12);
+        border-color: rgba(228, 59, 46, 0.7);
+      }
+
+      .hero-strip__body {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+      }
+
+      .hero-strip__body b {
+        color: var(--white);
+        font-family: var(--serif);
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .hero-strip__body small {
+        color: rgba(243, 239, 229, 0.42);
+        font-family: var(--mono);
+        font-size: 8.5px;
+        letter-spacing: 0.04em;
+      }
+
+      .hero-strip__go {
+        color: var(--red);
+        font-size: 14px;
       }
 
       .tile {
@@ -1299,8 +1583,10 @@
           min-height: calc(100vh - 67px);
         }
         .hero-inner { grid-template-columns: 1fr; }
-        .hero-side { align-items: flex-start; }
+        .hero-side { align-items: stretch; }
+        .hero-side > * { width: 100%; max-width: 520px; }
         .hero-tiles { transform: none; }
+        .hero-tiles--compact .tile { aspect-ratio: 1.5 / 1; }
         .console-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         .console-card,
         .console-card:nth-child(4),
@@ -1335,6 +1621,13 @@
         .hero-inner { padding: 44px 0 30px; }
         h1 { font-size: clamp(30px, 9.2vw, 44px); }
         h1 .h1-nowrap { white-space: normal; }
+        .hero-proof__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .hero-proof__grid > div { padding: 10px 10px 11px; }
+        .hero-proof__grid > div::before { left: 10px; }
+        .hero-exp-link__go { margin-left: 0; }
+        .feature-case b { font-size: 23px; }
+        .hero-tiles--compact .tile { aspect-ratio: 1.5 / 1; }
+        .hero-manifesto { font-size: 11px; }
         .stats { width: 100%; }
         .console-grid { grid-template-columns: 1fr; }
         .console-card,
@@ -1387,7 +1680,6 @@
         </a>
         <nav class="nav" aria-label="主导航">
           <a href="index.html" aria-current="page">首页</a>
-          <a href="portfolio/">案例库</a>
           <a href="experience/">经历</a>
           <a href="resume/">简历</a>
         </nav>
@@ -1397,66 +1689,75 @@
     <main>
       <section class="hero">
         <div class="hero-inner">
-          <div>
-            <a class="hero-exp-cta hero-resume-cta" href="resume/" data-transition>查看完整简历</a>
-            <p class="kicker">2027 届 · 211 · 游戏营销全链路</p>
-            <h1><span class="h1-nowrap">对 ACGN 圈层的热爱，</span><br /><span>做成运营增长资本。</span></h1>
+          <div class="hero-copy">
+            <p class="kicker">2027 届 · 211 · 游戏营销 / 内容增长</p>
+            <h1><span class="h1-nowrap">把 ACGN 内容，</span><br /><span>做成增长。</span></h1>
             <p class="hero-lead">
-              从内容生产到达人矩阵与投放复盘，把 ACGN 圈层洞察做成可复用的素材、达人与方法。
+              从内容生产、KOC/KOL 达人到投放复盘，把圈层洞察做成可复用的素材、达人与方法。
             </p>
-            <a class="hero-exp-cta hero-experience-cta" href="experience/" data-transition>
-              <span class="hero-exp-cta__label">经历时间轴</span>
-              <span class="hero-exp-cta__chain">
-                <b>网易游戏</b><i>→</i><b>网易 LOFTER</b><i>→</i><b>哔哩哔哩 TTS 项目</b><i>→</i><b>王者荣耀 × 苏州文旅</b>
-              </span>
-              <span class="hero-exp-cta__meta">5 段实习 · 4 个项目 · 200w+ UGC · 4000w+ KOL 曝光</span>
-              <span class="hero-exp-cta__go">查看 →</span>
-            </a>
 
+            <div class="hero-proof">
+              <span class="hero-proof__label">代表项目结果 / SELECTED RESULTS</span>
+              <div class="hero-proof__grid">
+                <div><b>+50%</b><span>社媒曝光提升</span></div>
+                <div><b>2.5w+</b><span>KOC 产出贴量</span></div>
+                <div><b>1400w</b><span>KOL 单条最高曝光</span></div>
+              </div>
+            </div>
 
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="experience/" data-transition>经历时间轴 →</a>
+              <a class="btn btn-ghost" href="resume/" data-transition>查看简历</a>
+            </div>
+
+            <p class="hero-manifesto">“对 ACGN 圈层的热爱，做成运营增长资本。”</p>
           </div>
 
-          <aside class="hero-side" id="work" aria-label="能力入口">
-            <a class="hero-all-cases" href="portfolio/">全部案例 <b>08</b> →</a>
-            <nav class="hero-tiles" aria-label="能力入口">
-              <a class="tile" href="portfolio/creative.html" data-transition>
-                <span class="num">01</span>
-                <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1" /><path d="M10 8l5 3-5 3V8Z" /><path d="M8 20h8" /></svg>
-                <b>平面广告<br />素材优化</b>
-                <span class="go">→</span>
-              </a>
-              <a class="tile" href="portfolio/koc.html" data-transition>
-                <span class="num">02</span>
+          <aside class="hero-side" id="work" aria-label="核心案例">
+            <a class="feature-case" href="portfolio/brand.html" data-transition>
+              <span class="feature-case__eyebrow">01 / FLAGSHIP · 大唐无双「万国霸业」</span>
+              <b>网易游戏 · 社媒运营</b>
+              <span class="feature-case__desc">首曝 → 上线 → 总决赛，按版本节点拆内容</span>
+              <span class="feature-case__meta">3 支赛事视频 · 1 套线下 KV · 5V5 总决赛</span>
+              <span class="feature-case__go">看完整案例 →</span>
+            </a>
+
+            <nav class="hero-tiles hero-tiles--compact" aria-label="增长引擎与支撑能力">
+              <a class="tile tile--compact" href="portfolio/koc.html" data-transition>
+                <span class="num">02 / KOC</span>
                 <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="12" cy="12" r="2.5" /><circle cx="5" cy="6" r="1.6" /><circle cx="19" cy="7" r="1.6" /><circle cx="18" cy="18" r="1.6" /><circle cx="6" cy="18" r="1.6" /><path d="M9.8 10.3 6.2 7M14.2 10.4l3.6-2.2M14 13.6l3 3M10 13.6l-3 3" /></svg>
-                <b>KOC<br />内容网络</b>
+                <b>400+ 校园<br />KOC 网络</b>
+                <span class="tile-sub">2.5w+ 内容 · 9w+ 拉新</span>
                 <span class="go">→</span>
               </a>
-              <a class="tile" href="portfolio/kol.html" data-transition>
-                <span class="num">03</span>
+              <a class="tile tile--compact" href="portfolio/kol.html" data-transition>
+                <span class="num">03 / KOL</span>
                 <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="5.5" /><path d="M12 3v18M3 12h18" /></svg>
-                <b>KOL<br />达人营销</b>
+                <b>内容打爆<br />达人营销</b>
+                <span class="tile-sub">60+ 达人 · CPM 优化</span>
                 <span class="go">→</span>
               </a>
-              <a class="tile" href="portfolio/brand.html" data-transition>
-                <span class="num">04</span>
-                <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M4 10v4h3l6 4V6l-6 4H4Z" /><path d="M17 9c1.5 1.7 1.5 4.3 0 6" /><path d="M19.5 6.5c3 3 3 8 0 11" /></svg>
-                <b>官方社媒<br />运营</b>
-                <span class="go">→</span>
-              </a>
-              <a class="tile" href="portfolio/project.html" data-transition>
-                <span class="num">05</span>
+              <a class="tile tile--compact" href="portfolio/project.html" data-transition>
+                <span class="num">04 / 线下</span>
                 <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 20h18" /><path d="M6 20V10l6-4 6 4v10" /><path d="M10 20v-5h4v5" /></svg>
-                <b>线下<br />活动</b>
+                <b>赛事与<br />直播带货</b>
+                <span class="tile-sub">4000w+ 曝光 · CPM 1.9</span>
                 <span class="go">→</span>
               </a>
-              <a class="tile" href="demo/oc.html" data-transition>
-                <span class="num">06</span>
-                <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h7" /><circle cx="19" cy="16" r="3" /></svg>
-                <b>更多</b>
-                <span class="tile-sub">二次元 / Cosplay / 游戏 等</span>
+              <a class="tile tile--compact" href="portfolio/creative.html" data-transition>
+                <span class="num">05 / 素材</span>
+                <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1" /><path d="M10 8l5 3-5 3V8Z" /><path d="M8 20h8" /></svg>
+                <b>广告素材<br />优化</b>
+                <span class="tile-sub">LOFTER · 新东方 · DSP</span>
                 <span class="go">→</span>
               </a>
             </nav>
+
+            <a class="hero-strip" href="demo/oc.html" data-transition>
+              <span class="hero-strip__body"><b>圈层创作</b><small>同人 / Cosplay / 文游 / C4D</small></span>
+              <span class="hero-strip__go">→</span>
+            </a>
+
           </aside>
         </div>
 

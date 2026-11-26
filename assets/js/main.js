@@ -108,6 +108,41 @@
     }
   });
 
+  document.querySelectorAll("[data-metro-tabs]").forEach((wrapper) => {
+    const tabs = Array.from(wrapper.querySelectorAll("[data-metro-step]"));
+    const panels = Array.from(wrapper.querySelectorAll("[data-metro-panel]"));
+    if (!tabs.length || !panels.length) return;
+
+    const show = (key, focus = false) => {
+      tabs.forEach((tab) => {
+        const active = tab.dataset.metroStep === key;
+        tab.classList.toggle("is-active", active);
+        tab.setAttribute("aria-selected", String(active));
+        tab.tabIndex = active ? 0 : -1;
+        if (active && focus) tab.focus();
+      });
+
+      panels.forEach((panel) => {
+        const active = panel.dataset.metroPanel === key;
+        panel.classList.toggle("is-active", active);
+        panel.hidden = !active;
+      });
+    };
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => show(tab.dataset.metroStep));
+      tab.addEventListener("keydown", (event) => {
+        if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
+        event.preventDefault();
+        const next = (index + (event.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length;
+        show(tabs[next].dataset.metroStep, true);
+      });
+    });
+
+    const initial = tabs.find((tab) => tab.classList.contains("is-active")) || tabs[0];
+    show(initial.dataset.metroStep);
+  });
+
   document.querySelectorAll("[data-print]").forEach((button) => {
     button.addEventListener("click", () => window.print());
   });
@@ -187,8 +222,8 @@
       const page = path.replace(/\.html$/, "");
       const messages = {
         home: [
-          "先看哪条线路？",
-          "我做过 5v5 线下赛全链路。",
+          "先看网易游戏社媒，还是 KOC/KOL？",
+          "经历时间轴在顶部，点进去看全链路。",
           "KOC 那页有 400+ 校园创作者。",
           "211 / 2027 届，找游戏营销岗。",
           "点右上角简历，可以直接看。",

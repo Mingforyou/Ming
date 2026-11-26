@@ -127,6 +127,7 @@ body {
 .koc-post,
 .project-card,
 .project-body,
+.case-summary > div,
 .skill,
 .filter-btn,
 .resume-aside,
@@ -152,6 +153,15 @@ body {
 .kol-sample:hover,
 .case-step__card:hover {
   border-color: rgba(217, 79, 43, 0.55);
+}
+
+.case-summary {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: var(--line-strong);
+}
+
+.case-summary > div {
+  background: rgba(10, 9, 8, 0.92);
 }
 
 .filter-btn {
@@ -260,6 +270,35 @@ body {
   background: #15110f;
   border-color: var(--line-strong);
   box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.22);
+}
+
+.other-project {
+  background:
+    radial-gradient(circle at 94% 0%, rgba(124, 200, 232, 0.16), transparent 20rem),
+    linear-gradient(145deg, #0b1926 0%, #102b3a 55%, #08141f 100%);
+  border-color: rgba(124, 200, 232, 0.28);
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.35);
+}
+
+.other-project__label {
+  color: #7cc8e8;
+}
+
+.other-project h2 {
+  color: #f3efe5;
+}
+
+.other-project p {
+  color: rgba(243, 239, 229, 0.66);
+}
+
+.other-project .media-card {
+  background: rgba(5, 16, 25, 0.78);
+  border-color: rgba(124, 200, 232, 0.2);
+}
+
+.other-project .media-card figcaption {
+  color: rgba(243, 239, 229, 0.5);
 }
 
 .case-feature__chart figcaption,
