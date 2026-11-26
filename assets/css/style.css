@@ -1217,8 +1217,8 @@ textarea {
 
 .social-posters {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
   align-items: start;
   margin-top: 14px;
 }
@@ -1230,21 +1230,26 @@ textarea {
   box-shadow: none;
 }
 
-.poster-item.wide {
-  grid-column: 1 / -1;
-}
-
 .poster-item a {
   display: block;
-  height: auto;
+  aspect-ratio: 1.9;
+  overflow: hidden;
   padding: 0;
+  background: #0d0d0d;
+  border: 1px solid var(--line);
 }
 
 .poster-item img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: contain;
   max-height: none;
+  transition: opacity 180ms ease;
+}
+
+.poster-item a:hover img {
+  opacity: 0.86;
 }
 
 .poster-item figcaption {
@@ -2852,7 +2857,7 @@ textarea {
   }
 
   .social-posters {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .poster-item a {
@@ -3131,6 +3136,10 @@ textarea {
 
 @media (max-width: 560px) {
   .koc-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .social-posters {
     grid-template-columns: 1fr;
   }
 }
