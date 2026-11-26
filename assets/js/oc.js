@@ -32,21 +32,21 @@
         {
           type: "video",
           src: "../assets/video/oc-model.mp4",
-          poster: "../assets/img/oc-model-poster.jpg",
+          poster: "../assets/img/oc-model-poster.webp",
           caption: "C4D 场景搭建过程 / 16s",
         },
         {
-          src: "../assets/img/oc-model-tank.jpg",
+          src: "../assets/img/oc-model-tank.webp",
           alt: "C4D 载具硬表面建模",
           caption: "载具硬表面 / 炮塔结构",
         },
         {
-          src: "../assets/img/oc-model-plant.jpg",
+          src: "../assets/img/oc-model-plant.webp",
           alt: "C4D 工业厂区场景",
           caption: "工业厂区 / 管线与平台",
         },
         {
-          src: "../assets/img/oc-model-pipes.jpg",
+          src: "../assets/img/oc-model-pipes.webp",
           alt: "C4D 管道与楼梯细节",
           caption: "管道与楼梯 / 场景细节",
         },
@@ -66,7 +66,7 @@
           mediaOne: true,
           media: [
             {
-              src: "../assets/img/oc-iskari-persona.jpg",
+              src: "../assets/img/oc-iskari-persona.webp",
               alt: "伊斯卡利角色烟雾镜的人设档案",
               caption: "人设档案 / 烟雾镜 · 点击看全文",
             },
@@ -79,7 +79,7 @@
           mediaOne: true,
           media: [
             {
-              src: "../assets/img/oc-iskari-world.jpg",
+              src: "../assets/img/oc-iskari-world.webp",
               alt: "伊斯卡利地下通道与环形空间 C4D 场景",
               caption: "世界观场景 / 地下通道与环形空间",
             },
@@ -92,7 +92,7 @@
           mediaOne: true,
           media: [
             {
-              src: "../assets/img/oc-iskari-script.jpg",
+              src: "../assets/img/oc-iskari-script.webp",
               alt: "伊斯卡利文案脚本第一页",
               caption: "《伊斯卡利》脚本 / 第 1 页 · 点击看大图",
             },
@@ -106,12 +106,12 @@
           mediaFit: true,
           media: [
             {
-              src: "../assets/img/oc-iskari-commission-01.jpg",
+              src: "../assets/img/oc-iskari-commission-01.webp",
               alt: "伊斯卡利约稿角色设定与道具图",
               caption: "约稿图 01 / 角色设定与道具",
             },
             {
-              src: "../assets/img/oc-iskari-commission-02.jpg",
+              src: "../assets/img/oc-iskari-commission-02.webp",
               alt: "伊斯卡利红色背景角色插画",
               caption: "约稿图 02 / 角色插画",
             },
@@ -128,12 +128,12 @@
       mediaTwo: true,
       media: [
         {
-          src: "../assets/img/oc-fan-01.jpg",
+          src: "../assets/img/oc-fan-01.webp",
           alt: "同人文案例第一页",
           caption: "同人文案例 / 第 1 页 · 点击看全文",
         },
         {
-          src: "../assets/img/oc-fan-02.jpg",
+          src: "../assets/img/oc-fan-02.webp",
           alt: "同人文案例第二页",
           caption: "同人文案例 / 第 2 页 · 点击看全文",
         },
@@ -148,17 +148,17 @@
       mediaTall: true,
       media: [
         {
-          src: "../assets/img/oc-cos-01.jpg",
+          src: "../assets/img/oc-cos-01.webp",
           alt: "Coser 角色演绎一",
           caption: "Coser / 蓝发角色演绎",
         },
         {
-          src: "../assets/img/oc-cos-pink.jpg",
+          src: "../assets/img/oc-cos-pink.webp",
           alt: "Coser 粉色造型三格拼图",
           caption: "Coser / 粉色造型与镜框",
         },
         {
-          src: "../assets/img/oc-cos-last.jpg",
+          src: "../assets/img/oc-cos-last.webp",
           alt: "Coser 黑蓝发与墨镜造型",
           caption: "Coser / 黑蓝发与墨镜",
         },
@@ -173,17 +173,17 @@
       mediaTall: true,
       media: [
         {
-          src: "../assets/img/oc-art-01.jpg",
+          src: "../assets/img/oc-art-01.webp",
           alt: "角色插画与眼部神经医学参考",
           caption: "角色插画 / 医学参考与表情设计",
         },
         {
-          src: "../assets/img/oc-art-02.jpg",
+          src: "../assets/img/oc-art-02.webp",
           alt: "棕发角色与白花插画",
           caption: "角色插画 / 白花与西装",
         },
         {
-          src: "../assets/img/oc-art-03.jpg",
+          src: "../assets/img/oc-art-03.webp",
           alt: "水彩人物与蝴蝶插画",
           caption: "角色插画 / 水彩与蝴蝶",
         },
