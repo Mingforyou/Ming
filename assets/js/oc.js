@@ -232,13 +232,38 @@
     lastTrigger?.focus();
   };
 
+  const setupCarousel = (carousel) => {
+    const track = carousel.querySelector(".oc-carousel__track");
+    const dots = Array.from(carousel.querySelectorAll("[data-oc-carousel-dot]"));
+    if (!track || dots.length < 2) return;
+
+    const update = () => {
+      const index = Math.round(track.scrollLeft / Math.max(track.clientWidth, 1));
+      dots.forEach((dot, dotIndex) => {
+        const active = dotIndex === index;
+        dot.classList.toggle("is-active", active);
+        dot.setAttribute("aria-current", active ? "true" : "false");
+      });
+    };
+
+    carousel.querySelector("[data-oc-carousel-prev]")?.addEventListener("click", () => {
+      track.scrollBy({ left: -track.clientWidth, behavior: "smooth" });
+    });
+    carousel.querySelector("[data-oc-carousel-next]")?.addEventListener("click", () => {
+      track.scrollBy({ left: track.clientWidth, behavior: "smooth" });
+    });
+    dots.forEach((dot, dotIndex) => {
+      dot.addEventListener("click", () => {
+        track.scrollTo({ left: track.clientWidth * dotIndex, behavior: "smooth" });
+      });
+    });
+    track.addEventListener("scroll", () => window.requestAnimationFrame(update), { passive: true });
+    update();
+  };
+
   const renderMedia = (topic) => {
     if (!modalMedia) return;
     modalMedia.innerHTML = "";
-    modalMedia.classList.toggle("oc-modal__media--two", Boolean(topic.mediaTwo));
-    modalMedia.classList.toggle("oc-modal__media--tall", Boolean(topic.mediaTall));
-    modalMedia.classList.toggle("oc-modal__media--one", Boolean(topic.mediaOne));
-    modalMedia.classList.toggle("oc-modal__media--fit", Boolean(topic.mediaFit));
 
     if (!topic.media?.length) {
       modalMedia.hidden = true;
@@ -246,30 +271,79 @@
     }
 
     modalMedia.hidden = false;
-    topic.media.forEach((item) => {
-      const figure = document.createElement("figure");
-      figure.className = "oc-media__item";
+    const videos = topic.media.filter((item) => item.type === "video");
+    const images = topic.media.filter((item) => item.type !== "video");
 
-      if (item.type === "video") {
-        figure.classList.add("oc-media__item--video");
+    if (videos.length) {
+      const videoRow = document.createElement("div");
+      videoRow.className = "oc-media-videos";
+      videos.forEach((item) => {
+        const figure = document.createElement("figure");
+        figure.className = "oc-media__item oc-media__item--video";
         figure.innerHTML = `
           <video controls playsinline preload="none" poster="${item.poster}">
             <source src="${item.src}" type="video/mp4" />
           </video>
           <figcaption>${item.caption}</figcaption>
         `;
-      } else {
-        figure.innerHTML = `
+        videoRow.appendChild(figure);
+      });
+      modalMedia.appendChild(videoRow);
+    }
+
+    if (images.length) {
+      const carousel = document.createElement("div");
+      carousel.className = `oc-carousel${images.length === 1 ? " is-single" : ""}`;
+      const track = document.createElement("div");
+      track.className = "oc-carousel__track";
+
+      images.forEach((item, index) => {
+        const slide = document.createElement("figure");
+        slide.className = "oc-media__item oc-carousel__slide";
+        slide.innerHTML = `
           <a href="${item.src}" data-oc-zoom>
             <img src="${item.src}" alt="${item.alt}" loading="lazy" />
             <i class="oc-media__zoom" aria-hidden="true">↗</i>
           </a>
           <figcaption>${item.caption}</figcaption>
         `;
-      }
+        track.appendChild(slide);
+      });
 
-      modalMedia.appendChild(figure);
-    });
+      carousel.appendChild(track);
+      if (images.length > 1) {
+        const prev = document.createElement("button");
+        prev.type = "button";
+        prev.className = "oc-carousel__btn oc-carousel__btn--prev";
+        prev.dataset.ocCarouselPrev = "";
+        prev.setAttribute("aria-label", "上一张");
+        prev.textContent = "←";
+
+        const next = document.createElement("button");
+        next.type = "button";
+        next.className = "oc-carousel__btn oc-carousel__btn--next";
+        next.dataset.ocCarouselNext = "";
+        next.setAttribute("aria-label", "下一张");
+        next.textContent = "→";
+
+        const dots = document.createElement("div");
+        dots.className = "oc-carousel__dots";
+        images.forEach((item, index) => {
+          const dot = document.createElement("button");
+          dot.type = "button";
+          dot.dataset.ocCarouselDot = "";
+          dot.setAttribute("aria-label", `第 ${index + 1} 张`);
+          if (index === 0) dot.classList.add("is-active");
+          dots.appendChild(dot);
+        });
+
+        carousel.appendChild(prev);
+        carousel.appendChild(next);
+        carousel.appendChild(dots);
+      }
+      modalMedia.appendChild(carousel);
+      setupCarousel(carousel);
+    }
   };
 
   const renderStep = (stepKey) => {

@@ -218,6 +218,18 @@
   border-top: 1px solid var(--line);
 }
 
+.games-full-open {
+  margin-top: 46px;
+}
+
+.games-table tbody tr.is-business td {
+  background: rgba(217, 79, 43, 0.1);
+}
+
+.games-table tbody tr.is-business td:first-child {
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
 .games-full summary {
   padding: 16px 0;
   color: var(--accent-2);
