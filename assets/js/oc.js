@@ -31,7 +31,7 @@
       media: [
         {
           type: "video",
-          src: "../assets/video/oc-model.mp4",
+          src: "../assets/video/oc-model.mp4?v=2",
           poster: "../assets/img/oc-model-poster.webp",
           caption: "C4D 场景搭建过程 / 16s",
         },
