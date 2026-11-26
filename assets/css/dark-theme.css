@@ -1,0 +1,412 @@
+/* =========================================================
+   全站暗色主题 / DARK THEME
+   仅在浅色页面覆盖，不新增图片资源
+   ========================================================= */
+
+:root {
+  --paper: #0b0a09;
+  --paper-2: #15110f;
+  --ink: #f3efe5;
+  --ink-soft: rgba(243, 239, 229, 0.66);
+  --cream: #fffaf0;
+  --line: rgba(243, 239, 229, 0.14);
+  --line-strong: rgba(243, 239, 229, 0.3);
+  --shadow: 8px 8px 0 rgba(0, 0, 0, 0.3);
+}
+
+html {
+  background: #0b0a09;
+}
+
+body {
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(217, 79, 43, 0.08), transparent 32rem),
+    radial-gradient(circle at 92% 18%, rgba(31, 111, 92, 0.06), transparent 30rem),
+    linear-gradient(rgba(243, 239, 229, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(243, 239, 229, 0.035) 1px, transparent 1px),
+    #0b0a09;
+  background-size: auto, auto, 42px 42px, 42px 42px, auto;
+}
+
+.site-header {
+  background: rgba(9, 8, 7, 0.92);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+}
+
+.brand,
+.nav a {
+  color: var(--ink);
+}
+
+.nav a {
+  color: var(--ink-soft);
+}
+
+.nav a:hover,
+.nav a[aria-current="page"] {
+  color: #fff;
+}
+
+.brand-mark {
+  color: #fff8ef;
+  background: var(--accent);
+}
+
+.page-main,
+.page-header,
+.section,
+.container {
+  color: var(--ink);
+}
+
+.back-link,
+.section-desc,
+.note,
+.panel-meta,
+.project-body p,
+.demo-body p,
+.case-card p {
+  color: var(--ink-soft);
+}
+
+.page-header,
+.section-head,
+.section,
+.site-footer {
+  border-color: var(--line);
+}
+
+.site-footer {
+  color: var(--ink-soft);
+  background: #0b0a09;
+}
+
+/* 共用浅色卡片 */
+.pill,
+.stats,
+.creative-card,
+.creative-metrics,
+.asset-item,
+.media-card,
+.koc-step,
+.koc-panels,
+.koc-gallery-item,
+.source,
+.koc-sample,
+.video-card,
+.fw-page,
+.kol-sample,
+.flow-stat,
+.koc-post,
+.project-card,
+.project-body,
+.skill,
+.filter-btn,
+.resume-aside,
+.demo-card,
+.prose blockquote,
+.detail-aside,
+.case-evidence__item,
+.case-feature__thumbs figure,
+.news-tab,
+.live-strategy article,
+.case-step__card,
+.games-note,
+.games-analysis article,
+.games-table-wrap {
+  background: rgba(255, 255, 255, 0.035);
+  border-color: var(--line-strong);
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+.project-card:hover,
+.demo-card:hover,
+.koc-post:hover,
+.kol-sample:hover,
+.case-step__card:hover {
+  border-color: rgba(217, 79, 43, 0.55);
+}
+
+.filter-btn {
+  color: var(--ink-soft);
+}
+
+.filter-btn:hover,
+.filter-btn.is-active {
+  color: #fff;
+  background: rgba(217, 79, 43, 0.78);
+  border-color: var(--accent);
+}
+
+.prose blockquote {
+  color: var(--ink-soft);
+  border-left-color: var(--accent);
+}
+
+.case-video figcaption,
+.press-read,
+.press-covers figure,
+.case-shot {
+  background: #15110f;
+  border-color: var(--line-strong);
+}
+
+.press-scroll,
+.news-screen,
+.news-screen__scroll {
+  background: #0e0b0a;
+  border-color: var(--line-strong);
+}
+
+.long-read,
+.fw-read,
+.framework-note,
+.news-screen__hint,
+.media-card {
+  background: rgba(255, 255, 255, 0.035);
+  border-color: var(--line-strong);
+  color: var(--ink);
+}
+
+.long-read__scroll,
+.fw-scroll {
+  background: #0e0b0a;
+}
+
+.framework-note p,
+.news-screen__hint,
+.media-card figcaption {
+  color: var(--ink-soft);
+}
+
+.news-screen__bar {
+  color: var(--ink);
+  background: #171310;
+  border-bottom-color: var(--line);
+}
+
+.news-tab {
+  color: var(--ink);
+}
+
+.news-tab:hover,
+.news-tab.is-active {
+  color: #fff;
+  background: rgba(217, 79, 43, 0.76);
+  border-color: rgba(255, 138, 107, 0.5);
+}
+
+.news-tab small {
+  color: var(--ink-soft);
+}
+
+.case-kpis {
+  color: var(--cream);
+  background: #171310;
+  border-color: rgba(243, 239, 229, 0.18);
+}
+
+.case-step__num {
+  color: var(--cream);
+  background: #1b1512;
+}
+
+.case-shot img,
+.case-evidence__item img,
+.case-feature__thumbs img {
+  background: #0e0b0a;
+}
+
+.case-feature__chart a,
+.case-feature__chart img {
+  background: #fff;
+}
+
+.case-feature__chart {
+  background: #15110f;
+  border-color: var(--line-strong);
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.24);
+}
+
+.other-project .media-card,
+.merch-hero {
+  background: #15110f;
+  border-color: var(--line-strong);
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.22);
+}
+
+.case-feature__chart figcaption,
+.case-feature__chart figcaption p {
+  color: var(--ink-soft);
+}
+
+/* 暖色大区块统一改成深色 */
+.special-case {
+  background:
+    radial-gradient(circle at 94% 0%, rgba(217, 79, 43, 0.14), transparent 22rem),
+    linear-gradient(145deg, #211512 0%, #120d0b 100%);
+  border-color: rgba(217, 79, 43, 0.34);
+}
+
+.detail-layout.case-actions {
+  background:
+    radial-gradient(circle at 96% 12%, rgba(217, 79, 43, 0.12), transparent 24rem),
+    #1a1110;
+  border-color: rgba(217, 79, 43, 0.28);
+  box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.24);
+}
+
+.campaign-block {
+  background:
+    radial-gradient(circle at 92% 0%, rgba(217, 79, 43, 0.12), transparent 24rem),
+    linear-gradient(180deg, #211512 0%, #120d0b 100%);
+  border-color: rgba(243, 239, 229, 0.18);
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.22);
+}
+
+.koc-actions {
+  background:
+    radial-gradient(circle at 94% 0%, rgba(217, 79, 43, 0.14), transparent 20rem),
+    linear-gradient(145deg, #2a1713 0%, #1a1110 100%);
+  border-color: rgba(217, 79, 43, 0.3);
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.22);
+}
+
+.koc-actions h2 {
+  color: var(--cream);
+}
+
+.koc-actions__label {
+  color: #ff8a6b;
+}
+
+.koc-actions .koc-step {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(243, 239, 229, 0.16);
+}
+
+.koc-actions .koc-step:hover,
+.koc-actions .koc-step.is-active {
+  color: #fff;
+  background: rgba(217, 79, 43, 0.78);
+  border-color: rgba(255, 138, 107, 0.56);
+}
+
+.koc-actions .koc-step:not(:hover):not(.is-active) .koc-step-num {
+  color: #ff8a6b;
+}
+
+.koc-actions .koc-panels {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--line);
+}
+
+.koc-brief {
+  background:
+    radial-gradient(circle at 94% 0%, rgba(217, 79, 43, 0.16), transparent 22rem),
+    #15110f;
+  border-color: rgba(217, 79, 43, 0.34);
+}
+
+/* 简历 */
+.resume-aside {
+  color: var(--ink);
+}
+
+.resume-facts div,
+.resume-item {
+  border-color: var(--line);
+}
+
+.resume-item h3,
+.resume-aside h2 {
+  color: var(--ink);
+}
+
+.button-primary {
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 5px 5px 0 rgba(255, 138, 107, 0.25);
+}
+
+.button-primary:hover {
+  background: #b93a1d;
+  border-color: #b93a1d;
+}
+
+.button-ghost {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--line-strong);
+  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.button-ghost:hover {
+  background: rgba(217, 79, 43, 0.2);
+  border-color: var(--accent);
+}
+
+/* 游戏经历 */
+.games-table th {
+  color: var(--cream);
+  background: #171310;
+}
+
+.games-table td {
+  color: var(--ink-soft);
+  border-color: var(--line);
+}
+
+.games-table td:nth-child(2) {
+  color: var(--ink);
+}
+
+.games-table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.games-table-wrap {
+  background: #100d0b;
+}
+
+.games-hero {
+  border-color: var(--line-strong);
+}
+
+.games-hero h1,
+.games-section__head h2 {
+  color: var(--ink);
+}
+
+.games-full summary {
+  color: #ff8a6b;
+}
+
+/* 项目索引 */
+.project-cover {
+  color: var(--cream);
+}
+
+.project-body {
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.tag {
+  color: var(--ink-soft);
+  border-color: var(--line);
+}
+
+@media (max-width: 760px) {
+  body {
+    background:
+      radial-gradient(circle at 12% 8%, rgba(217, 79, 43, 0.08), transparent 20rem),
+      linear-gradient(rgba(243, 239, 229, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(243, 239, 229, 0.035) 1px, transparent 1px),
+      #0b0a09;
+    background-size: auto, 38px 38px, 38px 38px, auto;
+  }
+}
