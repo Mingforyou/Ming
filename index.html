@@ -8,7 +8,24 @@
       name="description"
       content="王咏琪，2027 届 211，游戏营销全链路作品集：网易互娱、网易 LOFTER、苏州文旅、苏州电视台经历，覆盖广告素材、官号自产、KOC、KOL 与线下赛事。"
     />
-    <title>王咏琪｜游戏营销作战室</title>
+    <title>王咏琪 作品集</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="王咏琪 作品集" />
+    <meta
+      property="og:description"
+      content="2027 届 211，游戏营销全链路：内容、KOC/KOL、投放、官方社媒与线下赛事。"
+    />
+    <meta property="og:url" content="https://mingforyou.github.io/Ming/" />
+    <meta property="og:image" content="https://mingforyou.github.io/Ming/assets/img/og-home.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="王咏琪作品集" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="王咏琪 作品集" />
+    <meta name="twitter:description" content="2027 届 211，游戏营销全链路：内容、KOC/KOL、投放、官方社媒与线下赛事。" />
+    <meta name="twitter:image" content="https://mingforyou.github.io/Ming/assets/img/og-home.jpg" />
+    <link rel="canonical" href="https://mingforyou.github.io/Ming/" />
+    <link rel="preload" as="image" href="assets/img/hero-3d.webp" fetchpriority="high" />
     <style>
       :root {
         --black: #070707;
@@ -396,6 +413,33 @@
         gap: 16px;
         align-self: center;
         padding: 0;
+      }
+
+      #work {
+        scroll-margin-top: 84px;
+      }
+
+      .hero-all-cases {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding-bottom: 5px;
+        color: rgba(243, 239, 229, 0.64);
+        border-bottom: 1px solid rgba(243, 239, 229, 0.24);
+        font-family: var(--mono);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        transition: color 160ms ease, border-color 160ms ease;
+      }
+
+      .hero-all-cases b {
+        color: var(--red);
+      }
+
+      .hero-all-cases:hover {
+        color: var(--white);
+        border-color: var(--red);
       }
 
       .hero-tiles {
@@ -1270,8 +1314,21 @@
       }
 
       @media (max-width: 700px) {
-        .topbar-inner { padding: 14px 18px; }
-        .nav { display: none; }
+        .topbar-inner {
+          flex-wrap: wrap;
+          row-gap: 8px;
+          padding: 12px 18px 10px;
+        }
+        .nav {
+          display: flex;
+          order: 3;
+          width: 100%;
+          justify-content: space-between;
+          gap: 0;
+          padding-top: 8px;
+          border-top: 1px solid var(--line);
+          font-size: 11px;
+        }
         .hero-inner, .hero-bottom, .section, .contact, .footer {
           width: calc(100% - 36px);
         }
@@ -1326,10 +1383,11 @@
       <div class="topbar-inner">
         <a class="brand" href="index.html" title="首页" aria-label="首页">
           <span class="brand-mark">首页</span>
-          <span>王咏琪 / 游戏营销</span>
+          <span>王咏琪 / 作品集</span>
         </a>
         <nav class="nav" aria-label="主导航">
           <a href="index.html" aria-current="page">首页</a>
+          <a href="portfolio/">案例库</a>
           <a href="experience/">经历</a>
           <a href="resume/">简历</a>
         </nav>
@@ -1358,7 +1416,8 @@
 
           </div>
 
-          <aside class="hero-side" aria-label="能力入口">
+          <aside class="hero-side" id="work" aria-label="能力入口">
+            <a class="hero-all-cases" href="portfolio/">全部案例 <b>08</b> →</a>
             <nav class="hero-tiles" aria-label="能力入口">
               <a class="tile" href="portfolio/creative.html" data-transition>
                 <span class="num">01</span>
@@ -1410,7 +1469,7 @@
     </main>
 
     <footer class="footer">
-      <span>© <span id="year"></span> 王咏琪 / 游戏营销作品集</span>
+      <span>© <span id="year"></span> 王咏琪 / 作品集</span>
       <span>GAME MARKETING / CONTENT / GROWTH</span>
     </footer>
 
@@ -1443,13 +1502,26 @@
         reveals.forEach((item) => item.classList.add("is-visible"));
       }
 
+      let leaveTimer = 0;
+      const clearPageTransition = () => {
+        window.clearTimeout(leaveTimer);
+        leaveTimer = 0;
+        document.body.classList.remove("is-leaving");
+      };
+
+      window.addEventListener("pageshow", clearPageTransition);
+      window.addEventListener("pagehide", clearPageTransition);
+      window.addEventListener("popstate", clearPageTransition);
+
       document.querySelectorAll("[data-transition]").forEach((link) => {
         link.addEventListener("click", (event) => {
           const href = link.getAttribute("href");
           if (!href || href.startsWith("#")) return;
+          if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
           event.preventDefault();
+          window.clearTimeout(leaveTimer);
           document.body.classList.add("is-leaving");
-          setTimeout(() => {
+          leaveTimer = window.setTimeout(() => {
             window.location.href = href;
           }, 220);
         });

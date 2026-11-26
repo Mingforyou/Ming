@@ -405,7 +405,7 @@
     if (!lightbox || lightbox.hidden) return;
     lightbox.hidden = true;
     if (lightboxImage) {
-      lightboxImage.removeAttribute("src");
+      lightboxImage.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
       lightboxImage.alt = "";
     }
   };

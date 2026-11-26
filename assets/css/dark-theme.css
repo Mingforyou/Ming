@@ -61,6 +61,24 @@ body {
   box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.28);
 }
 
+@media (max-width: 720px) {
+  .nav {
+    background: #f3efe5;
+    border-color: rgba(20, 20, 20, 0.28);
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.35);
+  }
+
+  .nav a {
+    color: #141414;
+    border-bottom-color: rgba(20, 20, 20, 0.14);
+  }
+
+  .nav a:hover,
+  .nav a[aria-current="page"] {
+    color: #a91f16;
+  }
+}
+
 .page-main,
 .page-header,
 .section,

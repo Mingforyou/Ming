@@ -1,4 +1,12 @@
 (() => {
+  const clearPageTransition = () => {
+    document.body.classList.remove("is-leaving");
+    document.documentElement.classList.remove("is-leaving");
+  };
+
+  window.addEventListener("pageshow", clearPageTransition);
+  window.addEventListener("popstate", clearPageTransition);
+
   const navToggle = document.querySelector("[data-nav-toggle]");
   const nav = document.querySelector("[data-nav]");
 
@@ -56,6 +64,17 @@
     const external = reader.querySelector("[data-news-external]");
 
     tabs.forEach((tab) => {
+      const preloadNewsImage = () => {
+        const src = tab.dataset.newsImage;
+        if (!src || tab.dataset.newsPreloaded === "1") return;
+        tab.dataset.newsPreloaded = "1";
+        const preload = new Image();
+        preload.src = src;
+      };
+
+      tab.addEventListener("pointerenter", preloadNewsImage);
+      tab.addEventListener("focus", preloadNewsImage);
+
       tab.addEventListener("click", () => {
         tabs.forEach((item) => {
           const active = item === tab;
@@ -66,10 +85,27 @@
         const url = tab.dataset.newsUrl;
         if (frame && url) frame.src = url;
         if (image && tab.dataset.newsImage) image.src = tab.dataset.newsImage;
+        if (image) image.alt = `万国霸业新闻：${tab.querySelector("strong")?.textContent || "原文"}长图`;
         if (screenTitle) screenTitle.textContent = tab.dataset.newsTitle || tab.textContent.trim();
         if (external && url) external.href = url;
       });
     });
+
+    const preloadAllNewsImages = () => {
+      tabs.forEach((tab) => {
+        const src = tab.dataset.newsImage;
+        if (!src || tab.dataset.newsPreloaded === "1") return;
+        tab.dataset.newsPreloaded = "1";
+        const preload = new Image();
+        preload.src = src;
+      });
+    };
+
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(preloadAllNewsImages, { timeout: 2600 });
+    } else {
+      window.setTimeout(preloadAllNewsImages, 1400);
+    }
   });
 
   document.querySelectorAll("[data-print]").forEach((button) => {
@@ -79,6 +115,17 @@
   document.querySelectorAll("[data-year]").forEach((node) => {
     node.textContent = String(new Date().getFullYear());
   });
+
+  const backFloat = document.querySelector(".back-float");
+  if (backFloat) {
+    const syncBackFloat = () => {
+      backFloat.classList.toggle("is-visible", window.scrollY > 420);
+    };
+    backFloat.classList.add("is-scroll-aware");
+    syncBackFloat();
+    window.addEventListener("scroll", syncBackFloat, { passive: true });
+    window.addEventListener("pageshow", syncBackFloat);
+  }
 
   const lightboxLinks = document.querySelectorAll("[data-lightbox]");
   if (lightboxLinks.length) {
