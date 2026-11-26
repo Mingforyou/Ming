@@ -407,9 +407,7 @@
 
       .hero-proof {
         max-width: 760px;
-        margin-top: 22px;
-        padding-top: 14px;
-        border-top: 1px solid rgba(243, 239, 229, 0.16);
+        margin-top: 20px;
       }
 
       .hero-proof__label {
@@ -424,33 +422,25 @@
       .hero-proof__grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1px;
+        gap: 0;
         margin-top: 9px;
-        background: rgba(243, 239, 229, 0.16);
-        border: 1px solid rgba(243, 239, 229, 0.16);
       }
 
       .hero-proof__grid > div {
         position: relative;
-        padding: 12px 14px 13px;
-        background: linear-gradient(180deg, rgba(228, 59, 46, 0.08), rgba(7, 7, 7, 0.68) 46%);
+        padding: 0 20px 0 0;
       }
 
-      .hero-proof__grid > div::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 14px;
-        width: 18px;
-        height: 2px;
-        background: var(--red);
+      .hero-proof__grid > div + div {
+        padding-left: 20px;
+        border-left: 1px solid rgba(243, 239, 229, 0.14);
       }
 
       .hero-proof__grid b {
         display: block;
         color: var(--white);
         font-family: var(--mono);
-        font-size: clamp(21px, 2.2vw, 29px);
+        font-size: clamp(24px, 2.4vw, 32px);
         line-height: 1;
       }
 
@@ -460,7 +450,7 @@
 
       .hero-proof__grid span {
         display: block;
-        margin-top: 6px;
+        margin-top: 5px;
         color: rgba(243, 239, 229, 0.46);
         font-size: 9.5px;
         letter-spacing: 0.06em;
@@ -681,6 +671,42 @@
       .hero-tiles--compact .tile .go {
         right: 12px;
         bottom: 11px;
+      }
+
+      .hero-tiles--compact .tile--red {
+        background:
+          radial-gradient(circle at 100% 0%, rgba(228, 59, 46, 0.3), transparent 44%),
+          linear-gradient(135deg, rgba(92, 16, 12, 0.9), rgba(12, 12, 12, 0.96));
+        border-color: rgba(228, 59, 46, 0.58);
+        box-shadow: 8px 8px 0 rgba(228, 59, 46, 0.14);
+      }
+
+      .hero-tiles--compact .tile--red:hover {
+        background:
+          radial-gradient(circle at 100% 0%, rgba(255, 107, 90, 0.38), transparent 48%),
+          linear-gradient(135deg, rgba(122, 24, 17, 0.96), rgba(22, 8, 7, 0.98));
+        border-color: rgba(255, 107, 90, 0.9);
+        box-shadow: 10px 10px 0 rgba(228, 59, 46, 0.2);
+      }
+
+      .hero-tiles--compact .tile--red .num {
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .hero-tiles--compact .tile--red .ico {
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .hero-tiles--compact .tile--red .go {
+        color: #ffd7cf;
+      }
+
+      .hero-tiles--compact .tile--red .tile-sub {
+        color: rgba(255, 255, 255, 0.54);
+      }
+
+      .hero-tiles--compact .tile--red b {
+        color: #fff;
       }
 
       .tile-sub {
@@ -1622,8 +1648,10 @@
         h1 { font-size: clamp(30px, 9.2vw, 44px); }
         h1 .h1-nowrap { white-space: normal; }
         .hero-proof__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-        .hero-proof__grid > div { padding: 10px 10px 11px; }
-        .hero-proof__grid > div::before { left: 10px; }
+        .hero-proof__grid > div { padding-right: 10px; }
+        .hero-proof__grid > div + div { padding-left: 10px; }
+        .hero-proof__grid b { font-size: 20px; }
+        .hero-proof__grid span { font-size: 8.5px; }
         .hero-exp-link__go { margin-left: 0; }
         .feature-case b { font-size: 23px; }
         .hero-tiles--compact .tile { aspect-ratio: 1.5 / 1; }
@@ -1723,14 +1751,14 @@
             </a>
 
             <nav class="hero-tiles hero-tiles--compact" aria-label="增长引擎与支撑能力">
-              <a class="tile tile--compact" href="portfolio/koc.html" data-transition>
+              <a class="tile tile--compact tile--red" href="portfolio/koc.html" data-transition>
                 <span class="num">02 / KOC</span>
                 <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="12" cy="12" r="2.5" /><circle cx="5" cy="6" r="1.6" /><circle cx="19" cy="7" r="1.6" /><circle cx="18" cy="18" r="1.6" /><circle cx="6" cy="18" r="1.6" /><path d="M9.8 10.3 6.2 7M14.2 10.4l3.6-2.2M14 13.6l3 3M10 13.6l-3 3" /></svg>
                 <b>400+ 校园<br />KOC 网络</b>
                 <span class="tile-sub">2.5w+ 内容 · 9w+ 拉新</span>
                 <span class="go">→</span>
               </a>
-              <a class="tile tile--compact" href="portfolio/kol.html" data-transition>
+              <a class="tile tile--compact tile--red" href="portfolio/kol.html" data-transition>
                 <span class="num">03 / KOL</span>
                 <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="5.5" /><path d="M12 3v18M3 12h18" /></svg>
                 <b>内容打爆<br />达人营销</b>
