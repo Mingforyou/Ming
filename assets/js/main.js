@@ -220,6 +220,7 @@
     {
       const path = location.pathname.replace(/\/+$/, "").split("/").filter(Boolean).pop() || "home";
       const page = path.replace(/\.html$/, "");
+      const isHome = page === "home" || page === "index";
       const messages = {
         home: [
           "先看网易游戏社媒，还是 KOC/KOL？",
@@ -261,8 +262,13 @@
           "这里是我自己做的东西。",
           "同人游戏、AI 配音、3D、自媒体。",
         ],
+        ai: [
+          "AI 已经接入工作流。",
+          "KOC 平台提效 30%。",
+          "KOL 数据统一回传。",
+        ],
       };
-      const lines = messages[page] || messages.home;
+      const lines = isHome ? ["点击我可以看AI使用心得啦~"] : (messages[page] || messages.home);
 
       const pet = document.createElement("div");
       pet.className = "wq-pet";
@@ -311,16 +317,33 @@
           textNode.textContent = text.slice(0, charIndex);
           if (charIndex >= text.length) {
             clearInterval(typeTimer);
-            nextTimer = window.setTimeout(typeMessage, 6200);
+            if (lines.length > 1) {
+              nextTimer = window.setTimeout(typeMessage, 6200);
+            }
           }
         }, 34);
       };
 
-      character.addEventListener("click", typeMessage);
+      if (isHome) {
+        character.setAttribute("aria-label", "点击查看 AI 使用心得");
+        const goAi = () => {
+          window.location.href = "demo/ai.html";
+        };
+        character.addEventListener("click", goAi);
+        const bubble = pet.querySelector(".wq-pet__bubble");
+        if (bubble) {
+          bubble.style.cursor = "pointer";
+          bubble.addEventListener("click", goAi);
+        }
+      } else {
+        character.addEventListener("click", typeMessage);
+      }
       pet.addEventListener("mouseenter", () => clearTimeout(nextTimer));
       pet.addEventListener("mouseleave", () => {
         clearTimeout(nextTimer);
-        nextTimer = window.setTimeout(typeMessage, 2200);
+        if (lines.length > 1) {
+          nextTimer = window.setTimeout(typeMessage, 2200);
+        }
       });
 
       typeMessage();
