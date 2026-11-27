@@ -5,6 +5,7 @@
   const modalCard = modal?.querySelector(".oc-modal__card");
   const modalEyebrow = document.querySelector("[data-oc-eyebrow]");
   const modalTitle = document.querySelector("[data-oc-title]");
+  const modalQuote = document.querySelector("[data-oc-quote]");
   const modalBody = document.querySelector("[data-oc-body]");
   const modalTags = document.querySelector("[data-oc-tags]");
   const modalMedia = document.querySelector("[data-oc-media]");
@@ -370,6 +371,10 @@
     lastTrigger = trigger;
     modalEyebrow.textContent = `MEMORY / ${topic.index}`;
     modalTitle.textContent = topic.label;
+    if (modalQuote) {
+      modalQuote.textContent = topic.line || "";
+      modalQuote.hidden = !topic.line;
+    }
     modalBody.textContent = topic.body;
     modalTags.innerHTML = topic.tags.map((tag) => `<span>${tag}</span>`).join("");
     if (process) process.hidden = !topic.steps;
