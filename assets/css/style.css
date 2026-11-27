@@ -1683,6 +1683,130 @@ textarea {
   line-height: 1.5;
 }
 
+.kol-sample figcaption b {
+  color: var(--ink);
+}
+
+.kol-samples__hint {
+  margin: 8px 0 0;
+  color: var(--ink-soft);
+  font-size: 11px;
+}
+
+.kol-sample__link {
+  position: relative;
+  display: block;
+  color: inherit;
+}
+
+.kol-sample__link::after {
+  content: "点击看原帖 ↗";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 8px;
+  color: #fff;
+  background: rgba(7, 7, 7, 0.82);
+  border: 1px solid rgba(243, 239, 229, 0.4);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  transition: background 160ms ease, border-color 160ms ease;
+}
+
+.kol-sample__link:hover::after {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.kol-sample__link img {
+  transition: transform 240ms ease, opacity 240ms ease;
+}
+
+.kol-sample__link:hover img {
+  opacity: 0.94;
+  transform: scale(1.015);
+}
+
+.kol-more {
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line-strong);
+}
+
+.kol-more__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.kol-more__head h3 {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 22px;
+}
+
+.kol-more__head span {
+  color: var(--accent-2);
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.kol-more__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.kol-more__item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  padding: 11px 13px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid var(--line-strong);
+  transition: background 160ms ease, border-color 160ms ease;
+}
+
+.kol-more__item:hover {
+  background: rgba(217, 79, 43, 0.08);
+  border-color: var(--accent);
+}
+
+.kol-more__tag {
+  padding: 3px 6px;
+  color: var(--accent-2);
+  border: 1px solid var(--line-strong);
+  font-size: 9px;
+  white-space: nowrap;
+}
+
+.kol-more__body b {
+  display: block;
+  color: var(--ink);
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+.kol-more__body small {
+  display: block;
+  margin-top: 3px;
+  color: var(--ink-soft);
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.kol-more__go {
+  color: var(--accent-2);
+  font-size: 14px;
+}
+
 .kol-samples--full .kol-sample img {
   height: 560px;
   object-fit: contain;
@@ -3091,6 +3215,10 @@ textarea {
   }
 
   .kol-samples {
+    grid-template-columns: 1fr;
+  }
+
+  .kol-more__grid {
     grid-template-columns: 1fr;
   }
 
