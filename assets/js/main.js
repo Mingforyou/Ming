@@ -220,7 +220,7 @@
     {
       const path = location.pathname.replace(/\/+$/, "").split("/").filter(Boolean).pop() || "home";
       const page = path.replace(/\.html$/, "");
-      const isHome = page === "home" || page === "index";
+      const isHome = !!document.querySelector(".hero-tiles") || page === "home" || page === "index";
       const messages = {
         home: [
           "先看网易游戏社媒，还是 KOC/KOL？",
