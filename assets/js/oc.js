@@ -123,7 +123,7 @@
     fan: {
       index: "03",
       label: "同人账号",
-      line: "在 LOFTER 写同人，也在评论区学会判断什么会被记住。",
+      line: "有时候文学使人面目全非。",
       body: "LOFTER 二次元文学垂类账号，UGC 150w+、互动 3w+。从选题、连载到评论区共创，持续验证什么内容会被记住。",
       tags: ["LOFTER", "同人写作", "UGC 150w+", "互动 3w+"],
       mediaTwo: true,
